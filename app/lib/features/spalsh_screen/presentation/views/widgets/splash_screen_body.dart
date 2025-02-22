@@ -1,3 +1,5 @@
+import 'package:app/core/utlis/app_images.dart';
+import 'package:app/features/spalsh_screen/presentation/views/widgets/row_logo_photos.dart';
 import 'package:flutter/material.dart';
 
 class SpalshScreenBody extends StatelessWidget {
@@ -5,6 +7,15 @@ class SpalshScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const  Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RowLogoPhotos(relativePath1: AppImages.photoLogo1 , relativePath2: AppImages.photoLogo2,)
+        ],
+      ),
+    );
   }
 }
+
+
