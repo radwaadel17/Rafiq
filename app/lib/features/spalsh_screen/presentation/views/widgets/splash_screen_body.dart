@@ -1,8 +1,10 @@
 import 'package:app/core/utlis/app_images.dart';
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/spalsh_screen/presentation/views/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SpalshScreenBody extends StatefulWidget {
   const SpalshScreenBody({super.key});
@@ -33,6 +35,7 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
     super.initState();
     initSlidinganimation();
     startAnimations();
+    navigateTohomeview();
   }
 
   @override
@@ -43,7 +46,12 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
     animationController3.dispose();
     animationController3.dispose();
   }
-
+ void navigateTohomeview() {
+    Future.delayed(const Duration(seconds: 6), () {
+      // Get.to(const HomeView(), transition: Transition.fade);
+      GoRouter.of(context).push(Approuter.onBoardingKey);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
