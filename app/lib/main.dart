@@ -1,3 +1,4 @@
+import 'package:app/core/utlis/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +10,9 @@ class RafeekApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp.router(
+    routerConfig: Approuter.router,
+    debugShowCheckedModeBanner: false,
+    );
   }
 }
