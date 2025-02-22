@@ -11,7 +11,9 @@ class SpalshScreenBody extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          RowLogoPhotos(relativePath1: AppImages.photoLogo1 , relativePath2: AppImages.photoLogo2,)
+          RowLogoPhotos(relativePath1: AppImages.photoLogo1 , relativePath2: AppImages.photoLogo2,),
+          SizedBox(height: 10,),
+          RowLogoPhotos(relativePath1: AppImages.photoLogo3 , relativePath2: AppImages.photoLogo4,)
         ],
       ),
     );
