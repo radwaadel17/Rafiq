@@ -40,6 +40,8 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
     super.dispose();
     animationController1.dispose();
     animationController2.dispose();
+    animationController3.dispose();
+    animationController3.dispose();
   }
 
   @override
