@@ -126,39 +126,30 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
             animation: slidingAnimationFour,
             builder: (context, _) {
               return FadeTransition(
-                opacity: fadeAnimationFour,
-                child: SlideTransition(
-                  position: slidingAnimationFour,
-                  child: TextArabicWithStyle(
-                    text: 'أهلاً، أنا رَفيق',
-                    textsyle: Styles.textstyle24
-                        .copyWith(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          AnimatedBuilder(
-            animation: slidingAnimationFour,
-            builder: (context, _) {
-              return FadeTransition(
-                opacity: fadeAnimationFour,
-                child: SlideTransition(
-                  position: slidingAnimationFour,
-                  child: SizedBox(
-                    width: context.screenWidth * 0.9,
-                    child: const TextArabicWithStyle(
-                      text:
-                          'مساعدك الأمثل لدعم الأطفال ذوي التوحد، يقربك من الأطباء، يوفر لك مجتمعًا للآباء، ويقدم حلولًا مبتكرة لتعليم طفلك',
-                      textsyle: Styles.textstyle24,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              );
+                  opacity: fadeAnimationFour,
+                  child: SlideTransition(
+                      position: slidingAnimationFour,
+                      child: SizedBox(
+                        width: context.screenWidth * 0.9,
+                        child: Column(
+                          children: [
+                            TextArabicWithStyle(
+                              text: 'أهلاً، أنا رَفيق',
+                              textsyle: Styles.textstyle24
+                                  .copyWith(fontWeight: FontWeight.w600),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                           const TextArabicWithStyle(
+                              text:
+                                  'مساعدك الأمثل لدعم الأطفال ذوي التوحد، يقربك من الأطباء، يوفر لك مجتمعًا للآباء، ويقدم حلولًا مبتكرة لتعليم طفلك',
+                              textsyle: Styles.textstyle24,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      )));
             },
           ),
         ],
@@ -174,7 +165,7 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
     animationController3 = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
     animationController4 = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 600));
+        vsync: this, duration: const Duration(milliseconds: 800));
     slidingAnimationOne =
         Tween<Offset>(begin: const Offset(0, 5), end: Offset.zero)
             .animate(animationController1);
@@ -185,7 +176,7 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
         Tween<Offset>(begin: const Offset(0, -5), end: Offset.zero)
             .animate(animationController3);
     slidingAnimationFour =
-        Tween<Offset>(begin: const Offset(0, 5), end: Offset.zero)
+        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
             .animate(animationController4);
 
     fadeAnimationOne = Tween<double>(begin: 0.0, end: 1.0).animate(
