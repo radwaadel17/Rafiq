@@ -11,17 +11,19 @@ class RowLogoPhotos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SizedBox(
-          height: 48,
-          child: Image(image: AssetImage(relativePath1))),
-          const SizedBox(width: 10,),
+    return SizedBox(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
           SizedBox(
-          height: 48,
-          child: Image(image: AssetImage(relativePath2))),
-      ],
+            height: 48,
+            child: Image(image: AssetImage(relativePath1))),
+            const SizedBox(width: 10,),
+            SizedBox(
+            height: 48,
+            child: Image(image: AssetImage(relativePath2))),
+        ],
+      ),
     );
   }
 }

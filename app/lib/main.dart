@@ -12,6 +12,9 @@ class RafeekApp extends StatelessWidget {
     return MaterialApp.router(
     routerConfig: Approuter.router,
     debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      fontFamily: 'Alexandria',
+     ),
     );
   }
 }

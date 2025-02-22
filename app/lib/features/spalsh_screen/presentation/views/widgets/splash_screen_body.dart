@@ -1,5 +1,8 @@
 import 'package:app/core/utlis/app_images.dart';
+import 'package:app/core/utlis/device_size.dart';
+import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/spalsh_screen/presentation/views/widgets/row_logo_photos.dart';
+import 'package:app/features/spalsh_screen/presentation/views/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 
 class SpalshScreenBody extends StatelessWidget {
@@ -7,17 +10,27 @@ class SpalshScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          RowLogoPhotos(relativePath1: AppImages.photoLogo1 , relativePath2: AppImages.photoLogo2,),
-          SizedBox(height: 10,),
-          RowLogoPhotos(relativePath1: AppImages.photoLogo3 , relativePath2: AppImages.photoLogo4,)
+          const RowLogoPhotos(relativePath1: AppImages.photoLogo1 , relativePath2: AppImages.photoLogo2,),
+          const SizedBox(height: 10,),
+          const RowLogoPhotos(relativePath1: AppImages.photoLogo3 , relativePath2: AppImages.photoLogo4,),
+          const SizedBox(height: 15,),
+          TextArabicWithStyle(text: 'أهلاً، أنا رَفيق', textsyle: Styles.textstyle24.copyWith(fontWeight: FontWeight.w600),),
+          const  SizedBox(height: 10,),
+          SizedBox(
+            width: context.screenWidth * 0.9,
+            child: const TextArabicWithStyle(text: 'مساعدك الأمثل لدعم الأطفال ذوي التوحد، يقربك من الأطباء، يوفر لك مجتمعًا للآباء، ويقدم حلولًا مبتكرة لتعليم طفلك', textsyle: Styles.textstyle24,
+            textAlign: TextAlign.center,
+            ),
+          ),
         ],
       ),
     );
   }
 }
+
 
 
