@@ -1,8 +1,15 @@
 import 'package:app/core/utlis/app_router.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const RafeekApp());
+  runApp(
+  DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => const RafeekApp(), // Wrap your app
+  ),
+);
 }
 class RafeekApp extends StatelessWidget {
   const RafeekApp({super.key});
@@ -10,6 +17,10 @@ class RafeekApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+    // ignore: deprecated_member_use
+    useInheritedMediaQuery: true,
+    locale: DevicePreview.locale(context),
+    builder: DevicePreview.appBuilder,
     routerConfig: Approuter.router,
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
