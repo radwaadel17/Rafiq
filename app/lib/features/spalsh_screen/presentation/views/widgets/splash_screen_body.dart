@@ -47,7 +47,7 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
     animationController3.dispose();
   }
  void navigateTohomeview() {
-    Future.delayed(const Duration(seconds: 6), () {
+    Future.delayed(const Duration(seconds: 9), () {
       // Get.to(const HomeView(), transition: Transition.fade);
       GoRouter.of(context).push(Approuter.onBoardingKey);
     });
