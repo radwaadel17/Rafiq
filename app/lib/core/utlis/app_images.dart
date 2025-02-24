@@ -9,4 +9,6 @@ class AppImages {
   static const blueArrowBack = 'assets/images/arrow_back_blue.png';
   static const youAreDoctor = 'assets/images/you are doctor.png';
   static const youAreFamily = 'assets/images/you are (family).png';
+  static const googleLogo = 'assets/images/google_logo.png';
+  static const facebookLogo = 'assets/images/facebook_logo.png';
 }
