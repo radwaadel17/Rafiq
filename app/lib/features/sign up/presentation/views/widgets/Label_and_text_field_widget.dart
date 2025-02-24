@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LabelAndTextField extends StatelessWidget {
-  const LabelAndTextField({super.key});
-
+  const LabelAndTextField({super.key, required this.text, required this.hintText});
+   final String text ;
+   final String hintText ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,14 +15,14 @@ class LabelAndTextField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextArabicWithStyle(
-              text: 'الأسم بالكامل',
+              text: text,
               textsyle:
                   Styles.textstyle18.copyWith(fontWeight: FontWeight.normal)),
           TextFormField(
             textAlign: TextAlign.right, 
             textDirection: TextDirection.rtl, 
             decoration: InputDecoration(
-              hintText: "ادخل اسمك بالكامل", 
+              hintText: hintText, 
               hintStyle: TextStyle(
                   color: Colors.grey, fontSize: 16.sp), 
               filled: true, 
@@ -31,7 +32,7 @@ class LabelAndTextField extends StatelessWidget {
                 borderSide: BorderSide.none, 
               ),
               contentPadding: EdgeInsets.symmetric(
-                  horizontal: 12.w, vertical: 10.h), 
+                  horizontal: 12.w, vertical: 16.h), 
             ),
           )
         ],
