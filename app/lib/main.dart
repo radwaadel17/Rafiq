@@ -31,6 +31,7 @@ class RafeekApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: 'Alexandria',
+          scaffoldBackgroundColor: Colors.white
         ),
       ),
     );

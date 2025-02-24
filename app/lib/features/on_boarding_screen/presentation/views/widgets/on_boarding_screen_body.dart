@@ -1,8 +1,11 @@
 import 'package:app/core/utlis/app_images.dart';
+import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -15,36 +18,46 @@ class YouAreBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Column(
         children: [
-          CustomAppBar(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 8.h),
+            child: const CustomAppBar(),
+          ),
+          const Spacer(flex: 1,),
+          PhotoAndText(text: 'طبيب', textStyle:  Styles.textstyle24.copyWith(fontWeight: FontWeight.w300), image: AppImages.youAreDoctor,),
+          const Spacer(flex: 2,),
+          PhotoAndText(text: 'الأب أو الأم' , textStyle:  Styles.textstyle24.copyWith(fontWeight: FontWeight.w300), image: AppImages.youAreFamily,),
+          const Spacer(flex: 3,),
         ],
       ),
     );
   }
 }
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
-
+class PhotoAndText extends StatelessWidget {
+  const PhotoAndText({super.key, required this.text, required this.textStyle, required this.image});
+  final String text;
+  final TextStyle textStyle;
+  final String image;
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 24.h),
-        child: Row(
-          children: [
-            const Spacer(flex: 3,),
-            TextArabicWithStyle(text: 'أنتَ تكون', textsyle: Styles.textstyle22.copyWith(fontWeight: FontWeight.normal)),
-            const Spacer(flex: 2,),
-             SizedBox(
-              height: 12.h,
-              child: Image.asset(AppImages.blueArrowBack)),
-             const  Spacer(flex: 1,),
-          ],
-        ),
-      )
-      );
+    return GestureDetector(
+      onTap: (){
+
+      },
+      child: Column(
+        children: [
+          SizedBox(height: context.screenHeight * 0.02,),
+          SizedBox(
+            height: context.screenHeight  * 0.2,
+            child: Image.asset(image)),
+           SizedBox(height: context.screenHeight * 0.02,),
+           TextArabicWithStyle(text: text, textsyle:textStyle),
+         ],
+      ),
+    );
   }
 }
+
+
