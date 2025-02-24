@@ -1,5 +1,7 @@
 import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/device_size.dart';
+import 'package:app/core/utlis/text_style.dart';
+import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/Label_and_text_field_widget.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/custom_button.dart';
@@ -84,6 +86,28 @@ class SignUpDoctorBody extends StatelessWidget {
               child: const CustomButton(),
             ),
           ),
+           SliverToBoxAdapter(
+              child: SizedBox(
+            height: context.screenHeight * 0.010,
+          )),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child:  Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: (){},
+                    child: TextArabicWithStyle(text: ' تسجيل الدخول', textsyle:Styles.textstyle18.copyWith(fontSize: 14.sp))),
+                  TextArabicWithStyle(text: 'لديك حساب بالفعل ؟', textsyle: Styles.textstyle18.copyWith(fontSize: 14.sp , color:const  Color(0xff575757))),
+                ],
+              )
+            ),
+          ),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: context.screenHeight * 0.020,
+          )),
         ],
       ),
     );

@@ -13,7 +13,7 @@ class SignUpCustomAppBar extends StatelessWidget {
     return SizedBox(
       width: context.screenWidth * 0.9,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 16.h),
+        padding: EdgeInsets.symmetric(vertical: 8.h),
         child: SafeArea(
             child: Row(
           children: [
