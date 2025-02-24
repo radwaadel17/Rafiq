@@ -149,7 +149,7 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
                             const SizedBox(
                               height: 10,
                             ),
-                           const TextArabicWithStyle(
+                          TextArabicWithStyle(
                               text:
                                   'مساعدك الأمثل لدعم الأطفال ذوي التوحد، يقربك من الأطباء، يوفر لك مجتمعًا للآباء، ويقدم حلولًا مبتكرة لتعليم طفلك',
                               textsyle: Styles.textstyle24,

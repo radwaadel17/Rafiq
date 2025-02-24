@@ -6,6 +6,6 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const YouAre();
+    return const YouAreBody();
   }
 }
