@@ -2,7 +2,7 @@ import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
-import 'package:app/features/spalsh_screen/presentation/views/widgets/text_arabic_with_style.dart';
+import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

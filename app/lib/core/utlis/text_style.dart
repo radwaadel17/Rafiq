@@ -7,5 +7,15 @@ class Styles {
     fontWeight: FontWeight.normal,
     color: colorApp,
   );
+  static const textstyle28 = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.normal,
+    color: colorApp,
+  );
+  static const textstyle22 = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+    color: colorApp,
+  );
  
 }
