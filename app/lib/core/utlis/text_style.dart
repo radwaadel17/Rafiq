@@ -18,5 +18,15 @@ class Styles {
     fontWeight: FontWeight.bold,
     color: colorApp,
   );
+  static final textstyle18 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w300,
+    color: colorApp,
+  );
+  static final textstyle12 = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.normal,
+    color: Colors.black,
+  );
  
 }
