@@ -58,7 +58,7 @@ class SignUpParentsBody extends StatelessWidget {
               SizedBox(
                 height: context.screenHeight * 0.010,
               ),
-              const LabelAndTextField(text: 'التخصص', hintText: 'ادخل تخصصك'),
+              const LabelAndTextField(text: 'سن طفلك', hintText: 'ادخل سن طفلك من 0-15'),
               SizedBox(
                 height: context.screenHeight * 0.010,
               ),
