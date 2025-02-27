@@ -27,7 +27,7 @@ class SignInScreenBody extends StatelessWidget {
                     height: context.screenHeight * 0.035,
                   ),
                   SizedBox(
-                      height: context.screenHeight * 0.25,
+                      height: context.screenHeight * 0.21,
                       child: const Image(
                           image: AssetImage(AppImages.signInPhoto))),
                   SizedBox(
@@ -58,7 +58,7 @@ class SignInScreenBody extends StatelessWidget {
                     child: Row(
                       children: [
                         GestureDetector(
-                          onTap: (){},
+                          onTap: () {},
                           child: TextArabicWithStyle(
                               text: 'هل نسيت كلمة السر؟ ',
                               textsyle: Styles.textstyle12.copyWith(
