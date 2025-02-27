@@ -1,4 +1,5 @@
 import 'package:app/core/utlis/app_images.dart';
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
@@ -9,6 +10,7 @@ import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_contai
 import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpDoctorBody extends StatelessWidget {
   const SignUpDoctorBody({super.key});
@@ -101,7 +103,9 @@ class SignUpDoctorBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          GoRouter.of(context).push(Approuter.signIn);
+                        },
                         child: TextArabicWithStyle(
                             text: ' تسجيل الدخول',
                             textsyle:
