@@ -44,7 +44,9 @@ class YouAreBody extends StatelessWidget {
             text: 'الأب أو الأم',
             textStyle: Styles.textstyle24.copyWith(fontWeight: FontWeight.w300),
             image: AppImages.youAreFamily,
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(Approuter.signUpParentsScreenKey);
+            },
           ),
           const Spacer(
             flex: 3,

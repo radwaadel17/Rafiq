@@ -10,15 +10,15 @@ import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignUpDoctorBody extends StatelessWidget {
-  const SignUpDoctorBody({super.key});
+class SignUpParentsBody extends StatelessWidget {
+  const SignUpParentsBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-           SliverToBoxAdapter(
+          SliverToBoxAdapter(
               child: SizedBox(
             height: context.screenHeight * 0.010,
           )),
