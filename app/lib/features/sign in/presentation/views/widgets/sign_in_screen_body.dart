@@ -30,6 +30,9 @@ class SignInScreenBody extends StatelessWidget {
                       height: context.screenHeight * 0.25,
                       child: const Image(
                           image: AssetImage(AppImages.signInPhoto))),
+                  SizedBox(
+                    height: context.screenHeight * 0.015,
+                  ),
                   TextArabicWithStyle(
                       text: 'لديك حساب بالفعل', textsyle: Styles.textstyle18),
                   TextArabicWithStyle(
