@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key,
+    super.key, required this.text,
   });
-
+  final String text;
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12),
         ),
         child: TextArabicWithStyle(
-            text: 'إنشاء حساب ',
+            text: text,
             textsyle:
                 Styles.textstyle18.copyWith(color: Colors.white)));
   }

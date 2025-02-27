@@ -3,10 +3,10 @@ import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
-import 'package:app/features/sign%20up/presentation/views/widgets/Label_and_text_field_widget.dart';
+import 'package:app/core/widgets/Label_and_text_field_widget.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
-import 'package:app/features/sign%20up/presentation/views/widgets/custom_button.dart';
-import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_container_box.dart';
+import 'package:app/core/widgets/custom_button.dart';
+import 'package:app/core/widgets/container_box.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,13 +34,13 @@ class SignUpParentsBody extends StatelessWidget {
               Spacer(
                 flex: 2,
               ),
-              SignUpContainerBox(
+              ContainerBox(
                 image: AppImages.googleLogo,
               ),
               Spacer(
                 flex: 1,
               ),
-              SignUpContainerBox(
+              ContainerBox(
                 image: AppImages.facebookLogo,
               ),
               Spacer(
@@ -89,7 +89,7 @@ class SignUpParentsBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
-              child: const CustomButton(),
+              child: const CustomButton(text: "انشاء حساب",),
             ),
           ),
           SliverToBoxAdapter(

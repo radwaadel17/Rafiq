@@ -5,8 +5,8 @@ import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignUpContainerBox extends StatelessWidget {
-  const SignUpContainerBox({super.key, required this.image});
+class ContainerBox extends StatelessWidget {
+  const ContainerBox({super.key, required this.image});
   final String image;
   @override
   Widget build(BuildContext context) {
