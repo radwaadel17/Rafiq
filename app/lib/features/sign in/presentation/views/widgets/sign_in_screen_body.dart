@@ -5,6 +5,18 @@ class SignInScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

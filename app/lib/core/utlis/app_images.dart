@@ -11,4 +11,5 @@ class AppImages {
   static const youAreFamily = 'assets/images/you are (family).png';
   static const googleLogo = 'assets/images/google_logo.png';
   static const facebookLogo = 'assets/images/facebook_logo.png';
+  static const signInPhoto = 'assets/images/sign_in_photo.png';
 }
