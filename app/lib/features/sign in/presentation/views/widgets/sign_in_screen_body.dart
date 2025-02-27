@@ -54,11 +54,14 @@ class SignInScreenBody extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: Row(
                       children: [
-                        TextArabicWithStyle(
-                            text: 'هل نسيت كلمة السر؟ ',
-                            textsyle: Styles.textstyle12.copyWith(
-                                color: const Color(0xff575757),
-                                decoration: TextDecoration.underline)),
+                        GestureDetector(
+                          onTap: (){},
+                          child: TextArabicWithStyle(
+                              text: 'هل نسيت كلمة السر؟ ',
+                              textsyle: Styles.textstyle12.copyWith(
+                                  color: const Color(0xff575757),
+                                  decoration: TextDecoration.underline)),
+                        ),
                       ],
                     ),
                   ),
