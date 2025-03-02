@@ -13,5 +13,6 @@ class AppImages {
   static const facebookLogo = 'assets/images/facebook_logo.png';
   static const signInPhoto = 'assets/images/sign_in_photo.png';
   static const forgetPassowrd = 'assets/images/forget password.png';
+  static const otpPhoto = 'assets/images/otp.png';
 
 }
