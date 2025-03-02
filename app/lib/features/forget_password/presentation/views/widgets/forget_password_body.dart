@@ -18,7 +18,7 @@ class ForgetPasswordBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: SafeArea(child: 
             Padding(
-              padding:EdgeInsets.symmetric(horizontal: 24.w , vertical: 16),
+              padding:EdgeInsets.symmetric(horizontal: 24.w , vertical: 24.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
