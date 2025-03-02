@@ -1,4 +1,5 @@
 import 'package:app/core/utlis/app_images.dart';
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_button.dart';
@@ -6,6 +7,7 @@ import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:app/features/forget_password/presentation/views/widgets/otp_box_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class OtpScreenBody extends StatelessWidget {
   const OtpScreenBody({super.key});
@@ -74,6 +76,7 @@ class OtpScreenBody extends StatelessWidget {
                  SizedBox(
                       width: context.screenWidth * 0.9,
                       child: CustomButton(text: 'تم' , onPressed: (){
+                        GoRouter.of(context).push(Approuter.newPassword);
                       },)),
                  const Spacer(flex: 1,),
 
