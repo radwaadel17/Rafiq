@@ -58,7 +58,9 @@ class SignInScreenBody extends StatelessWidget {
                     child: Row(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                          GoRouter.of(context).push(Approuter.forgetPassword);
+                          },
                           child: TextArabicWithStyle(
                               text: 'هل نسيت كلمة السر؟ ',
                               textsyle: Styles.textstyle12.copyWith(
