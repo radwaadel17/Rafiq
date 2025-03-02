@@ -33,5 +33,10 @@ class Styles {
     fontWeight: FontWeight.normal,
     color: colorApp,
   );
+  static final textstyle14 = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.normal,
+    color: colorApp,
+  );
  
 }

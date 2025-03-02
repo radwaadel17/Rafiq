@@ -1,4 +1,5 @@
 import 'package:app/core/utlis/app_images.dart';
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_widget.dart';
@@ -6,6 +7,7 @@ import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgetPasswordBody extends StatelessWidget {
   const ForgetPasswordBody({super.key});
@@ -63,7 +65,7 @@ class ForgetPasswordBody extends StatelessWidget {
                SizedBox(
                       width: context.screenWidth * 0.9,
                       child: CustomButton(text: 'إرسال طلب تغيير كلمة المرور' , onPressed: (){
-                        
+                        GoRouter.of(context).push(Approuter.otp);
                       },)),
               const Spacer(flex: 1,),
               ],
