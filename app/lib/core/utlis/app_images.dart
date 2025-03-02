@@ -12,4 +12,6 @@ class AppImages {
   static const googleLogo = 'assets/images/google_logo.png';
   static const facebookLogo = 'assets/images/facebook_logo.png';
   static const signInPhoto = 'assets/images/sign_in_photo.png';
+  static const forgetPassowrd = 'assets/images/forget password.png';
+
 }
