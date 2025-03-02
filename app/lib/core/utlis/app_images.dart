@@ -14,5 +14,7 @@ class AppImages {
   static const signInPhoto = 'assets/images/sign_in_photo.png';
   static const forgetPassowrd = 'assets/images/forget password.png';
   static const otpPhoto = 'assets/images/otp.png';
+  static const onBoardingVector2 = 'assets/images/onboarding vector2.png';
+
 
 }

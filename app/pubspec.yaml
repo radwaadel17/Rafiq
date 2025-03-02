@@ -73,7 +73,7 @@ flutter:
   fonts:
     - family: Alexandria
       fonts:
-        - asset: assets/fonts/
+        - asset: assets/fonts/Alexandria-Regular.ttf
     
   
   # For details regarding fonts from package dependencies,
