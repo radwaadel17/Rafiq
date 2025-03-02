@@ -26,7 +26,12 @@ class ForgetPasswordBody extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 12.h,
-                    child: Image.asset(AppImages.blueArrowBack))
+                    child: GestureDetector
+                    (
+                      onTap: (){
+                        GoRouter.of(context).pop();
+                      },
+                      child: Image.asset(AppImages.blueArrowBack)))
                 ],
               ),
             )
