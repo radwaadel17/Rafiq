@@ -4,6 +4,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingOne extends StatelessWidget {
   const OnBoardingOne({super.key});
@@ -21,7 +22,7 @@ class OnBoardingOne extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: context.screenHeight * 0.15,
+            top:  context.screenHeight * 0.15,
             left: 0,
             right: 0,
             child: Column(
@@ -50,7 +51,7 @@ class OnBoardingOne extends StatelessWidget {
                     child: TextArabicWithStyle(
                       text:
                           ' تواصل مع أطباء متخصصين لمتابعة حالة طفلك ووضع خطط علاجية مخصصة بسهولة.',
-                      textsyle: Styles.textstyle24,
+                      textsyle: context.screenHeight < 700 ? Styles.textstyle24.copyWith(fontSize: 20.sp): Styles.textstyle24,
                       textAlign: TextAlign.center,
                     ))
               ],

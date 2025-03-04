@@ -3,6 +3,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingThree extends StatelessWidget {
   const OnBoardingThree({super.key});
@@ -37,7 +38,7 @@ class OnBoardingThree extends StatelessWidget {
                     width: context.screenWidth * 0.95,
                     child: TextArabicWithStyle(
                       text:'أنشطة تفاعلية ممتعة في رَفِيق لمساعدة طفلك على التعلم والنمو.',
-                      textsyle: Styles.textstyle24,
+                      textsyle: context.screenHeight < 700 ? Styles.textstyle24.copyWith(fontSize: 20.sp): Styles.textstyle24,
                       textAlign: TextAlign.center,
                     ))
               ],

@@ -3,6 +3,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingTwo extends StatelessWidget {
   const OnBoardingTwo({super.key});
@@ -35,7 +36,7 @@ class OnBoardingTwo extends StatelessWidget {
                     child: TextArabicWithStyle(
                       text:
                           'شارك تجربتك وتواصل مع آباء آخرين عبر رَفِيق للحصول على دعم وحلول عملية.',
-                      textsyle: Styles.textstyle24,
+                      textsyle: context.screenHeight < 700 ? Styles.textstyle24.copyWith(fontSize: 20.sp): Styles.textstyle24,
                       textAlign: TextAlign.center,
                     )),
                      SizedBox(
