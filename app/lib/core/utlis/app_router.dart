@@ -2,6 +2,9 @@ import 'package:app/features/forget_password/presentation/views/forget_password_
 import 'package:app/features/forget_password/presentation/views/new_password_screen.dart';
 import 'package:app/features/forget_password/presentation/views/otp_screen.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_screen.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_three.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_two.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/widgets/you_are_body.dart';
 import 'package:app/features/sign%20in/presentation/views/sign_in_screen.dart';
 import 'package:app/features/sign%20up/presentation/views/sign_up_doctor_screen.dart';
 import 'package:app/features/sign%20up/presentation/views/sign_up_parents_screen.dart';
@@ -17,6 +20,14 @@ abstract class Approuter {
   static const forgetPassword = '/forgetPassword';
   static const otp = '/otp';
   static const newPassword = '/newPass';
+  static const onBoardingOne = '/one';
+  static const onBoardingTwo = '/two';
+  static const onBoardingThree = '/three';
+  static const youAre = '/DoctorOrparents';
+
+
+
+
 
 
 
@@ -109,6 +120,45 @@ abstract class Approuter {
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const NewPasswordScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path:onBoardingTwo,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const OnBoardingTwo(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path:onBoardingThree,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const OnBoardingThree(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path:youAre,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const YouAreBody(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,

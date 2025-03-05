@@ -16,6 +16,5 @@ class AppImages {
   static const otpPhoto = 'assets/images/otp.png';
   static const onBoardingVector2 = 'assets/images/onboarding vector2.png';
   static const onBoardingVector3 = 'assets/images/onboarding vector3.png';
-
-
+  static const whiteArrowback = 'assets/images/white_arrow_back.png';
 }

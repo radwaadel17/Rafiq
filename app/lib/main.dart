@@ -30,6 +30,7 @@ class RafeekApp extends StatelessWidget {
         routerConfig: Approuter.router,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          
           fontFamily: 'Alexandria',
           scaffoldBackgroundColor: Colors.white
         ),
