@@ -2,7 +2,7 @@ class SignUpState {}
 
 class SignUpintial extends SignUpState {}
 
-class SignUpStatesCubit extends SignUpState {}
+class SignUpLoadingStatesCubit extends SignUpState {}
 
 class SignupSuccesesState extends SignUpState {
   final String message;
