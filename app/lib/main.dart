@@ -1,10 +1,15 @@
 import 'package:app/core/utlis/app_router.dart';
+import 'package:app/core/utlis/service_locator.dart';
+import 'package:app/features/sign%20up/data/repos/sign_up_repo_imp.dart';
+import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  setup();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
@@ -22,17 +27,24 @@ class RafeekApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp.router(
-        // ignore: deprecated_member_use
-        useInheritedMediaQuery: true,
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
-        routerConfig: Approuter.router,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          
-          fontFamily: 'Alexandria',
-          scaffoldBackgroundColor: Colors.white
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+          create: (context) => SignUpCubit(getIt<SignUpRepoImp>())
+        ),
+        ],
+        child: MaterialApp.router(
+          // ignore: deprecated_member_use
+          useInheritedMediaQuery: true,
+          locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
+          routerConfig: Approuter.router,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            
+            fontFamily: 'Alexandria',
+            scaffoldBackgroundColor: Colors.white
+          ),
         ),
       ),
     );
