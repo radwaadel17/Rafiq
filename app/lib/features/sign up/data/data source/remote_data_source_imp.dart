@@ -6,7 +6,6 @@ import 'package:dio/dio.dart';
 class RemoteDataSourceImp implements RemoteDataSource{
   ApiService apiService ;
   RemoteDataSourceImp(this.apiService);
-
   @override
   Future<String> signUp(UserSignupEntity user) async{
     Response responseString = await apiService.postMethod(
