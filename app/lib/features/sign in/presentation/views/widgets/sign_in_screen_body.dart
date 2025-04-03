@@ -10,9 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class SignInScreenBody extends StatelessWidget {
+class SignInScreenBody extends StatefulWidget {
   const SignInScreenBody({super.key});
 
+  @override
+  State<SignInScreenBody> createState() => _SignInScreenBodyState();
+}
+
+class _SignInScreenBodyState extends State<SignInScreenBody> {
+  TextEditingController signInEmail = TextEditingController();
+  TextEditingController signInPassword = TextEditingController();
+  GlobalKey<FormState> globalKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,102 +29,121 @@ class SignInScreenBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: SafeArea(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: context.screenHeight * 0.035,
-                  ),
-                  SizedBox(
-                      height: context.screenHeight * 0.21,
-                      child: const Image(
-                          image: AssetImage(AppImages.signInPhoto))),
-                  SizedBox(
-                    height: context.screenHeight * 0.015,
-                  ),
-                  TextArabicWithStyle(
-                      text: 'لديك حساب بالفعل', textsyle: Styles.textstyle18),
-                  TextArabicWithStyle(
-                      text: 'ادخل جميع بيناتك حتي تتمكن من تسجيل الدخول',
-                      textsyle: Styles.textstyle12
-                          .copyWith(color: Colors.black.withOpacity(0.66))),
-                  SizedBox(
-                    height: context.screenHeight * 0.035,
-                  ),
-                  const LabelAndTextField(
-                      text: 'البريد الالكتروني أو رقم الهاتف',
-                      hintText: 'ادخل بريدك الالكتروني أو رقم هاتفك'),
-                  SizedBox(
-                    height: context.screenHeight * 0.025,
-                  ),
-                  const LabelAndTextField(
-                      text: 'كلمة المرور', hintText: 'ادخل كلمة المرور'),
-                  SizedBox(
-                    height: context.screenHeight * 0.010,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Row(
+              child: Form(
+                key: globalKey,
+                autovalidateMode: autovalidateMode,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: context.screenHeight * 0.035,
+                    ),
+                    SizedBox(
+                        height: context.screenHeight * 0.21,
+                        child: const Image(
+                            image: AssetImage(AppImages.signInPhoto))),
+                    SizedBox(
+                      height: context.screenHeight * 0.015,
+                    ),
+                    TextArabicWithStyle(
+                        text: 'لديك حساب بالفعل', textsyle: Styles.textstyle18),
+                    TextArabicWithStyle(
+                        text: 'ادخل جميع بيناتك حتي تتمكن من تسجيل الدخول',
+                        textsyle: Styles.textstyle12
+                            .copyWith(color: Colors.black.withOpacity(0.66))),
+                    SizedBox(
+                      height: context.screenHeight * 0.035,
+                    ),
+                     LabelAndTextField(
+                      controller: signInEmail,
+              
+                        text: 'البريد الالكتروني أو رقم الهاتف',
+                        hintText: 'ادخل بريدك الالكتروني أو رقم هاتفك'),
+                    SizedBox(
+                      height: context.screenHeight * 0.025,
+                    ),
+                    LabelAndTextField(
+                        controller: signInPassword,
+                        text: 'كلمة المرور', hintText: 'ادخل كلمة المرور'),
+                    SizedBox(
+                      height: context.screenHeight * 0.010,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              GoRouter.of(context)
+                                  .push(Approuter.forgetPassword);
+                            },
+                            child: TextArabicWithStyle(
+                                text: 'هل نسيت كلمة السر؟ ',
+                                textsyle: Styles.textstyle12.copyWith(
+                                    color: const Color(0xff575757),
+                                    decoration: TextDecoration.underline)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: context.screenHeight * 0.030,
+                    ),
+                    SizedBox(
+                        width: context.screenWidth * 0.9,
+                        child: CustomButton(
+                          text: 'تسجيل الدخول',
+                          onPressed: () {
+                            if (globalKey.currentState!.validate()) {
+                              globalKey.currentState!.save();
+                            } else {
+                              autovalidateMode = AutovalidateMode.always;
+                              setState(() {});
+                            }
+                          },
+                        )),
+                    SizedBox(
+                      height: context.screenHeight * 0.015,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () {
-                          GoRouter.of(context).push(Approuter.forgetPassword);
-                          },
-                          child: TextArabicWithStyle(
-                              text: 'هل نسيت كلمة السر؟ ',
-                              textsyle: Styles.textstyle12.copyWith(
-                                  color: const Color(0xff575757),
-                                  decoration: TextDecoration.underline)),
-                        ),
+                            onTap: () {
+                              GoRouter.of(context).push(Approuter.signIn);
+                            },
+                            child: TextArabicWithStyle(
+                                text: 'انشاء حساب ',
+                                textsyle: Styles.textstyle18
+                                    .copyWith(fontSize: 14.sp))),
+                        TextArabicWithStyle(
+                            text: 'ليس لديك حساب؟ ',
+                            textsyle: Styles.textstyle18.copyWith(
+                                fontSize: 14.sp,
+                                color: const Color(0xff575757))),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: context.screenHeight * 0.030,
-                  ),
-                  SizedBox(
-                      width: context.screenWidth * 0.9,
-                      child: const CustomButton(text: 'تسجيل الدخول')),
-                  SizedBox(
-                    height: context.screenHeight * 0.015,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            GoRouter.of(context).push(Approuter.signIn);
-                          },
-                          child: TextArabicWithStyle(
-                              text: 'انشاء حساب ',
-                              textsyle: Styles.textstyle18
-                                  .copyWith(fontSize: 14.sp))),
-                      TextArabicWithStyle(
-                          text: 'ليس لديك حساب؟ ',
-                          textsyle: Styles.textstyle18.copyWith(
-                              fontSize: 14.sp, color: const Color(0xff575757))),
-                    ],
-                  ),
-                  SizedBox(
-                    height: context.screenHeight * 0.030,
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Spacer(
-                        flex: 4,
-                      ),
-                      ContainerBox(image: AppImages.facebookLogo),
-                      Spacer(
-                        flex: 1,
-                      ),
-                      ContainerBox(image: AppImages.googleLogo),
-                      Spacer(
-                        flex: 4,
-                      ),
-                    ],
-                  )
-                ],
+                    SizedBox(
+                      height: context.screenHeight * 0.030,
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Spacer(
+                          flex: 4,
+                        ),
+                        ContainerBox(image: AppImages.facebookLogo),
+                        Spacer(
+                          flex: 1,
+                        ),
+                        ContainerBox(image: AppImages.googleLogo),
+                        Spacer(
+                          flex: 4,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           )
