@@ -4,6 +4,7 @@ abstract class Faluire {
   String errorMessage;
   Faluire({required this.errorMessage});
 }
+
 class ServerFailure extends Faluire {
   // ignore: non_constant_identifier_names
   factory ServerFailure.FromBadResponse(int? statusCode, dynamic response) {
@@ -15,6 +16,8 @@ class ServerFailure extends Faluire {
     } else if (statusCode == 500) {
       return ServerFailure(
           errorMessage: 'Internal Server error, Please try later');
+    } else if (statusCode == 409) {
+      return ServerFailure(errorMessage: 'Account already exists');
     } else {
       return ServerFailure(
           errorMessage: 'Opps There was an Error, Please try again');
