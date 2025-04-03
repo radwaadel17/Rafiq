@@ -3,7 +3,7 @@ class UserSignupEntity {
   final String email;
   final String passowrd;
   final String passwordConfirmation;
-  final String phoneNumber;
+  final num phoneNumber;
   final String role;
   UserSignupEntity(
       {

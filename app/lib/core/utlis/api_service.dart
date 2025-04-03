@@ -13,6 +13,6 @@ class ApiService {
       '$baseUrl$endPoint',
       data: isFormData ? FormData.fromMap(userData) : userData,
     );
-    return response.data;
+    return response;
   }
 }
