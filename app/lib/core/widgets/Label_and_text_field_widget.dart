@@ -19,6 +19,14 @@ class LabelAndTextField extends StatelessWidget {
               textsyle:
                   Styles.textstyle18.copyWith(fontWeight: FontWeight.normal)),
           TextFormField(
+            validator: (value){
+              if(value?.isEmpty ?? true){
+              return 'This filed is required';
+              }
+              else {
+                return null ;
+              }
+            },
             textAlign: TextAlign.right, 
             textDirection: TextDirection.rtl, 
             decoration: InputDecoration(
