@@ -30,7 +30,6 @@ class LabelAndTextField extends StatelessWidget {
                 return null ;
               }
             },
-            
             textAlign: TextAlign.right, 
             textDirection: TextDirection.rtl, 
             decoration: InputDecoration(
