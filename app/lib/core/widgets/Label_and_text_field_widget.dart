@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LabelAndTextField extends StatelessWidget {
-  const LabelAndTextField({super.key, required this.text, required this.hintText, this.controller} );
+  const LabelAndTextField({super.key, required this.text, required this.hintText, this.controller, this.onChanged} );
    final String text ;
    final String hintText ;
    final TextEditingController? controller ;
+   final Function(String)? onChanged ;
    
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class LabelAndTextField extends StatelessWidget {
               textsyle:
                   Styles.textstyle18.copyWith(fontWeight: FontWeight.normal)),
           TextFormField(
+            onChanged: onChanged,
             controller: controller,
             validator: (value){
               if(value?.isEmpty ?? true){

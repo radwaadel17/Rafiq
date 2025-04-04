@@ -9,7 +9,7 @@ class ServerFailure extends Faluire {
   // ignore: non_constant_identifier_names
   factory ServerFailure.FromBadResponse(int? statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(errorMessage: response['error']['message']);
+      return ServerFailure(errorMessage: response.data);
     } else if (statusCode == 404) {
       return ServerFailure(
           errorMessage: 'Your request not found, Please try later!');

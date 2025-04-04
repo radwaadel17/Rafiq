@@ -4,7 +4,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_widget.dart';
-import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
+import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/container_box.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom_app_bar.dart';
@@ -13,7 +13,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpParentsBody extends StatelessWidget {
-  const SignUpParentsBody({super.key});
+  const SignUpParentsBody({super.key, required this.user});
+   final UserSignupEntity user ; 
 
   @override
   Widget build(BuildContext context) {
@@ -81,11 +82,11 @@ class SignUpParentsBody extends StatelessWidget {
               ),
             ],
           )),
-          SliverToBoxAdapter(
+          /* SliverToBoxAdapter(
               child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.w),
             child: const CheckBox(),
-          )),
+          )), */
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),

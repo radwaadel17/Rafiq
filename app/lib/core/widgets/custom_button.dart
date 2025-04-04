@@ -3,22 +3,29 @@ import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomButton extends StatefulWidget {
   const CustomButton({
-    super.key, required this.text, this.onPressed, this.customColor,
+    super.key, required this.text, this.onPressed, this.customColor,  this.check,
   });
   final String text;
   final void Function()? onPressed ;
   final Color? customColor;
+  final bool? check ;
+
+  @override
+  State<CustomButton> createState() => _CustomButtonState();
+}
+
+class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: onPressed,
+        onPressed: widget.onPressed,
         style: TextButton.styleFrom(
-          backgroundColor:customColor ?? colorApp,
+          backgroundColor:widget.customColor ?? colorApp,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
-             side: customColor != null 
+             side: widget.customColor != null 
               ? const BorderSide(color: colorApp, width: 2) 
               : BorderSide.none, 
             
@@ -26,9 +33,9 @@ class CustomButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12),
           
         ),
-        child: TextArabicWithStyle(
-            text: text,
+        child: widget.check == true ? const Center(child: CircularProgressIndicator(),) :  TextArabicWithStyle(
+            text: widget.text,
             textsyle:
-                Styles.textstyle18.copyWith(color:customColor != null? colorApp : Colors.white)));
+                Styles.textstyle18.copyWith(color:widget.customColor != null? colorApp : Colors.white)));
   }
 }

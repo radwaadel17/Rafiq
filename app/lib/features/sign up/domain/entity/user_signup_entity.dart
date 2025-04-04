@@ -1,13 +1,12 @@
 class UserSignupEntity {
-  final String name;
-  final String email;
-  final String passowrd;
-  final String passwordConfirmation;
-  final num phoneNumber;
-  final String role;
+  String? name;
+  String? email;
+  String? passowrd;
+  String? passwordConfirmation;
+  num? phoneNumber;
+  String? role;
   UserSignupEntity(
-      {
-      required this.name,
+      {required this.name,
       required this.email,
       required this.passowrd,
       required this.passwordConfirmation,
