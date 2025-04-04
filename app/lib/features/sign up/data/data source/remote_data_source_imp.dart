@@ -9,7 +9,7 @@ class RemoteDataSourceImp implements RemoteDataSource{
   @override
   Future<String> signUp(UserSignupEntity user) async{
     Response responseString = await apiService.postMethod(
-      endPoint: 'api/users/register',
+      endPoint: '/api/users/register',
        userData: {
       "name": user.name,
       "email": user.email,

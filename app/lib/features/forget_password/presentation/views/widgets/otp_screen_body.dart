@@ -9,9 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class OtpScreenBody extends StatelessWidget {
+class OtpScreenBody extends StatefulWidget {
   const OtpScreenBody({super.key});
 
+  @override
+  State<OtpScreenBody> createState() => _OtpScreenBodyState();
+}
+
+class _OtpScreenBodyState extends State<OtpScreenBody> {
+  TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,10 +72,10 @@ class OtpScreenBody extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    OtpBoxConatiner(numebr: '2',),
-                    OtpBoxConatiner(numebr: '4',),
-                    OtpBoxConatiner(numebr: '7',),
-                    OtpBoxConatiner(numebr: '9',),
+                    OtpBoxContainer(),
+                    OtpBoxContainer(),
+                    OtpBoxContainer(),
+                    OtpBoxContainer(),
                   ],
                 ),
                 const Spacer(flex: 2,),
