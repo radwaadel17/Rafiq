@@ -9,7 +9,7 @@ class LabelAndTextField extends StatelessWidget {
    final String hintText ;
    final TextEditingController? controller ;
    final Function(String)? onChanged ;
-   
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,6 +22,9 @@ class LabelAndTextField extends StatelessWidget {
               textsyle:
                   Styles.textstyle18.copyWith(fontWeight: FontWeight.normal)),
           TextFormField(
+            
+            obscureText: false ,
+            
             onChanged: onChanged,
             controller: controller,
             validator: (value){
@@ -32,10 +35,12 @@ class LabelAndTextField extends StatelessWidget {
                 return null ;
               }
             },
+            
             textAlign: TextAlign.right, 
             textDirection: TextDirection.rtl, 
             decoration: InputDecoration(
-             
+            
+              
               hintText: hintText, 
               hintStyle: TextStyle(
                   color: Colors.grey, fontSize: 16.sp), 

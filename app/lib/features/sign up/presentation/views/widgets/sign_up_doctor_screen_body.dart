@@ -2,6 +2,7 @@ import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
+import 'package:app/core/widgets/Label_and_text_field_password.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_widget.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
@@ -28,6 +29,12 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
   GlobalKey<FormState> globalKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   bool checkBox = false;
+  bool  obscureText = false ;
+   void togglePasswordView() {
+    setState(() {
+      obscureText = !obscureText;
+    });
+   }
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
@@ -123,13 +130,15 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
-                    LabelAndTextField(
+                    LabelAndTextFieldPassword(
+                      onPressed: togglePasswordView,
+                        obscureText: obscureText,
                         onChanged: (data) {
                           widget.user.passowrd = data;
                           widget.user.passwordConfirmation = data;
                         },
                         text: 'كلمة المرور',
-                        hintText: 'ادخل كلمة المرور '),
+                        hintText: 'ادخل كلمة المرور ',),
                     SizedBox(
                       height: context.screenHeight * 0.006,
                     ),
