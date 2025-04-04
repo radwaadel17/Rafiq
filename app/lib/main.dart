@@ -1,13 +1,10 @@
-import 'package:app/core/utlis/api_service.dart';
 import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/service_locator.dart';
-import 'package:app/features/sign%20in/data/data%20sources/remote_data_source.dart';
 import 'package:app/features/sign%20in/data/repos/sign_in_repo_imp.dart';
 import 'package:app/features/sign%20in/presentation/manager/sign_in_cubit/sign_in_cubit.dart';
 import 'package:app/features/sign%20up/data/repos/sign_up_repo_imp.dart';
 import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_cubit.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,12 +32,12 @@ class RafeekApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-          create: (context) => SignUpCubit(getIt<SignUpRepoImp>())
-        ),
-        BlocProvider(
-          create: (context) => SignInCubit(getIt<SignInRepoImp>())),
+              create: (context) => SignUpCubit(getIt<SignUpRepoImp>())),
+          BlocProvider(
+              create: (context) => SignInCubit(getIt<SignInRepoImp>())),
         ],
         child: MaterialApp.router(
+         
           // ignore: deprecated_member_use
           useInheritedMediaQuery: true,
           locale: DevicePreview.locale(context),
@@ -48,10 +45,7 @@ class RafeekApp extends StatelessWidget {
           routerConfig: Approuter.router,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            
-            fontFamily: 'Alexandria',
-            scaffoldBackgroundColor: Colors.white
-          ),
+              fontFamily: 'Alexandria', scaffoldBackgroundColor: Colors.white),
         ),
       ),
     );

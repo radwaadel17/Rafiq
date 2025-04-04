@@ -12,7 +12,7 @@ class ServerFailure extends Faluire {
       return ServerFailure(errorMessage: response.data);
     } else if (statusCode == 404) {
       return ServerFailure(
-          errorMessage: 'Your request not found, Please try later!');
+          errorMessage: 'Invalid email or password');
     } else if (statusCode == 500) {
       return ServerFailure(
           errorMessage: 'Internal Server error, Please try later');

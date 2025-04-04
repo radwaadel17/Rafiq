@@ -1,5 +1,5 @@
 class UserSigninEntity {
-  final String email;
-  final String password ;
+   String? email;
+   String? password ;
   UserSigninEntity({required this.email , required this.password});
 }

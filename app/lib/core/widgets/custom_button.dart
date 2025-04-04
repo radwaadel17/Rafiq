@@ -33,7 +33,7 @@ class _CustomButtonState extends State<CustomButton> {
           padding: const EdgeInsets.symmetric(vertical: 12),
           
         ),
-        child: widget.check == true ? const Center(child: CircularProgressIndicator(),) :  TextArabicWithStyle(
+        child: widget.check == true ? const Center(child: CircularProgressIndicator(color: Colors.white),) :  TextArabicWithStyle(
             text: widget.text,
             textsyle:
                 Styles.textstyle18.copyWith(color:widget.customColor != null? colorApp : Colors.white)));

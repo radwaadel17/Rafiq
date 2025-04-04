@@ -3,8 +3,8 @@ import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LabelAndTextField extends StatelessWidget {
-  const LabelAndTextField(
+class LabelAndTextFieldAge extends StatelessWidget {
+  const LabelAndTextFieldAge(
       {super.key,
       required this.text,
       required this.hintText,
@@ -33,9 +33,12 @@ class LabelAndTextField extends StatelessWidget {
             validator: (value) {
               if (value?.isEmpty ?? true) {
                 return 'This field is required';
-              } else {
-                return null;
               }
+              final age = int.tryParse(value ?? '');
+              if (age == null || age < 0 || age > 15) {
+                return 'Age must be between 0 and 15';
+              }
+              return null ;
             },
             textAlign: TextAlign.right,
             textDirection: TextDirection.rtl,
