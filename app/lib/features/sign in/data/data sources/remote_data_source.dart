@@ -6,9 +6,9 @@ abstract class RemoteDataSource {
   Future<Map<String , dynamic>> logIn(UserSigninEntity user);
 }
 
-class RemoteDataSourceImp implements RemoteDataSource {
+class RemoteDataSourceImpIn implements RemoteDataSource {
   ApiService apiService ;
-  RemoteDataSourceImp(this.apiService);
+  RemoteDataSourceImpIn(this.apiService);
   @override
   Future<Map<String , dynamic>> logIn(UserSigninEntity user) async {
     Response response = await apiService.postMethod(endPoint: '/api/auth/login', userData: {

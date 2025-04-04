@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class SignInRepoImp implements SignInRepo {
-  RemoteDataSourceImp remoteDataSourceImp;
+  RemoteDataSourceImpIn remoteDataSourceImp;
   SignInRepoImp(this.remoteDataSourceImp);
   @override
   Future<Either<Faluire, Map<String, dynamic>>> logIn(
