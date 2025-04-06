@@ -10,6 +10,5 @@ class ForgetPasswordFaluireState extends ForgetPasswordState {
 class ForgetPasswordLoadingState extends ForgetPasswordState {}
 
 class ForgetPasswordSucssesState extends ForgetPasswordState {
-  final String msg;
-  ForgetPasswordSucssesState(this.msg);
+  
 }
