@@ -1,4 +1,4 @@
 abstract class RemoteDataSourceForget {
-  Future<String> forgetPassword({required String email});
-  Future<String> resetPassword({required String password , required String resetCode});
+  Future<void> forgetPassword({required String email});
+  Future<String> resetPassword({required String email , required String resetCode});
 }
