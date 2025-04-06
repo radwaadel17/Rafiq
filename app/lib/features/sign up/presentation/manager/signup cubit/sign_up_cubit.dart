@@ -12,7 +12,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     result.fold((faluire) {
       emit(SignupFaluireState(faluire.errorMessage));
     }, (msg) {
-      emit(SignupSuccesesState(msg));
+      emit(SignupSuccesesState(msg , user));
     });
   }
 }

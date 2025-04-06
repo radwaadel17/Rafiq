@@ -8,6 +8,7 @@ import 'package:app/core/widgets/Label_and_text_field_widget.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
 import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_cubit.dart';
 import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_states_cubit.dart';
+import 'package:app/features/sign%20up/presentation/views/otp_verfication.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/container_box.dart';
@@ -29,32 +30,47 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
   GlobalKey<FormState> globalKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   bool checkBox = false;
-  bool  obscureText = false ;
-   void togglePasswordView() {
+  bool obscureText = false;
+  void togglePasswordView() {
     setState(() {
       obscureText = !obscureText;
     });
-   }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        if(state is SignupFaluireState){
-                  ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Text(state.errorMsg),
-                        ),
-                      );
-                }
-                else if (state is SignupSuccesesState){
-                   ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Text(state.message),
-                        ),
-                      );
-                }
+        if (state is SignupFaluireState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.red,
+              content: Text(state.errorMsg),
+            ),
+          );
+        } else if (state is SignupSuccesesState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.red,
+              content: Text(state.message),
+            ),
+          );
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return OtpVarfication(user: state.user);
+              },
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(
+                  opacity: animation,
+                  child: child,
+                );
+              },
+            ),
+          );
+        }
       },
       builder: (context, state) {
         return Scaffold(
@@ -132,13 +148,14 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                     ),
                     LabelAndTextFieldPassword(
                       onPressed: togglePasswordView,
-                        obscureText: obscureText,
-                        onChanged: (data) {
-                          widget.user.passowrd = data;
-                          widget.user.passwordConfirmation = data;
-                        },
-                        text: 'كلمة المرور',
-                        hintText: 'ادخل كلمة المرور ',),
+                      obscureText: obscureText,
+                      onChanged: (data) {
+                        widget.user.passowrd = data;
+                        widget.user.passwordConfirmation = data;
+                      },
+                      text: 'كلمة المرور',
+                      hintText: 'ادخل كلمة المرور ',
+                    ),
                     SizedBox(
                       height: context.screenHeight * 0.006,
                     ),
@@ -181,7 +198,7 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                             .signUp(widget.user);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
-                        
+
                         setState(() {});
                       }
                     },
@@ -217,7 +234,7 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
               ),
               SliverToBoxAdapter(
                   child: SizedBox(
-                height:  context.screenHeight * 0.020,
+                height: context.screenHeight * 0.020,
               )),
             ],
           ),

@@ -2,6 +2,7 @@ import 'package:app/core/utlis/api_service.dart';
 import 'package:app/features/sign%20up/data/data%20source/remote_data_source.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class RemoteDataSourceImp implements RemoteDataSource{
   ApiService apiService ;
@@ -17,6 +18,7 @@ class RemoteDataSourceImp implements RemoteDataSource{
       "passwordConfirmation": user.passwordConfirmation,
       "phoneNumber": user.phoneNumber,
       "role": user.role }, isFormData: false);
+      debugPrint('${responseString.data}');
     return responseString.data;
   }
 }
