@@ -15,6 +15,22 @@ class SignUpRepoImp implements SignUpRepo {
       return right(response);
     } catch (e) {
       if (e is DioException) {
+        return left(ServerFailure.
+        FromDioError(e));
+      }
+      return left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Faluire, String>> verfiyEmail(
+      {required String email, required String code}) async {
+    try {
+      String response =
+          await remoteDataSource.verfiyEmail(email: email, code: code);
+      return right(response);
+    } catch (e) {
+      if (e is DioException) {
         return left(ServerFailure.FromDioError(e));
       }
       return left(ServerFailure(errorMessage: e.toString()));

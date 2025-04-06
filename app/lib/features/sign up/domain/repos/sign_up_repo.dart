@@ -4,4 +4,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class SignUpRepo {
   Future<Either<Faluire , String>> signUp(UserSignupEntity user);
+  Future<Either<Faluire , String>> verfiyEmail({required String email , required String code});
 }

@@ -35,9 +35,9 @@ class RafeekApp extends StatelessWidget {
               create: (context) => SignUpCubit(getIt<SignUpRepoImp>())),
           BlocProvider(
               create: (context) => SignInCubit(getIt<SignInRepoImp>())),
+          
         ],
         child: MaterialApp.router(
-         
           // ignore: deprecated_member_use
           useInheritedMediaQuery: true,
           locale: DevicePreview.locale(context),

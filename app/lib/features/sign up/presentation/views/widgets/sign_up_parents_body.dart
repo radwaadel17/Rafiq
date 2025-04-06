@@ -10,6 +10,7 @@ import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/container_box.dart';
 import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_cubit.dart';
 import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_states_cubit.dart';
+import 'package:app/features/sign%20up/presentation/views/otp_verfication.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -40,22 +41,36 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        if(state is SignupFaluireState){
-                  ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Text(state.errorMsg),
-                        ),
-                      );
-                }
-                else if (state is SignupSuccesesState){
-                   ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Text(state.message),
-                        ),
-                      );
-                }
+        if (state is SignupFaluireState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.red,
+              content: Text(state.errorMsg),
+            ),
+          );
+        } else if (state is SignupSuccesesState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.red,
+              content: Text(state.message),
+            ),
+          );
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return OtpVarfication(user: state.user);
+              },
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(
+                  opacity: animation,
+                  child: child,
+                );
+              },
+            ),
+          );
+        }
       },
       builder: (context, state) {
         return Scaffold(
@@ -99,8 +114,12 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                 autovalidateMode: autovalidateMode,
                 child: Column(
                   children: [
-                    const LabelAndTextField(
-                        text: 'الأسم بالكامل', hintText: 'ادخل اسمك بالكامل'),
+                    LabelAndTextField(
+                        onChanged: (data) {
+                          widget.user.name = data;
+                        },
+                        text: 'الأسم بالكامل',
+                        hintText: 'ادخل اسمك بالكامل'),
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
@@ -109,19 +128,31 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
-                    const LabelAndTextField(
+                    LabelAndTextField(
+                        onChanged: (data) {
+                          widget.user.email = data;
+                        },
                         text: 'البريد الإلكتروني',
                         hintText: 'ادخل بريدك الإلكتروني'),
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
-                    const LabelAndTextField(
-                        text: 'رقم الموبايل', hintText: 'ادخل رقم الموبايل'),
+                    LabelAndTextField(
+                        onChanged: (data) {
+                          widget.user.phoneNumber = int.parse(data);
+                        },
+                        text: 'رقم الموبايل',
+                        hintText: 'ادخل رقم الموبايل'),
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
-                    const LabelAndTextField(
-                        text: 'كلمة المرور', hintText: 'ادخل كلمة المرور '),
+                    LabelAndTextField(
+                        onChanged: (data) {
+                          widget.user.passowrd = data;
+                          widget.user.passwordConfirmation = data;
+                        },
+                        text: 'كلمة المرور',
+                        hintText: 'ادخل كلمة المرور '),
                     SizedBox(
                       height: context.screenHeight * 0.006,
                     ),
@@ -144,6 +175,7 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child: CustomButton(
+                    check: state is SignUpLoadingStatesCubit ? true  : false,
                     onPressed: () {
                       if (globalKey.currentState!.validate()) {
                         globalKey.currentState!.save();

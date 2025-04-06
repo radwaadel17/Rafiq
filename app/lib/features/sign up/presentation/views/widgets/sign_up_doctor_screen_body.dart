@@ -51,7 +51,7 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
         } else if (state is SignupSuccesesState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: Colors.red,
+              backgroundColor:const Color(0xff4456A5),
               content: Text(state.message),
             ),
           );
