@@ -3,5 +3,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class ForgetPasswordRepo {
   Future<Either<Faluire , void>> forgetPassword({required String email});
-  Future<Either<Faluire , String>> resetPassword({required String password , required String resetCode});
+  Future<Either<Faluire , String>> resetPassword({required String email, required String resetCode});
 }
