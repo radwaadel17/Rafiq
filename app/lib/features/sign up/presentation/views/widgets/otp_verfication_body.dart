@@ -4,7 +4,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
-import 'package:app/features/forget_password/presentation/views/widgets/otp_box_container.dart';
+import 'package:app/features/update_password/presentation/views/widgets/otp_box_container.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
 import 'package:app/features/sign%20up/presentation/manager/verfiy%20email%20cubit/verfiy_email_states.dart';
 import 'package:app/features/sign%20up/presentation/manager/verfiy%20email%20cubit/verfiy_emial_cubit.dart';
