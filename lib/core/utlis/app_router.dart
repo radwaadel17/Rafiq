@@ -1,0 +1,198 @@
+import 'package:app/features/doctors/presentation/views/doctors_screen.dart';
+import 'package:app/features/forget_password/presentation/views/forget_password_screen.dart';
+import 'package:app/features/forget_password/presentation/views/new_password_screen.dart';
+import 'package:app/features/forget_password/presentation/views/otp_screen.dart';
+import 'package:app/features/home/presentation/views/home_screen.dart';
+import 'package:app/features/main_bottom_navigation/main_bottom_navigation.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_screen.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_three.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_two.dart';
+import 'package:app/features/on_boarding_screen/presentation/views/widgets/you_are_body.dart';
+import 'package:app/features/questions/presentation/views/screens/lets_start_screen.dart';
+import 'package:app/features/questions/presentation/views/screens/question_one_screen.dart';
+import 'package:app/features/questions/presentation/views/screens/question_three_screen.dart';
+import 'package:app/features/questions/presentation/views/screens/question_two_screen.dart';
+import 'package:app/features/sign%20in/presentation/views/sign_in_screen.dart';
+import 'package:app/features/spalsh_screen/presentation/views/splash_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+abstract class Approuter {
+  static const onBoardingKey = '/onBoardingScreen';
+  static const signUpDoctorScreenKey = '/SignUpdoctor';
+  static const signUpParentsScreenKey = '/SignUpParents';
+  static const signIn = '/SignIn';
+  static const forgetPassword = '/forgetPassword';
+  static const otp = '/otp';
+  static const newPassword = '/newPass';
+  static const onBoardingOne = '/one';
+  static const onBoardingTwo = '/two';
+  static const onBoardingThree = '/three';
+  static const youAre = '/DoctorOrparents';
+  static const mainBottomNavigation = '/MainBottomNavigation';
+
+  static final router = GoRouter(
+    routes: [
+      GoRoute(
+        path: "/",
+        builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: signIn,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const SignInScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: onBoardingKey,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const OnBoardingScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: forgetPassword,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const ForgetPassword(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: otp,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const OtpScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: newPassword,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const NewPasswordScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: onBoardingTwo,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const OnBoardingTwo(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: onBoardingThree,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const OnBoardingThree(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: youAre,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const YouAreBody(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      ShellRoute(
+        builder: (context, state, child) {
+          return MainBottomNavigation(child: child);
+        },
+        routes: [
+          GoRoute(
+            path: '/home',
+            name: 'home',
+            builder: (context, state) => const HomeScreen(),
+          ),
+          GoRoute(
+            path: '/doctors',
+            name: 'doctors',
+            builder: (context, state) => const DoctorsScreen(),
+            routes: [
+              // GoRoute(
+              //   path: 'search',
+              //   name: 'home_search',
+              //   builder: (context, state) => const SearchScreen(),
+              // ),
+            ],
+          ),
+          GoRoute(
+            path: '/questions',
+            name: 'questions',
+            builder: (context, state) => const LetsStartScreen(),
+            routes: [
+              GoRoute(
+                path: 'question_one',
+                name: 'question_one',
+                builder: (context, state) => const QuestionOneScreen(),
+              ),
+              GoRoute(
+                path: 'question_two',
+                name: 'question_two',
+                builder: (context, state) => const QuestionTwoScreen(),
+              ),
+              GoRoute(
+                path: 'question_three',
+                name: 'question_three',
+                builder: (context, state) => const QuestionThreeScreen(),
+              ),
+            ],
+          ),
+          // GoRoute(
+          //   path: '/calendar',
+          //   name: 'calendar',
+          //   builder: (context, state) => const CalendarScreen(),
+          // ),
+        ],
+      ),
+    ],
+  );
+}
+//GoRouter.of(context).push(Approuter.KSearchView);
