@@ -3,6 +3,7 @@ import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_age_of_child.dart';
+import 'package:app/core/widgets/Label_and_text_field_password.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_widget.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
@@ -31,6 +32,7 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   bool checkBox = false;
   bool obscureText = false;
+  
   void togglePasswordView() {
     setState(() {
       obscureText = !obscureText;
@@ -146,7 +148,9 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
-                    LabelAndTextField(
+                    LabelAndTextFieldPassword(
+                      onPressed: togglePasswordView,
+                      obscureText: obscureText,
                         onChanged: (data) {
                           widget.user.passowrd = data;
                           widget.user.passwordConfirmation = data;

@@ -1,6 +1,5 @@
 import 'package:app/features/forget_password/presentation/views/forget_password_screen.dart';
 import 'package:app/features/forget_password/presentation/views/new_password_screen.dart';
-import 'package:app/features/forget_password/presentation/views/otp_screen.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_screen.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_three.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_two.dart';
@@ -74,19 +73,7 @@ abstract class Approuter {
           },
         ),
       ),
-      GoRoute(
-        path: otp,
-        pageBuilder: (context, state) => CustomTransitionPage(
-          key: state.pageKey,
-          child: const OtpScreen(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      ),
+      
        GoRoute(
         path: newPassword,
         pageBuilder: (context, state) => CustomTransitionPage(

@@ -2,6 +2,7 @@ import 'package:app/core/utlis/api_service.dart';
 import 'package:app/features/sign%20up/data/data%20source/remote_data_source.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class RemoteDataSourceImp implements RemoteDataSource {
   ApiService apiService;
@@ -19,13 +20,8 @@ class RemoteDataSourceImp implements RemoteDataSource {
           "role": user.role
         },
         isFormData: false);
-    print("Name: ${user.name}");
-    print("Email: ${user.email}");
-    print("Password: ${user.passowrd}");
-    print("Password Confirmation: ${user.passwordConfirmation}");
-    print("Phone Number: ${user.phoneNumber}");
-    print("Role: ${user.role}");
-    return responseString.data;
+    debugPrint('${responseString.data['Preview URL']}');
+    return responseString.data['message'];
   }
 
   @override

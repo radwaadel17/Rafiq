@@ -47,8 +47,8 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
         else if (state is SignInCubitSucsessState){
           ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Text('valid user'),
+                          
+                          content: Text('User Log In ....'),
                         ),
                       );
         }
