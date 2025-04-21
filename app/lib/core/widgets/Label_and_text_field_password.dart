@@ -36,7 +36,7 @@ class LabelAndTextFieldPassword extends StatelessWidget {
             controller: controller,
             validator: (value) {
               if (value?.isEmpty ?? true) {
-                return 'This field is required';
+                return 'هذا الحقل مطلوب';
               } else {
                 return null;
               }

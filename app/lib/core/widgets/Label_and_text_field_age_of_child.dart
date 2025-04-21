@@ -32,7 +32,7 @@ class LabelAndTextFieldAge extends StatelessWidget {
             controller: controller,
             validator: (value) {
               if (value?.isEmpty ?? true) {
-                return 'This field is required';
+                return 'Tهذا الحقل مطلوب';
               }
               final age = int.tryParse(value ?? '');
               if (age == null || age < 0 || age > 15) {

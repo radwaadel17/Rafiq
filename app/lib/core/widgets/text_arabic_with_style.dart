@@ -16,7 +16,7 @@ class TextArabicWithStyle extends StatelessWidget {
     return Text(
       text ,
       style: textsyle,
-
+      textAlign: textAlign ?? TextAlign.right,
     );
   }
 }

@@ -21,6 +21,8 @@ class ForgetPasswordBody extends StatefulWidget {
 
 class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
   TextEditingController textEditingController = TextEditingController();
+  GlobalKey<FormState> globalKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
@@ -70,58 +72,74 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                               onTap: () {
                                 GoRouter.of(context).pop();
                               },
-                              child: Image.asset(AppImages.blueArrowBack)))
+                              child: Padding(
+                                padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                                child: Transform(
+                                  transform: Matrix4.identity()..scale(-1.0, 1.0),
+                                  child: Image.asset(AppImages.blueArrowBack)),
+                              )))
                     ],
                   ),
                 )),
               ),
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: context.screenHeight * 0.035,
-                    ),
-                    SizedBox(
-                        height: context.screenHeight * 0.21,
-                        child: const Image(
-                            image: AssetImage(AppImages.forgetPassowrd))),
-                    SizedBox(
-                      height: context.screenHeight * 0.015,
-                    ),
-                    TextArabicWithStyle(
-                        text: 'تعيين كلمة مرور جديدة',
-                        textsyle: Styles.textstyle18),
-                    TextArabicWithStyle(
-                        text: 'ادخل رقم الهاتف او البريد الالكتروني للمتابعة',
-                        textsyle: Styles.textstyle12
-                            .copyWith(color: Colors.black.withOpacity(0.66))),
-                    SizedBox(
-                      height: context.screenHeight * 0.035,
-                    ),
-                    LabelAndTextField(
-                        controller: textEditingController,
-                        text: 'البريد الالكتروني أو رقم الهاتف',
-                        hintText: 'ادخل بريدك الالكتروني أو رقم هاتفك'),
-                    const Spacer(
-                      flex: 3,
-                    ),
-                    SizedBox(
-                        width: context.screenWidth * 0.9,
-                        child: CustomButton(
-                          check: state is ForgetPasswordLoadingState ? true : false,
-                          text: 'إرسال طلب تغيير كلمة المرور',
-                          onPressed: () {
-                            BlocProvider.of<ForgetPasswordCubit>(context)
-                                .forgetPassword(
-                                    email: textEditingController.text);
-                          },
-                        )),
-                    const Spacer(
-                      flex: 1,
-                    ),
-                  ],
+                child: Form(
+                  key: globalKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: context.screenHeight * 0.035,
+                      ),
+                      SizedBox(
+                          height: context.screenHeight * 0.21,
+                          child: const Image(
+                              image: AssetImage(AppImages.forgetPassowrd))),
+                      SizedBox(
+                        height: context.screenHeight * 0.015,
+                      ),
+                      TextArabicWithStyle(
+                          text: 'تعيين كلمة مرور جديدة',
+                          textsyle: Styles.textstyle18),
+                      TextArabicWithStyle(
+                          text: 'ادخل رقم الهاتف او البريد الالكتروني للمتابعة',
+                          textsyle: Styles.textstyle12
+                              .copyWith(color: Colors.black.withOpacity(0.66))),
+                      SizedBox(
+                        height: context.screenHeight * 0.035,
+                      ),
+                      LabelAndTextField(
+                          controller: textEditingController,
+                          text: 'البريد الالكتروني أو رقم الهاتف',
+                          hintText: 'ادخل بريدك الالكتروني أو رقم هاتفك'),
+                      const Spacer(
+                        flex: 3,
+                      ),
+                      SizedBox(
+                          width: context.screenWidth * 0.9,
+                          child: CustomButton(
+                            check: state is ForgetPasswordLoadingState ? true : false,
+                            text: 'إرسال طلب تغيير كلمة المرور',
+                            onPressed: () {
+                               if (globalKey.currentState!.validate()){
+                                 globalKey.currentState!.save();
+                                  BlocProvider.of<ForgetPasswordCubit>(context)
+                                  .forgetPassword(
+                                      email: textEditingController.text);
+                               }
+                               else{
+                                  autovalidateMode = AutovalidateMode.always;
+                                  setState(() {});
+                               }
+                             
+                            },
+                          )),
+                      const Spacer(
+                        flex: 1,
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],
