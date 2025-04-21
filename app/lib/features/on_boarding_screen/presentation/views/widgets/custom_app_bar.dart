@@ -15,13 +15,14 @@ class CustomAppBar extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 24.h),
         child: Row(
           children: [
-            const Spacer(flex: 3,),
-            TextArabicWithStyle(text: 'أنتَ تكون', textsyle: Styles.textstyle22.copyWith(fontWeight: FontWeight.normal)),
-            const Spacer(flex: 2,),
+            const Spacer(flex: 1,),
              SizedBox(
               height: 12.h,
               child: Image.asset(AppImages.blueArrowBack)),
-             const  Spacer(flex: 1,),
+            const Spacer(flex: 2,),
+             
+               TextArabicWithStyle(text: 'أنتَ تكون', textsyle: Styles.textstyle22.copyWith(fontWeight: FontWeight.normal)),
+             const  Spacer(flex: 3,),
           ],
         ),
       )

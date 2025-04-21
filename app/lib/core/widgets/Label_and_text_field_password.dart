@@ -24,7 +24,7 @@ class LabelAndTextFieldPassword extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextArabicWithStyle(
               text: text,
@@ -44,7 +44,7 @@ class LabelAndTextFieldPassword extends StatelessWidget {
             textAlign: TextAlign.right,
             textDirection: TextDirection.rtl,
             decoration: InputDecoration(
-              prefixIcon: IconButton(
+              suffixIcon: IconButton(
                 icon: Icon(
                   obscureText ? Icons.visibility : Icons.visibility_off,
                 ),

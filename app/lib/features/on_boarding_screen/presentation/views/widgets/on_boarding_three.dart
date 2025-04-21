@@ -47,7 +47,7 @@ class OnBoardingThree extends StatelessWidget {
                                 'أنشطة تفاعلية ممتعة في رَفِيق لمساعدة طفلك على التعلم والنمو.',
                             textsyle: context.screenHeight < 700
                                 ? Styles.textstyle24.copyWith(fontSize: 20.sp)
-                                : Styles.textstyle18,
+                                : Styles.textstyle24,
                             textAlign: TextAlign.center,
                           ))
                     ],

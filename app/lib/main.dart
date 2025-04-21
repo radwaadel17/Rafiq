@@ -42,7 +42,6 @@ class RafeekApp extends StatelessWidget {
           
         ],
         child: MaterialApp.router(
-          // ignore: deprecated_member_use
           locale : const Locale('ar'),
           localizationsDelegates: const [
                 S.delegate,

@@ -13,11 +13,10 @@ class TextArabicWithStyle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(textDirection: TextDirection.rtl, 
-    child: Text(
+    return Text(
       text ,
       style: textsyle,
-      textAlign: textAlign ?? TextAlign.right,
-    ));
+
+    );
   }
 }

@@ -19,18 +19,12 @@ class _CheckBoxState extends State<CheckBox> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Row(
+          
           children: [
-            TextArabicWithStyle(
-                text: ' الشروط والأحكـام',
-                textsyle: Styles.textstyle12
-                    .copyWith(fontSize: 14.sp, color: colorApp)),
-            TextArabicWithStyle(
-                text: 'اوافق على',
-                textsyle: Styles.textstyle12.copyWith(fontSize: 14.sp)),
-            Checkbox(
+             Checkbox(
               value: widget.check,
               onChanged: widget.onChanged,
               shape: RoundedRectangleBorder(
@@ -39,6 +33,15 @@ class _CheckBoxState extends State<CheckBox> {
               side: const BorderSide(color: colorApp, width: 2),
               checkColor: Colors.white, 
               activeColor: colorApp, ),
+              TextArabicWithStyle(
+                text: 'اوافق على',
+                textsyle: Styles.textstyle12.copyWith(fontSize: 14.sp)),
+            TextArabicWithStyle(
+                text: ' الشروط والأحكـام',
+                textsyle: Styles.textstyle12
+                    .copyWith(fontSize: 14.sp, color: colorApp)),
+          
+           
           ],
         )
       ],

@@ -20,8 +20,12 @@ class SignUpCustomAppBar extends StatelessWidget {
             const Spacer(
               flex: 2,
             ),
+            SizedBox(height: 12.h, child: Image.asset(AppImages.blueArrowBack)),
+            const Spacer(
+              flex: 1,
+            ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextArabicWithStyle(
                     text: 'إنشاء حساب جديد', textsyle: Styles.textstyle18),
@@ -30,10 +34,6 @@ class SignUpCustomAppBar extends StatelessWidget {
                     textsyle: Styles.textstyle12),
               ],
             ),
-            const Spacer(
-              flex: 1,
-            ),
-            SizedBox(height: 12.h, child: Image.asset(AppImages.blueArrowBack)),
             const Spacer(
               flex: 2,
             ),

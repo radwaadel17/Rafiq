@@ -55,6 +55,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
       },
       builder: (context, state) {
         return Scaffold(
+          
           body: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
@@ -106,6 +107,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 16.w),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               GestureDetector(
                                 onTap: () {
@@ -113,7 +115,6 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                                       .push(Approuter.forgetPassword);
                                 },
                                 child: TextArabicWithStyle(
-                                  textAlign: TextAlign.left,
                                     text: 'هل نسيت كلمة السر؟ ',
                                     textsyle: Styles.textstyle12.copyWith(
                                         color: const Color(0xff575757),
@@ -147,6 +148,11 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                             TextArabicWithStyle(
+                                text: 'ليس لديك حساب؟ ',
+                                textsyle: Styles.textstyle18.copyWith(
+                                    fontSize: 14.sp,
+                                    color: const Color(0xff575757))),
                             GestureDetector(
                                 onTap: () {
                                   GoRouter.of(context).push(Approuter.youAre);
@@ -155,11 +161,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                                     text: 'انشاء حساب ',
                                     textsyle: Styles.textstyle18
                                         .copyWith(fontSize: 14.sp))),
-                            TextArabicWithStyle(
-                                text: 'ليس لديك حساب؟ ',
-                                textsyle: Styles.textstyle18.copyWith(
-                                    fontSize: 14.sp,
-                                    color: const Color(0xff575757))),
+                           
                           ],
                         ),
                         SizedBox(

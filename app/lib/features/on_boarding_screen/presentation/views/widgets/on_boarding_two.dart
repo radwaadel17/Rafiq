@@ -40,7 +40,7 @@ class OnBoardingTwo extends StatelessWidget {
                                 'شارك تجربتك وتواصل مع آباء آخرين عبر رَفِيق للحصول على دعم وحلول عملية.',
                             textsyle: context.screenHeight < 700
                                 ? Styles.textstyle24.copyWith(fontSize: 20.sp)
-                                : Styles.textstyle18,
+                                : Styles.textstyle24,
                             textAlign: TextAlign.center,
                           )),
                       SizedBox(
@@ -76,17 +76,6 @@ class OnBoardingTwo extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                      height: 12.h,
-                      child: Transform(
-                          alignment: Alignment.center,
-                          transform: Matrix4.identity()..scale(-1.0, 1.0),
-                          child: GestureDetector(
-                              onTap: () {
-                                GoRouter.of(context)
-                                    .pushReplacement(Approuter.onBoardingOne);
-                              },
-                              child: Image.asset(AppImages.blueArrowBack)))),
                   GestureDetector(
                     onTap: () {
                       GoRouter.of(context).push(Approuter.onBoardingThree);
@@ -106,6 +95,18 @@ class OnBoardingTwo extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                      height: 12.h,
+                      child: Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.identity()..scale(-1.0, 1.0),
+                          child: GestureDetector(
+                              onTap: () {
+                                GoRouter.of(context)
+                                    .pushReplacement(Approuter.onBoardingOne);
+                              },
+                              child: Image.asset(AppImages.blueArrowBack)))),
+                  
                 ],
               )),
         ],
