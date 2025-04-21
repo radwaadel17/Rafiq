@@ -1,5 +1,5 @@
-import 'package:app/features/forget_password/domain/repos/forget_password_repo.dart';
-import 'package:app/features/forget_password/presentation/manager/forget%20password%20cubit/forget_password_states.dart';
+import 'package:app/features/update_password/domain/repos/forget_password_repo.dart';
+import 'package:app/features/update_password/presentation/manager/forget%20password%20cubit/forget_password_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {

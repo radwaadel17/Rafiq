@@ -1,6 +1,6 @@
 import 'package:app/core/errors/faluire_model.dart';
-import 'package:app/features/forget_password/data/data%20sources/remote_data_source_forget.dart';
-import 'package:app/features/forget_password/domain/repos/forget_password_repo.dart';
+import 'package:app/features/update_password/data/data%20sources/remote_data_source_forget.dart';
+import 'package:app/features/update_password/domain/repos/forget_password_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
