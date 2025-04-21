@@ -35,7 +35,7 @@ class SignUpCustomAppBar extends StatelessWidget {
             ),
             SizedBox(height: 12.h, child: Image.asset(AppImages.blueArrowBack)),
             const Spacer(
-              flex: 1,
+              flex: 2,
             ),
           ],
         )),

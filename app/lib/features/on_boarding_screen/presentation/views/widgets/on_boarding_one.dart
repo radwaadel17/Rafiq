@@ -59,7 +59,7 @@ class OnBoardingOne extends StatelessWidget {
                                 ' تواصل مع أطباء متخصصين لمتابعة حالة طفلك ووضع خطط علاجية مخصصة بسهولة.',
                             textsyle: context.screenHeight < 700
                                 ? Styles.textstyle24.copyWith(fontSize: 20.sp)
-                                : Styles.textstyle24,
+                                : Styles.textstyle18,
                             textAlign: TextAlign.center,
                           ))
                     ],

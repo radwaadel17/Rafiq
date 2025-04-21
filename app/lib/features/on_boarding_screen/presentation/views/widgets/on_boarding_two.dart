@@ -40,7 +40,7 @@ class OnBoardingTwo extends StatelessWidget {
                                 'شارك تجربتك وتواصل مع آباء آخرين عبر رَفِيق للحصول على دعم وحلول عملية.',
                             textsyle: context.screenHeight < 700
                                 ? Styles.textstyle24.copyWith(fontSize: 20.sp)
-                                : Styles.textstyle24,
+                                : Styles.textstyle18,
                             textAlign: TextAlign.center,
                           )),
                       SizedBox(
