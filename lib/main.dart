@@ -29,7 +29,6 @@ class RafeekApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
@@ -39,7 +38,7 @@ class RafeekApp extends StatelessWidget {
           BlocProvider(create: (context) => SignInCubit(getIt<SignInRepoImp>())),
         ],
         child: MaterialApp.router(
-         // locale : Locale('ar'),
+          locale : const Locale('ar'),
            localizationsDelegates: const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -47,7 +46,7 @@ class RafeekApp extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: S.delegate.supportedLocales,
-          locale: DevicePreview.locale(context),
+          //locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
           routerConfig: Approuter.router,
           debugShowCheckedModeBanner: false,
