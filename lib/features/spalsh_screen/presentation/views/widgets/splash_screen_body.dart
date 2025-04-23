@@ -44,7 +44,7 @@ class _SpalshScreenBodyState extends State<SpalshScreenBody>
     animationController1.dispose();
     animationController2.dispose();
     animationController3.dispose();
-    animationController3.dispose();
+    animationController4.dispose();
   }
  void navigateTohomeview() {
     Future.delayed(const Duration(seconds: 9), () {
