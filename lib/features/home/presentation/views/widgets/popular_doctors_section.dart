@@ -1,8 +1,10 @@
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/home/presentation/views/widgets/grid_doctor_item.dart';
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class PopularDoctorsSection extends StatelessWidget {
   const PopularDoctorsSection({super.key});
@@ -37,7 +39,7 @@ class PopularDoctorsSection extends StatelessWidget {
             builder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: (){
-                  
+                  GoRouter.of(context).push(Approuter.doctorDetails);
                 },
                 child: const GridDoctorItem());
             }),
