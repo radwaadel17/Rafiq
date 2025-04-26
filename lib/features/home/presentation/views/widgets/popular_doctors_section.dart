@@ -35,7 +35,11 @@ class PopularDoctorsSection extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             builder: (BuildContext context, int index) {
-              return const GridDoctorItem();
+              return GestureDetector(
+                onTap: (){
+                  
+                },
+                child: const GridDoctorItem());
             }),
       ],
     );
