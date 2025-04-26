@@ -19,3 +19,16 @@ class DoctorDetailsBody extends StatelessWidget {
   }
 }
 
+class ContactDocRow extends StatelessWidget {
+  const ContactDocRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        
+      ],
+    );
+  }
+}
+
