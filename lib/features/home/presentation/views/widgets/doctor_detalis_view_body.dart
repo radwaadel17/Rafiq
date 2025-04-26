@@ -1,4 +1,5 @@
 import 'package:app/core/widgets/custom_app_bar.dart';
+import 'package:app/features/home/presentation/views/widgets/doctor_photo_container.dart';
 import 'package:flutter/material.dart';
 class DoctorDetailsBody extends StatelessWidget {
   const DoctorDetailsBody({super.key});
@@ -10,7 +11,9 @@ class DoctorDetailsBody extends StatelessWidget {
        SliverToBoxAdapter(
         child: CustomAppBar(txt: 'تفاصيل الدكتور'),
        ),
-       
+      SliverToBoxAdapter(
+        child:  DoctorPhotoContainer(),
+      )
      ],
     );
   }

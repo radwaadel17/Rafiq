@@ -187,17 +187,7 @@ abstract class Approuter {
               ),
             ],
           ),
-          // GoRoute(
-          //   path: '/calendar',
-          //   name: 'calendar',
-          //   builder: (context, state) => const CalendarScreen(),
-          // ),
-
-
-        ],
-      ),
-
-      GoRoute(
+          GoRoute(
         path: doctorDetails,
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
@@ -210,6 +200,17 @@ abstract class Approuter {
           },
         ),
       ),
+          // GoRoute(
+          //   path: '/calendar',
+          //   name: 'calendar',
+          //   builder: (context, state) => const CalendarScreen(),
+          // ),
+
+
+        ],
+      ),
+
+      
     ],
   );
 }
