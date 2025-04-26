@@ -80,6 +80,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/4.png
   AssetGenImage get a4 => const AssetGenImage('assets/images/4.png');
 
+  /// File path: assets/images/Group.png
+  AssetGenImage get group => const AssetGenImage('assets/images/Group.png');
+
+  /// File path: assets/images/Vector (2).png
+  AssetGenImage get vector2 =>
+      const AssetGenImage('assets/images/Vector (2).png');
+
+  /// File path: assets/images/Vector.png
+  AssetGenImage get vector => const AssetGenImage('assets/images/Vector.png');
+
   /// File path: assets/images/alarm.png
   AssetGenImage get alarm => const AssetGenImage('assets/images/alarm.png');
 
@@ -169,6 +179,9 @@ class $AssetsImagesGen {
         a2,
         a3,
         a4,
+        group,
+        vector2,
+        vector,
         alarm,
         arrowBackBlue,
         cat,
