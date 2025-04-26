@@ -15,7 +15,7 @@ class RondedStarContainer extends StatelessWidget {
       width: 24,
       height: 24,
       decoration: BoxDecoration(
-          color: textFieldColor, borderRadius: BorderRadius.circular(50)),
+          color: secondaryColor, borderRadius: BorderRadius.circular(50)),
       child: Center(
           child: SvgPicture.asset(
         Assets.icons.roundedStar,

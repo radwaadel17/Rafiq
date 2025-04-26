@@ -15,7 +15,7 @@ class NameAndSpecifyofDoc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.only(left:  32.w, right: 16.w) ,
       child: Row(
         children: [
           Column(
@@ -34,7 +34,7 @@ class NameAndSpecifyofDoc extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(),
+          const Spacer(flex: 1,),
           Column(
             children: [
               const RondedStarContainer(),
@@ -42,6 +42,8 @@ class NameAndSpecifyofDoc extends StatelessWidget {
                 '4.5',
                 style: Styles.textstyle12.copyWith(color: colorApp),
               ),
+          
+
             ],
           ),
         ],

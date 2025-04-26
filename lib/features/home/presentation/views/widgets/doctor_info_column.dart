@@ -38,6 +38,9 @@ class DoctorInfo extends StatelessWidget {
               textAlign: TextAlign.right, // يخلي الكتابة من اليمين لليسار
               style: Styles.textstyle12.copyWith(color: colorApp)),
         ),
+        SizedBox(
+          height: 8.h,
+        ),
        SizedBox(
         width: context.screenWidth*0.9,
         child: const CustomButton(text: 'حجز'))
