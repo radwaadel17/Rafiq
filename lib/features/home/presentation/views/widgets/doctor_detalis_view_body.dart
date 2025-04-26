@@ -9,7 +9,8 @@ class DoctorDetailsBody extends StatelessWidget {
      slivers: [
        SliverToBoxAdapter(
         child: CustomAppBar(txt: 'تفاصيل الدكتور'),
-       )
+       ),
+       
      ],
     );
   }

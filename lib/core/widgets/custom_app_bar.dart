@@ -3,6 +3,7 @@ import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'dart:math' as math;
 
 
 class CustomAppBar extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 24.h),
+        padding: EdgeInsets.symmetric(vertical: 24.h , horizontal: 16.w),
         child: Row(
           children: [
             const Spacer(flex: 3,),
@@ -20,7 +21,9 @@ class CustomAppBar extends StatelessWidget {
             const Spacer(flex: 2,),
              SizedBox(
               height: 12.h,
-              child: Image.asset(AppImages.blueArrowBack)),
+              child: Transform(
+                transform: Matrix4.rotationY(math.pi),
+                child: Image.asset(AppImages.blueArrowBack))),
              const  Spacer(flex: 1,),
           ],
         ),
