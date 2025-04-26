@@ -42,7 +42,7 @@ class DoctorInfo extends StatelessWidget {
           height: 8.h,
         ),
        SizedBox(
-        width: context.screenWidth*0.9,
+        width: context.screenWidth*0.7,
         child: const CustomButton(text: 'حجز'))
       ],
     );

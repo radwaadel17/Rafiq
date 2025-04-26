@@ -13,11 +13,11 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical:16.h , horizontal: 16.w),
+        padding: EdgeInsets.symmetric(vertical:10.h , horizontal: 16.w),
         child: Row(
           children: [
             const Spacer(flex: 3,),
-            TextArabicWithStyle(text: txt, textsyle: Styles.textstyle22.copyWith(fontWeight: FontWeight.w500)),
+            TextArabicWithStyle(text: txt, textsyle: Styles.textstyle18.copyWith(fontWeight: FontWeight.bold)),
             const Spacer(flex: 2,),
              SizedBox(
               height: 12.h,

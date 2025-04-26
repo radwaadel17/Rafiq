@@ -9,7 +9,7 @@ class ContactDocContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.all(8.0.r),
+      padding:  EdgeInsets.all(5.0.r),
       child: Container(
         height: 33.h,
         width: 34.18.w,
