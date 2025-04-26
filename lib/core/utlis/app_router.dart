@@ -2,6 +2,7 @@ import 'package:app/features/doctors/presentation/views/doctors_screen.dart';
 import 'package:app/features/forget_password/presentation/views/forget_password_screen.dart';
 import 'package:app/features/forget_password/presentation/views/new_password_screen.dart';
 import 'package:app/features/forget_password/presentation/views/otp_screen.dart';
+import 'package:app/features/home/presentation/views/doctor_details.dart';
 import 'package:app/features/home/presentation/views/home_screen.dart';
 import 'package:app/features/main_bottom_navigation/main_bottom_navigation.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_screen.dart';
@@ -30,6 +31,7 @@ abstract class Approuter {
   static const onBoardingThree = '/three';
   static const youAre = '/DoctorOrparents';
   static const mainBottomNavigation = '/MainBottomNavigation';
+  static const doctorDetails = '/doctorDetails';
 
   static final router = GoRouter(
     routes: [
@@ -190,7 +192,23 @@ abstract class Approuter {
           //   name: 'calendar',
           //   builder: (context, state) => const CalendarScreen(),
           // ),
+
+
         ],
+      ),
+
+      GoRoute(
+        path: doctorDetails,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const DoctorDeatailsView(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
       ),
     ],
   );
