@@ -1,3 +1,4 @@
+import 'package:app/core/utlis/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +15,7 @@ class ContactDocContainer extends StatelessWidget {
         height: 33.h,
         width: 34.18.w,
        decoration: BoxDecoration(
-        color:const  Color(0xffB2C3CE),
+        color: secondaryColor,
         borderRadius: BorderRadius.circular(8),
        ),
        child: Center(
