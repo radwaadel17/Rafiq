@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
-
+  const CustomAppBar({super.key, required this.txt});
+   final String txt ;
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -16,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
         child: Row(
           children: [
             const Spacer(flex: 3,),
-            TextArabicWithStyle(text: 'أنتَ تكون', textsyle: Styles.textstyle22.copyWith(fontWeight: FontWeight.normal)),
+            TextArabicWithStyle(text: txt, textsyle: Styles.textstyle22.copyWith(fontWeight: FontWeight.w500)),
             const Spacer(flex: 2,),
              SizedBox(
               height: 12.h,

@@ -1,6 +1,6 @@
 import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/text_style.dart';
-import 'package:app/features/on_boarding_screen/presentation/views/widgets/custom_app_bar.dart';
+import 'package:app/core/widgets/custom_app_bar.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/photo_and_text.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
 import 'package:app/features/sign%20up/presentation/views/sign_up_doctor_screen.dart';
@@ -38,7 +38,7 @@ class _YouAreBodyState extends State<YouAreBody> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 8.h),
-            child: const CustomAppBar(),
+            child: const CustomAppBar(txt: 'أنت تكون',),
           ),
           const Spacer(
             flex: 1,
