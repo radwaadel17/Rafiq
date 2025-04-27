@@ -12,6 +12,24 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Group.svg
+  String get group => 'assets/icons/Group.svg';
+
+  /// File path: assets/icons/Vector (1).svg
+  String get vector1 => 'assets/icons/Vector (1).svg';
+
+  /// File path: assets/icons/Vector (2).svg
+  String get vector2 => 'assets/icons/Vector (2).svg';
+
+  /// File path: assets/icons/Vector (3).svg
+  String get vector3 => 'assets/icons/Vector (3).svg';
+
+  /// File path: assets/icons/Vector (4).svg
+  String get vector4 => 'assets/icons/Vector (4).svg';
+
+  /// File path: assets/icons/Vector.svg
+  String get vector => 'assets/icons/Vector.svg';
+
   /// File path: assets/icons/ai_chat.svg
   String get aiChat => 'assets/icons/ai_chat.svg';
 
@@ -39,6 +57,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/outline_star.svg
   String get outlineStar => 'assets/icons/outline_star.svg';
 
+  /// File path: assets/icons/profile_icon.svg
+  String get profileIcon => 'assets/icons/profile_icon.svg';
+
   /// File path: assets/icons/questions.svg
   String get questions => 'assets/icons/questions.svg';
 
@@ -50,6 +71,12 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<String> get values => [
+        group,
+        vector1,
+        vector2,
+        vector3,
+        vector4,
+        vector,
         aiChat,
         calendar,
         chat,
@@ -59,6 +86,7 @@ class $AssetsIconsGen {
         notificationsOff,
         notificationsOn,
         outlineStar,
+        profileIcon,
         questions,
         roundedStar,
         search
