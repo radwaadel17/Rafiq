@@ -7,8 +7,9 @@ import 'dart:math' as math;
 
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.txt});
+  const CustomAppBar({super.key, required this.txt, this.iconPath});
    final String txt ;
+   final String? iconPath;
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -23,7 +24,7 @@ class CustomAppBar extends StatelessWidget {
               height: 12.h,
               child: Transform(
                 transform: Matrix4.rotationY(math.pi),
-                child: Image.asset(AppImages.blueArrowBack))),
+                child: iconPath!=null ? Image.asset(iconPath!) : Image.asset(AppImages.blueArrowBack))),
              const  Spacer(flex: 1,),
           ],
         ),
