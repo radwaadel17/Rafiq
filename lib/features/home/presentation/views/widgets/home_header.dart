@@ -1,8 +1,10 @@
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -18,9 +20,14 @@ class HomeHeader extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image.asset(
-                Assets.images.userAvatar.path,
-                height: 38,
+              GestureDetector(
+                onTap: (){
+                  GoRouter.of(context).push(Approuter.profile);
+                },
+                child: Image.asset(
+                  Assets.images.userAvatar.path,
+                  height: 38,
+                ),
               ),
               const Gap(8),
               Column(

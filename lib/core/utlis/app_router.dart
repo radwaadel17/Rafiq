@@ -10,6 +10,7 @@ import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_s
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_three.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_two.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/you_are_body.dart';
+import 'package:app/features/profile/presentation/views/profile_view.dart';
 import 'package:app/features/questions/presentation/views/screens/lets_start_screen.dart';
 import 'package:app/features/questions/presentation/views/screens/question_one_screen.dart';
 import 'package:app/features/questions/presentation/views/screens/question_three_screen.dart';
@@ -34,6 +35,7 @@ abstract class Approuter {
   static const mainBottomNavigation = '/MainBottomNavigation';
   static const doctorDetails = '/doctorDetails';
   static const doctorBook = '/doctorBook';
+  static const profile = '/profile';
 
   static final router = GoRouter(
     routes: [
@@ -225,7 +227,19 @@ abstract class Approuter {
         ],
       ),
 
-      
+      GoRoute(
+        path: profile,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const ProfileView(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
     ],
   );
 }

@@ -7,7 +7,7 @@ class ProfileViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-
+        
       ],
     );
   }
