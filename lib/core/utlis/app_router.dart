@@ -1,3 +1,4 @@
+import 'package:app/features/Doctor%20Book/presentation/views/book_view.dart';
 import 'package:app/features/doctors/presentation/views/doctors_screen.dart';
 import 'package:app/features/forget_password/presentation/views/forget_password_screen.dart';
 import 'package:app/features/forget_password/presentation/views/new_password_screen.dart';
@@ -32,6 +33,7 @@ abstract class Approuter {
   static const youAre = '/DoctorOrparents';
   static const mainBottomNavigation = '/MainBottomNavigation';
   static const doctorDetails = '/doctorDetails';
+  static const doctorBook = '/doctorBook';
 
   static final router = GoRouter(
     routes: [
@@ -192,6 +194,19 @@ abstract class Approuter {
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const DoctorDeatailsView(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: doctorBook,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const BookView(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,

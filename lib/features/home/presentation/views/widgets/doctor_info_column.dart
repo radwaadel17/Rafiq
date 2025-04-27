@@ -1,3 +1,4 @@
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
@@ -6,6 +7,7 @@ import 'package:app/features/home/presentation/views/widgets/container_text.dart
 import 'package:app/features/home/presentation/views/widgets/name_and_sp_doc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class DoctorInfo extends StatelessWidget {
   const DoctorInfo({super.key});
@@ -43,7 +45,9 @@ class DoctorInfo extends StatelessWidget {
         ),
        SizedBox(
         width: context.screenWidth*0.7,
-        child: const CustomButton(text: 'حجز'))
+        child: CustomButton(text: 'حجز' , onPressed: (){
+        GoRouter.of(context).push(Approuter.doctorBook);
+        },))
       ],
     );
   }
