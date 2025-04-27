@@ -1,5 +1,7 @@
+import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_app_bar.dart';
+import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_book_date_containers.dart';
 import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_buttons.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +43,15 @@ class BookViewBody extends StatelessWidget {
          SizedBox(
           height: 10.h,
         ),
-      const Buttons()
+      const Buttons(),
+       SizedBox(
+          height: 10.h,
+        ),
+      Center(
+        child: SizedBox(
+          width: context.screenWidth * 0.90,
+          child: const CustomButton(text: 'اكمال الدفع')),
+      )
       ],
     );
   }
