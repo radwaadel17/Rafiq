@@ -13,7 +13,7 @@ class Buttons extends StatefulWidget {
 }
 
 class _ButtonsState extends State<Buttons> {
-  int? isSelected ;
+  int? isSelected;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,18 +48,28 @@ class _ButtonsState extends State<Buttons> {
                     key: ValueKey(isSelected),
                     padding: EdgeInsets.only(top: 16.h),
                     child: Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 16.w),
-                        child: Row(
-                          children: [
-                            Text('سعر الكشف' , style: Styles.textstyle16,) ,
-                            const Spacer(),
-                            isSelected == 0 ? Text('400' , style: Styles.textstyle16,) : Text('600' , style: Styles.textstyle16,) 
-                          ],
-                        ),
-                      )
-                    ),
+                        alignment: Alignment.topRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
+                          child: Row(
+                            children: [
+                              Text(
+                                'سعر الكشف',
+                                style: Styles.textstyle16,
+                              ),
+                              const Spacer(),
+                              isSelected == 0
+                                  ? Text(
+                                      '400',
+                                      style: Styles.textstyle16,
+                                    )
+                                  : Text(
+                                      '600',
+                                      style: Styles.textstyle16,
+                                    )
+                            ],
+                          ),
+                        )),
                   )
                 : const SizedBox.shrink(),
           )

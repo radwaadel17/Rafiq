@@ -40,20 +40,19 @@ class BookViewBody extends StatelessWidget {
             style: Styles.textstyle18.copyWith(fontWeight: FontWeight.w500),
           ),
         ),
-         SizedBox(
+        SizedBox(
           height: 10.h,
         ),
-      const Buttons(),
-       SizedBox(
+        const Buttons(),
+        SizedBox(
           height: 10.h,
         ),
-      Center(
-        child: SizedBox(
-          width: context.screenWidth * 0.90,
-          child: const CustomButton(text: 'اكمال الدفع')),
-      )
+        Center(
+          child: SizedBox(
+              width: context.screenWidth * 0.90,
+              child: const CustomButton(text: 'اكمال الدفع')),
+        )
       ],
     );
   }
-
 }
