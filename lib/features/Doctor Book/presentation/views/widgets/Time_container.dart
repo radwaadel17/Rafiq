@@ -21,7 +21,7 @@ class Time extends StatelessWidget {
               ),
               Text(
                 'الوقت',
-                style: Styles.textstyle18.copyWith(fontWeight: FontWeight.bold),
+                style: Styles.textstyle18.copyWith(),
               ),
               const Spacer(
                 flex: 2,

@@ -22,7 +22,7 @@ class DayAndMonthContainer extends StatelessWidget {
             ),
             Text(
               txt,
-              style: Styles.textstyle18.copyWith(fontWeight: FontWeight.bold),
+              style: Styles.textstyle18,
             ),
             const Spacer(
               flex: 2,

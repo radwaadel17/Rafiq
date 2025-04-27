@@ -1,6 +1,7 @@
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_app_bar.dart';
 import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_book_date_containers.dart';
+import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,14 +21,29 @@ class BookViewBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Text(
             'اختار التاريخ والمعاد المناسب',
-            style: Styles.textstyle18.copyWith(fontWeight: FontWeight.w600),
+            style: Styles.textstyle18.copyWith(fontWeight: FontWeight.w500),
           ),
         ),
         SizedBox(
           height: 10.h,
         ),
-        const RowOfBookDateContainers()
+        const RowOfBookDateContainers(),
+        SizedBox(
+          height: 10.h,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Text(
+            'نوع الحجز',
+            style: Styles.textstyle18.copyWith(fontWeight: FontWeight.w500),
+          ),
+        ),
+         SizedBox(
+          height: 10.h,
+        ),
+      const Buttons()
       ],
     );
   }
+
 }
