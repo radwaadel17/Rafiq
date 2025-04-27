@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DayAndMonthContainer extends StatelessWidget {
-  const DayAndMonthContainer({super.key});
-
+  const DayAndMonthContainer({super.key, required this.txt});
+  final String txt ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +21,7 @@ class DayAndMonthContainer extends StatelessWidget {
               flex: 1,
             ),
             Text(
-              'يوم',
+              txt,
               style: Styles.textstyle18.copyWith(fontWeight: FontWeight.bold),
             ),
             const Spacer(

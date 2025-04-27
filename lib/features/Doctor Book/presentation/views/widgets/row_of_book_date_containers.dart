@@ -15,8 +15,8 @@ class RowOfBookDateContainers extends StatelessWidget {
       height: context.screenHeight * 0.11,
       child: const Row(
         children: [
-          DayAndMonthContainer(),
-          DayAndMonthContainer(),
+          DayAndMonthContainer(txt: 'يوم',),
+          DayAndMonthContainer(txt:  'شهر',),
           Time(),
         ],
       ),
