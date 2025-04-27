@@ -104,6 +104,10 @@ class $AssetsImagesGen {
   AssetGenImage get doctorImage =>
       const AssetGenImage('assets/images/doctor_image.png');
 
+  /// File path: assets/images/edit_icon.png
+  AssetGenImage get editIcon =>
+      const AssetGenImage('assets/images/edit_icon.png');
+
   /// File path: assets/images/facebook_logo.png
   AssetGenImage get facebookLogo =>
       const AssetGenImage('assets/images/facebook_logo.png');
@@ -189,6 +193,7 @@ class $AssetsImagesGen {
         arrowBackBlue,
         cat,
         doctorImage,
+        editIcon,
         facebookLogo,
         forgetPassword,
         giraffe,

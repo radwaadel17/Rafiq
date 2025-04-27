@@ -1,5 +1,5 @@
-
 import 'package:app/features/profile/presentation/views/widgets/header.dart';
+import 'package:app/features/profile/presentation/views/widgets/profile_photo.dart';
 import 'package:flutter/material.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -10,6 +10,7 @@ class ProfileViewBody extends StatelessWidget {
     return const Column(
       children: [
         Header(),
+        ProfilePhoto(),
       ],
     );
   }
