@@ -45,13 +45,13 @@ class HomeHeader extends StatelessWidget {
             children: [
               SvgPicture.asset(Assets.icons.notificationsOn),
               const Gap(18),
-              SvgPicture.asset(Assets.icons.chat),
-              const Gap(18),
               GestureDetector(
                 onTap: (){
                   GoRouter.of(context).push(Approuter.messages);
                 },
-                child: SvgPicture.asset(Assets.icons.menu)),
+                child: SvgPicture.asset(Assets.icons.chat)),
+              const Gap(18),
+              SvgPicture.asset(Assets.icons.menu),
             ],
           )
         ],
