@@ -63,6 +63,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/questions.svg
   String get questions => 'assets/icons/questions.svg';
 
+  /// File path: assets/icons/read_sign.svg
+  String get readSign => 'assets/icons/read_sign.svg';
+
   /// File path: assets/icons/rounded_star.svg
   String get roundedStar => 'assets/icons/rounded_star.svg';
 
@@ -88,6 +91,7 @@ class $AssetsIconsGen {
         outlineStar,
         profileIcon,
         questions,
+        readSign,
         roundedStar,
         search
       ];
