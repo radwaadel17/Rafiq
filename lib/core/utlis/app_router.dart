@@ -6,6 +6,7 @@ import 'package:app/features/forget_password/presentation/views/otp_screen.dart'
 import 'package:app/features/home/presentation/views/doctor_details.dart';
 import 'package:app/features/home/presentation/views/home_screen.dart';
 import 'package:app/features/main_bottom_navigation/main_bottom_navigation.dart';
+import 'package:app/features/messages/presentation/views/messages_view.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_screen.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_three.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_two.dart';
@@ -36,6 +37,7 @@ abstract class Approuter {
   static const doctorDetails = '/doctorDetails';
   static const doctorBook = '/doctorBook';
   static const profile = '/profile';
+  static const messages = '/messages';
 
   static final router = GoRouter(
     routes: [
@@ -226,7 +228,7 @@ abstract class Approuter {
 
         ],
       ),
-
+      
       GoRoute(
         path: profile,
         pageBuilder: (context, state) => CustomTransitionPage(
@@ -240,7 +242,22 @@ abstract class Approuter {
           },
         ),
       ),
+      GoRoute(
+        path: messages,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const MessagesView(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      
     ],
   );
+  
 }
 //GoRouter.of(context).push(Approuter.KSearchView);
