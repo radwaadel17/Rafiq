@@ -155,6 +155,15 @@ class $AssetsImagesGen {
   AssetGenImage get googleLogo =>
       const AssetGenImage('assets/images/google_logo.png');
 
+  /// File path: assets/images/load1.png
+  AssetGenImage get load1 => const AssetGenImage('assets/images/load1.png');
+
+  /// File path: assets/images/load2.png
+  AssetGenImage get load2 => const AssetGenImage('assets/images/load2.png');
+
+  /// File path: assets/images/load3.png
+  AssetGenImage get load3 => const AssetGenImage('assets/images/load3.png');
+
   /// File path: assets/images/log_out.png
   AssetGenImage get logOut => const AssetGenImage('assets/images/log_out.png');
 
@@ -230,6 +239,9 @@ class $AssetsImagesGen {
         forgetPassword,
         giraffe,
         googleLogo,
+        load1,
+        load2,
+        load3,
         logOut,
         note,
         onboardingVector2,

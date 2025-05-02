@@ -1,7 +1,6 @@
 import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/device_size.dart';
-import 'package:app/core/utlis/text_style.dart';
-import 'package:app/core/widgets/text_arabic_with_style.dart';
+import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:math' as math;
@@ -14,16 +13,19 @@ class SignUpCustomAppBar extends StatelessWidget {
     return SizedBox(
       width: context.screenWidth * 0.9,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h),
+        padding: EdgeInsets.only(bottom: 32.h, top: 24.h),
         child: SafeArea(
             child: Row(
-              
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               height: 12.h,
-              child: Transform(
-                  transform: Matrix4.rotationY(math.pi),
-                  child:Image.asset(AppImages.blueArrowBack)),
+              child: Image.asset(AppImages.blueArrowBack),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32.w),
+              child: SizedBox(
+                  height: 8.h, child: Image.asset(Assets.images.load1.path)),
             ),
           ],
         )),
