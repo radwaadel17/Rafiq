@@ -13,6 +13,7 @@ import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widg
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/container_box.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom_app_bar.dart';
+import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -80,14 +81,11 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                   child: SizedBox(
                 height: context.screenHeight * 0.010,
               )),
-              const SliverToBoxAdapter(
-                child: SignUpCustomAppBar(),
+              SliverToBoxAdapter(
+                child: SignUpCustomAppBar(imgPath: Assets.images.load3.path,),
               ),
               SliverToBoxAdapter(child: Center(child: Text("إنشاء حساب جديد" , style: Styles.textstyle18,))) ,
-              SliverToBoxAdapter(
-                  child: SizedBox(
-                height: context.screenHeight * 0.010,
-              )),
+              
               SliverToBoxAdapter(child: Center(child: Text("ادخل جميع بيناتك حتي تتمكن من إنشاء حساب" , style: Styles.textstyle12,))) ,
               SliverToBoxAdapter(
                   child: SizedBox(

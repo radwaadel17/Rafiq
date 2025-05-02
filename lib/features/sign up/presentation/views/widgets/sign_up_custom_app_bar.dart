@@ -1,12 +1,11 @@
 import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/device_size.dart';
-import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpCustomAppBar extends StatelessWidget {
-  const SignUpCustomAppBar({super.key});
-
+  const SignUpCustomAppBar({super.key, required this.imgPath});
+   final String imgPath ;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,7 +23,7 @@ class SignUpCustomAppBar extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 32.w),
               child: SizedBox(
-                  height: 8.h, child: Image.asset(Assets.images.load1.path)),
+                  height: 8.h, child: Image.asset(imgPath)),
             ),
           ],
         )),

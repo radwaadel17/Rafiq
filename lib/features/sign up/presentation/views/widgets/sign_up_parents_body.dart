@@ -12,7 +12,6 @@ import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_
 import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_states_cubit.dart';
 import 'package:app/features/sign%20up/presentation/views/otp_verfication.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
-import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -80,9 +79,9 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                   child: SizedBox(
                 height: context.screenHeight * 0.010,
               )),
-              const SliverToBoxAdapter(
+              /* const SliverToBoxAdapter(
                 child: SignUpCustomAppBar(),
-              ),
+              ), */
               const SliverToBoxAdapter(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

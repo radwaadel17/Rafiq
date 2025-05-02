@@ -201,6 +201,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/slider4.png
   AssetGenImage get slider4 => const AssetGenImage('assets/images/slider4.png');
 
+  /// File path: assets/images/take selfi.png
+  AssetGenImage get takeSelfi =>
+      const AssetGenImage('assets/images/take selfi.png');
+
+  /// File path: assets/images/upload.png
+  AssetGenImage get upload => const AssetGenImage('assets/images/upload.png');
+
   /// File path: assets/images/user_avatar.png
   AssetGenImage get userAvatar =>
       const AssetGenImage('assets/images/user_avatar.png');
@@ -253,6 +260,8 @@ class $AssetsImagesGen {
         slider2,
         slider3,
         slider4,
+        takeSelfi,
+        upload,
         userAvatar,
         vectorOnboarding1,
         whiteArrowBack,
