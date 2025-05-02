@@ -216,7 +216,13 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GestureDetector(
+                      
+                        TextArabicWithStyle(
+                            text: 'لديك حساب بالفعل ؟',
+                            textsyle: Styles.textstyle18.copyWith(
+                                fontSize: 14.sp,
+                                color: const Color(0xff575757))),
+                                GestureDetector(
                             onTap: () {
                               GoRouter.of(context).push(Approuter.signIn);
                             },
@@ -224,11 +230,6 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                                 text: ' تسجيل الدخول',
                                 textsyle: Styles.textstyle18
                                     .copyWith(fontSize: 14.sp))),
-                        TextArabicWithStyle(
-                            text: 'لديك حساب بالفعل ؟',
-                            textsyle: Styles.textstyle18.copyWith(
-                                fontSize: 14.sp,
-                                color: const Color(0xff575757))),
                       ],
                     )),
               ),

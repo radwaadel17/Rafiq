@@ -4,6 +4,7 @@ import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'dart:math' as math;
 
 class SignUpCustomAppBar extends StatelessWidget {
   const SignUpCustomAppBar({super.key});
@@ -16,11 +17,26 @@ class SignUpCustomAppBar extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 8.h),
         child: SafeArea(
             child: Row(
+              
           children: [
-            const Spacer(
-              flex: 2,
+            SizedBox(
+              height: 12.h,
+              child: Transform(
+                  transform: Matrix4.rotationY(math.pi),
+                  child:Image.asset(AppImages.blueArrowBack)),
             ),
-            Column(
+          ],
+        )),
+      ),
+    );
+  }
+}
+
+
+/*
+
+
+Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 TextArabicWithStyle(
@@ -30,16 +46,5 @@ class SignUpCustomAppBar extends StatelessWidget {
                     textsyle: Styles.textstyle12),
               ],
             ),
-            const Spacer(
-              flex: 1,
-            ),
-            SizedBox(height: 12.h, child: Image.asset(AppImages.blueArrowBack)),
-            const Spacer(
-              flex: 1,
-            ),
-          ],
-        )),
-      ),
-    );
-  }
-}
+
+*/
