@@ -20,8 +20,9 @@ class ContainerBox extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          TextArabicWithStyle(text: 'المتابعة ب ', textsyle: Styles.textstyle16) ,
+
           SizedBox(height: 24.h, child: Image.asset(image)),
-          TextArabicWithStyle(text: 'المتابعة ب ', textsyle: Styles.textstyle16)
         ],
       ),
     );

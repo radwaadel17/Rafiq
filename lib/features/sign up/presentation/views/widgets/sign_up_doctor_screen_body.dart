@@ -101,13 +101,13 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                     flex: 2,
                   ),
                   ContainerBox(
-                    image: AppImages.googleLogo,
+                    image: AppImages.facebookLogo,
                   ),
                   Spacer(
                     flex: 1,
                   ),
                   ContainerBox(
-                    image: AppImages.facebookLogo,
+                    image: AppImages.googleLogo,
                   ),
                   Spacer(
                     flex: 2,
@@ -188,7 +188,7 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child: CustomButton(
-                    check: state is SignUpLoadingStatesCubit ? true : false,
+                   // check: state is SignUpLoadingStatesCubit ? true : false,
                     onPressed: () {
                       if (globalKey.currentState!.validate()) {
                         globalKey.currentState!.save();
@@ -204,8 +204,9 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                           );
                           return;
                         }
-                        BlocProvider.of<SignUpCubit>(context)
-                            .signUp(widget.user);
+                        GoRouter.of(context).push(Approuter.doctorIdentity);
+                        /* BlocProvider.of<SignUpCubit>(context)
+                            .signUp(widget.user); */
                       } else {
                         autovalidateMode = AutovalidateMode.always;
 
