@@ -83,6 +83,16 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
               const SliverToBoxAdapter(
                 child: SignUpCustomAppBar(),
               ),
+              SliverToBoxAdapter(child: Center(child: Text("إنشاء حساب جديد" , style: Styles.textstyle18,))) ,
+              SliverToBoxAdapter(
+                  child: SizedBox(
+                height: context.screenHeight * 0.010,
+              )),
+              SliverToBoxAdapter(child: Center(child: Text("ادخل جميع بيناتك حتي تتمكن من إنشاء حساب" , style: Styles.textstyle12,))) ,
+              SliverToBoxAdapter(
+                  child: SizedBox(
+                height: context.screenHeight * 0.010,
+              )),
               const SliverToBoxAdapter(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

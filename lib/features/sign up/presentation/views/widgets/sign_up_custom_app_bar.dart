@@ -3,7 +3,6 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'dart:math' as math;
 
 class SignUpCustomAppBar extends StatelessWidget {
   const SignUpCustomAppBar({super.key});
@@ -13,7 +12,7 @@ class SignUpCustomAppBar extends StatelessWidget {
     return SizedBox(
       width: context.screenWidth * 0.9,
       child: Padding(
-        padding: EdgeInsets.only(bottom: 32.h, top: 24.h),
+        padding: EdgeInsets.only(bottom: 24.h, top: 24.h),
         child: SafeArea(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
