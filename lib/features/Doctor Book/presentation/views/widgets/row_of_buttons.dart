@@ -1,5 +1,5 @@
 import 'package:app/core/utlis/text_style.dart';
-import 'package:app/features/Doctor%20Book/presentation/views/widgets/book_type_bottun.dart';
+import 'package:app/core/widgets/book_type_bottun.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,8 +1,8 @@
 import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
-import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/conatiner_doctor_identity.dart';
+import 'package:app/features/sign%20up/presentation/views/widgets/text_column.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,17 +19,7 @@ class ColumnDoctorIdentity extends StatelessWidget {
       hasScrollBody: false,
       child: Column(
         children: [
-          Text(
-            'التحقق من الهوية',
-            style: Styles.textstyle18,
-          ),
-          SizedBox(
-              width: context.screenWidth * 0.80,
-              child: Text(
-                'ستتم مشاركة معلوماتك مع فريق الخبراء الطبيين لدينا للتحقق من هويتك ك طبيب',
-                style: Styles.textstyle12,
-                textAlign: TextAlign.center,
-              )),
+          const TextColumn(txt: 'التحقق من الهوية', txt2: 'ستتم مشاركة معلوماتك مع فريق الخبراء الطبيين لدينا للتحقق من هويتك ك طبيب'),
           SizedBox(
             height: 60.h,
           ),
