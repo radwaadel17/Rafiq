@@ -54,6 +54,7 @@ class RafeekApp extends StatelessWidget {
           theme: ThemeData(
             fontFamily: 'Alexandria',
             scaffoldBackgroundColor: Colors.white,
+            
           ),
         ),
       ),

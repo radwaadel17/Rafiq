@@ -1,3 +1,4 @@
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_button.dart';
@@ -5,6 +6,7 @@ import 'package:app/features/sign%20up/presentation/views/widgets/conatiner_doct
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ColumnDoctorIdentity extends StatelessWidget {
   const ColumnDoctorIdentity({
@@ -46,7 +48,11 @@ class ColumnDoctorIdentity extends StatelessWidget {
           const Spacer(flex: 1),
           SizedBox(
               width: context.screenWidth * 0.95,
-              child: const CustomButton(text: 'تأكيد')),
+              child: CustomButton(
+                onPressed: (){
+                GoRouter.of(context).push(Approuter.doctorManageAppointment);
+                },
+                text: 'تأكيد')),
           const Spacer(
             flex: 2,
           ),

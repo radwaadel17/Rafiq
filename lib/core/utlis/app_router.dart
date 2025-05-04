@@ -18,6 +18,7 @@ import 'package:app/features/questions/presentation/views/screens/question_three
 import 'package:app/features/questions/presentation/views/screens/question_two_screen.dart';
 import 'package:app/features/sign%20in/presentation/views/sign_in_screen.dart';
 import 'package:app/features/sign%20up/presentation/views/doctor_identity.dart';
+import 'package:app/features/sign%20up/presentation/views/doctor_manage_appoinment.dart';
 import 'package:app/features/spalsh_screen/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -40,6 +41,8 @@ abstract class Approuter {
   static const profile = '/profile';
   static const messages = '/messages';
   static const doctorIdentity = '/docIdentity';
+  static const doctorManageAppointment = '/docAppointments';
+
 
   static final router = GoRouter(
     routes: [
@@ -262,6 +265,19 @@ abstract class Approuter {
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const DoctorIdentity(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: doctorManageAppointment,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const DoctorAppointmentsView(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,
