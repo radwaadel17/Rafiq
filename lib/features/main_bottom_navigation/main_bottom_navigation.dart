@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:app/core/utlis/constants.dart';
+import 'package:app/features/chat%20bot/presentation/views/widgets/chat_bot.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -43,7 +44,8 @@ class _MainBottomNavigationState extends State<MainBottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
-    final location = GoRouter.of(context).routerDelegate.currentConfiguration.uri.toString();
+    final location =
+        GoRouter.of(context).routerDelegate.currentConfiguration.uri.toString();
     final selectedIndex = _calculateSelectedIndex(location);
 
     return Scaffold(
@@ -51,7 +53,23 @@ class _MainBottomNavigationState extends State<MainBottomNavigation> {
       backgroundColor: Colors.white,
       body: widget.child,
       floatingActionButton: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          showDialog(
+            barrierDismissible: true,
+            context: context,
+            builder: (context) {
+              return FadeTransition(
+                opacity: Tween(begin: 0.0, end: 1.0).animate(
+                  CurvedAnimation(
+                    parent: ModalRoute.of(context)!.animation!,
+                    curve: Curves.easeIn,
+                  ),
+                ),
+                child: const Chat(),
+              );
+            },
+          );
+        },
         child: Padding(
           padding: const EdgeInsets.only(top: 75),
           child: Container(
