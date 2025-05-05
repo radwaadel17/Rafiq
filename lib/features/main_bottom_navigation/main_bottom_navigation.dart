@@ -65,7 +65,7 @@ class _MainBottomNavigationState extends State<MainBottomNavigation> {
                     curve: Curves.easeIn,
                   ),
                 ),
-                child: const Chat(),
+                child: const ChatBot(),
               );
             },
           );

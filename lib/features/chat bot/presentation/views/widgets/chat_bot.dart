@@ -1,10 +1,11 @@
 import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
+import 'package:app/features/chat%20bot/presentation/views/text_field_chat_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Chat extends StatelessWidget {
-  const Chat({super.key});
+class ChatBot extends StatelessWidget {
+  const ChatBot({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,14 @@ class Chat extends StatelessWidget {
           color: secondaryColor,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(30.r) , topRight: Radius.circular(30.r) )
         ),
+        child: const Expanded(child: Column(
+          children: [
+          Spacer(),
+          TextFieldChatBot()
+          ],
+        )),
       ),
     );
   }
 }
+

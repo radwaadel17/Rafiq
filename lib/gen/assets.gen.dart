@@ -185,6 +185,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/otp.png
   AssetGenImage get otp => const AssetGenImage('assets/images/otp.png');
 
+  /// File path: assets/images/send_icon.png
+  AssetGenImage get sendIcon =>
+      const AssetGenImage('assets/images/send_icon.png');
+
   /// File path: assets/images/sign_in_photo.png
   AssetGenImage get signInPhoto =>
       const AssetGenImage('assets/images/sign_in_photo.png');
@@ -255,6 +259,7 @@ class $AssetsImagesGen {
         onboardingVector3,
         onboardingBackground1,
         otp,
+        sendIcon,
         signInPhoto,
         slider1,
         slider2,
