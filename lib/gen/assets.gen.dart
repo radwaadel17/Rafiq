@@ -132,6 +132,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/cat.png
   AssetGenImage get cat => const AssetGenImage('assets/images/cat.png');
 
+  /// File path: assets/images/chat_ai_logo.png
+  AssetGenImage get chatAiLogo =>
+      const AssetGenImage('assets/images/chat_ai_logo.png');
+
   /// File path: assets/images/doctor_image.png
   AssetGenImage get doctorImage =>
       const AssetGenImage('assets/images/doctor_image.png');
@@ -244,6 +248,7 @@ class $AssetsImagesGen {
         alarm,
         arrowBackBlue,
         cat,
+        chatAiLogo,
         doctorImage,
         editIcon,
         facebookLogo,
