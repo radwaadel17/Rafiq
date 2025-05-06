@@ -6,22 +6,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextFieldChatBot extends StatelessWidget {
   const TextFieldChatBot({
-    super.key,
+    super.key, required this.textEditingController, this.onPressed, 
   });
-
+  final TextEditingController textEditingController ;
+  final Function()? onPressed ;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: textEditingController,
       decoration: InputDecoration(
+        
         filled: true ,
         fillColor: Colors.white,
         hintText: 'اكتب رسالتك هنا..',
-        suffixIcon: SizedBox(
-          height: 20.h,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
-            child: Image.asset(Assets.images.sendIcon.path , fit: BoxFit.contain,),
-          )),
+        suffixIcon: GestureDetector(
+          onTap: onPressed ,
+          child: SizedBox(
+            height: 20.h,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child: Image.asset(Assets.images.sendIcon.path , fit: BoxFit.contain,),
+            )),
+        ),
           suffixIconConstraints: const BoxConstraints(
             maxHeight:30,
             minHeight: 2,

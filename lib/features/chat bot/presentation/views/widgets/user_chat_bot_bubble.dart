@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserMessageChatBotBubble extends StatelessWidget {
-  const UserMessageChatBotBubble({super.key});
-
+  const UserMessageChatBotBubble({super.key, required this.msg});
+  final String msg;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -18,7 +18,7 @@ class UserMessageChatBotBubble extends StatelessWidget {
           decoration: BoxDecoration(
               color: colorApp, borderRadius: BorderRadius.circular(5.r)),
           child: Text(
-            'طفلي يعاني من  ..',
+            msg ,
             style: Styles.textstyle14.copyWith(color: Colors.white),
           ),
         )),
