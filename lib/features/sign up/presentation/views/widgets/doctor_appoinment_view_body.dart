@@ -37,11 +37,53 @@ class DoctorAppointmentViewBody extends StatelessWidget {
         const SubtitleWidget(
           txt: 'مدة الموعد',
         ),
-        const ListTimeContainer()
+        const ListTimeContainer(),
+        const SubtitleWidget(
+          txt: 'ساعات العمل المتاحة',
+        ),
       ],
     );
   }
 }
 
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
 
+/* class SimplePopupMenu extends StatefulWidget {
+  @override
+  State<SimplePopupMenu> createState() => _SimplePopupMenuState();
+}
+class _SimplePopupMenuState extends State<SimplePopupMenu> {
+  String txt = 'افتح الثائمة';
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) => Align(
+        alignment: Alignment.centerRight, // حسب مكان الزر اللي تحبيه
+        child: PopupMenuButton<String>(
+          onSelected: (value) {
+            setState(() {
+              txt = value;
+            });
+            print("Selected: $value");
+          },
+          itemBuilder: (context) => const [
+            PopupMenuItem(value: 'option1', child: Text('اختيار 1')),
+            PopupMenuItem(value: 'option2', child: Text('اختيار 2')),
+          ],
+          child: TextButton(
+            onPressed: null,
+            child: Text(txt),
+          ),
+        ),
+      ),
+    );
+  }
+}*/

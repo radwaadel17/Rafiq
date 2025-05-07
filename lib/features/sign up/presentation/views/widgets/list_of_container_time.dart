@@ -51,12 +51,14 @@ class _ListTimeContainerState extends State<ListTimeContainer> {
                   });
                 },
               ),
-              ContainerTime(
+             ContainerTime(
                 selectedIndex: ch == 3,
+                txt: "مخصص",
                 onPressed: (){
-                  ch = 3 ;
+                  setState(() {
+                    ch = 3 ;
+                  });
                 },
-                txt: 'مخصص',
               ),
             ],
           )),
