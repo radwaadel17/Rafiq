@@ -43,14 +43,14 @@ class UserMessage extends StatelessWidget {
                   children: [
                     Text(
                       'من حوالي 3 شهور ',
-                      style: Styles.textstyle12.copyWith(color: textFieldColor),
+                      style: Styles.textstyle12.copyWith(color: greyColor),
                     ),
                     SizedBox(
                       width: 10.w,
                     ),
                     Text(
                       '1س',
-                      style: Styles.textstyle12.copyWith(color: textFieldColor),
+                      style: Styles.textstyle12.copyWith(color: greyColor),
                     ),
                   ],
                 ),

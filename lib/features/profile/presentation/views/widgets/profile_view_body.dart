@@ -28,7 +28,7 @@ class ProfileViewBody extends StatelessWidget {
       Center(
         child: Text(
           'Anas_Ahmed@gmail.com',
-          style: Styles.textstyle16.copyWith(color: textFieldColor),
+          style: Styles.textstyle16.copyWith(color: greyColor),
         ),
       ),
       SizedBox(

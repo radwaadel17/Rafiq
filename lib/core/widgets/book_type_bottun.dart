@@ -34,7 +34,7 @@ class _BookTypeButtonState extends State<BookTypeButton> {
             widget.txt,
             style: Styles.textstyle18.copyWith(
                 color:
-                    widget.isSelected == true ? Colors.white : textFieldColor),
+                    widget.isSelected == true ? Colors.white : greyColor),
           )),
     ));
   }

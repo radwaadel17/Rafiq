@@ -1,4 +1,5 @@
 import 'package:app/features/sign%20up/presentation/views/widgets/consultion_fee_text_field.dart';
+import 'package:app/features/sign%20up/presentation/views/widgets/list_of_container_time.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/row_of_buttons.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/sign_up_custom_app_bar.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/subtitle_widget.dart';
@@ -33,13 +34,14 @@ class DoctorAppointmentViewBody extends StatelessWidget {
           txt: 'رسوم الأستشارة',
         ),
         const ConsultionFeeTextField(),
-
         const SubtitleWidget(
           txt: 'مدة الموعد',
         ),
+        const ListTimeContainer()
       ],
     );
   }
 }
+
 
 
