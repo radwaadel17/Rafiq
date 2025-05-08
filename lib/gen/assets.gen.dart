@@ -57,6 +57,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/outline_star.svg
   String get outlineStar => 'assets/icons/outline_star.svg';
 
+  /// File path: assets/icons/popupmenuIcon.svg
+  String get popupmenuIcon => 'assets/icons/popupmenuIcon.svg';
+
   /// File path: assets/icons/profile_icon.svg
   String get profileIcon => 'assets/icons/profile_icon.svg';
 
@@ -89,6 +92,7 @@ class $AssetsIconsGen {
         notificationsOff,
         notificationsOn,
         outlineStar,
+        popupmenuIcon,
         profileIcon,
         questions,
         readSign,

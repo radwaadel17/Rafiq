@@ -188,7 +188,7 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                   child: CustomButton(
                    // check: state is SignUpLoadingStatesCubit ? true : false,
                     onPressed: () {
-                      if (globalKey.currentState!.validate()) {
+                      /* if (globalKey.currentState!.validate()) {
                         globalKey.currentState!.save();
                         if (checkBox == false) {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -201,15 +201,15 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                             ),
                           );
                           return;
-                        }
+                        } */
                         GoRouter.of(context).push(Approuter.doctorIdentity);
                         /* BlocProvider.of<SignUpCubit>(context)
                             .signUp(widget.user); */
-                      } else {
+                      /* } else {
                         autovalidateMode = AutovalidateMode.always;
 
                         setState(() {});
-                      }
+                      } */
                     },
                     text: 'انشاء حساب',
                   ),
