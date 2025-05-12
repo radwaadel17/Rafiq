@@ -15,7 +15,6 @@ import 'package:app/features/profile/presentation/views/profile_view.dart';
 import 'package:app/features/questions/presentation/views/screens/lets_start_screen.dart';
 import 'package:app/features/questions/presentation/views/screens/question_one_screen.dart';
 import 'package:app/features/questions/presentation/views/screens/question_three_screen.dart';
-import 'package:app/features/questions/presentation/views/screens/question_two_screen.dart';
 import 'package:app/features/sign%20in/presentation/views/sign_in_screen.dart';
 import 'package:app/features/sign%20up/presentation/views/doctor_identity.dart';
 import 'package:app/features/sign%20up/presentation/views/doctor_manage_appoinment.dart';
@@ -186,11 +185,7 @@ abstract class Approuter {
                 name: 'question_one',
                 builder: (context, state) => const QuestionOneScreen(),
               ),
-              GoRoute(
-                path: 'question_two',
-                name: 'question_two',
-                builder: (context, state) => const QuestionTwoScreen(),
-              ),
+              
               GoRoute(
                 path: 'question_three',
                 name: 'question_three',
@@ -224,6 +219,7 @@ abstract class Approuter {
           },
         ),
       ),
+      
           // GoRoute(
           //   path: '/calendar',
           //   name: 'calendar',

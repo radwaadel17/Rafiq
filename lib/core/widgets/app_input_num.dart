@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppInput extends StatelessWidget {
-  const AppInput({
+class AppInputNum extends StatelessWidget {
+  const AppInputNum({
     super.key,
     required this.onChanged,
     required this.controller,
@@ -18,6 +20,8 @@ class AppInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: TextInputType.number, // <-- يفتح لوحة الأرقام
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly], // <-- يمنع أي حرف غير الأرقام
       obscureText: false,
       onChanged: onChanged,
       controller: controller,

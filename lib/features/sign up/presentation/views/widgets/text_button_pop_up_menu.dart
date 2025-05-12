@@ -23,8 +23,11 @@ class TextButtonPopUpMenu extends StatelessWidget {
           child: Row(
             children: [
               Text(
+               
                 txt == null ? (ch == true ? '12:00 صباحاً' : '12:00 مساءً') : txt! ,
                 style: Styles.textstyle12.copyWith(color: colorApp),
+                 overflow: TextOverflow.ellipsis,
+                 maxLines: 1,
               ),
               const Spacer(
                 flex: 2,

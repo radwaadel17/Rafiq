@@ -19,12 +19,12 @@ class RemoteDataSourceImp implements RemoteDataSource {
           "role": user.role
         },
         isFormData: false);
-    print("Name: ${user.name}");
+  /*   print("Name: ${user.name}");
     print("Email: ${user.email}");
     print("Password: ${user.passowrd}");
     print("Password Confirmation: ${user.passwordConfirmation}");
     print("Phone Number: ${user.phoneNumber}");
-    print("Role: ${user.role}");
+    print("Role: ${user.role}"); */
     return responseString.data;
   }
 

@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
   const CustomButton({
-    super.key, required this.text, this.onPressed, this.customColor,  this.check,
+    super.key, required this.text, this.onPressed, this.customColor,  this.check, this.borderRadius,
   });
   final String text;
   final void Function()? onPressed ;
   final Color? customColor;
   final bool? check ;
+  final BorderRadius? borderRadius;
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -24,7 +25,7 @@ class _CustomButtonState extends State<CustomButton> {
         style: TextButton.styleFrom(
           backgroundColor:widget.customColor ?? colorApp,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: widget.borderRadius == null ? BorderRadius.circular(5)  : widget.borderRadius!,
              side: widget.customColor != null 
               ? const BorderSide(color: colorApp, width: 2) 
               : BorderSide.none, 

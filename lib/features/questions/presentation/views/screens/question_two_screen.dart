@@ -1,81 +1,209 @@
+import 'package:app/core/utlis/constants.dart';
+import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
-import 'package:app/features/questions/presentation/views/widgets/cat_image.dart';
-import 'package:app/features/questions/presentation/views/widgets/giraffe_image.dart';
+import 'package:app/core/widgets/custom_button.dart';
+import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
+import 'package:app/features/questions/presentation/views/widgets/check_container.dart';
+import 'package:app/features/questions/presentation/views/widgets/giraffe_photo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 
+// ignore: must_be_immutable
 class QuestionTwoScreen extends StatefulWidget {
-  const QuestionTwoScreen({super.key});
+  QuestionTwoScreen(ageView, {super.key, required this.qsEntity});
+  QsEntity qsEntity ;
 
   @override
   State<QuestionTwoScreen> createState() => _QuestionTwoScreenState();
 }
 
 class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
-  final List<String> options = const [
-    'أقل من سنتين',
-    '2-4 سنوات',
-    '5-7 سنوات',
-    '8 سنوات فأكثر',
+  final List<Map<String, dynamic>> sections = [
+    {
+      'title': 'التفاعل الاجتماعي واللعب',
+      'questions': [
+        'هل يبدي الطفل اهتمامًا بالأطفال الآخرين (مثل اللعب معهم أو مشاهدتهم)؟',
+        'هل يستمتع الطفل بلعبة الغميضة أو الكشف (مثل إخفاء الوجه والظهور)؟',
+        'هل يمارس الطفل اللعب التخيلي (مثل التظاهر باستخدام الهاتف أو الدمى)؟'
+      ],
+    },
+    {
+      'title': 'النشاط البدني',
+      'questions': [
+        'هل يستمتع الطفل بالتأرجح أو التقافز (مثل على الأرجوحة أو عند حمله)؟',
+        'هل يحب الطفل التسلق على الأشياء (مثل السلالم أو الأثاث)؟'
+      ],
+    },
+    {
+      'title': 'التواصل والمشاركة',
+      'questions': [
+        'هل يشير الطفل بإصبع السبابة لطلب شيء (مثل لعبة أو طعام)؟',
+        'هل يشير الطفل بإصبع السبابة لإظهار الاهتمام (مثل الإشارة إلى طائر)؟',
+        'هل يلعب الطفل بشكل صحيح مع الألعاب الصغيرة (مثل تركيب المكعبات)؟',
+        'هل يحضر الطفل أشياء ليظهرها لك (مثل لعبة أو كتاب)؟',
+        'هل يحافظ الطفل على التواصل البصري معك لأكثر من ثانية في كل مرة؟'
+      ],
+    },
   ];
+
+  int currentSectionIndex = 0;
+  int currentQuestionIndex = 0;
+  List<List<bool?>> allAnswers = [];
+  bool? selectedAnswer;
+
+  @override
+  void initState() {
+    super.initState();
+    allAnswers = List.generate(
+      sections.length,
+      (i) => List<bool?>.filled(sections[i]['questions'].length, null),
+    );
+  }
+
+  void _next() {
+    if (selectedAnswer == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.red,
+          content: Text(
+            'الرجاء اختيار إجابة قبل الانتقال للسؤال التالي',
+            style: Styles.textstyle12.copyWith(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      );
+      return;
+    }
+
+    allAnswers[currentSectionIndex][currentQuestionIndex] = selectedAnswer;
+
+    if (currentQuestionIndex <
+        sections[currentSectionIndex]['questions'].length - 1) {
+      setState(() {
+        currentQuestionIndex++;
+        selectedAnswer = null;
+      });
+    } else if (currentSectionIndex < sections.length - 1) {
+      setState(() {
+        currentSectionIndex++;
+        currentQuestionIndex = 0;
+        selectedAnswer = null;
+      });
+    } else {
+       print({'${widget.qsEntity.name}'});
+       print({'${widget.qsEntity.age}'});
+        widget.qsEntity = QsEntity(
+        qs1: allAnswers[0][0],
+        qs2: allAnswers[0][1],
+        qs3: allAnswers[0][2],
+        qs4: allAnswers[1][0],
+        qs5: allAnswers[1][1],
+        qs6: allAnswers[2][0],
+        qs7: allAnswers[2][1],
+        qs8: allAnswers[2][2],
+        qs9: allAnswers[2][3],
+        qs10: allAnswers[2][4],
+      );
+       // Debugging line
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final section = sections[currentSectionIndex];
+    final question = section['questions'][currentQuestionIndex];
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.only(top: 10),
-        child: Column(
-          children: [
-            const CatImage(
-              flex: 1,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    Text(
-                      "عمر الصغير",
-                      style: Styles.textstyle20,
+      body: Stack(
+        children: [
+          const CatPhoto(),
+          const GiraffePhoto(),
+          Positioned(
+            right: 0,
+            left: 0,
+            top: context.screenHeight * 0.30,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 24.w),
+                    height: context.screenHeight * 0.052,
+                    decoration: BoxDecoration(
+                      color: secondaryColor,
+                      borderRadius: BorderRadius.circular(50.r),
                     ),
-                    const Gap(20),
-                    MediaQuery.removePadding(
-                      context: context,
-                      removeTop: true,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: options.length,
-                        itemBuilder: (context, index) {
-                          return Align(
-                            alignment: AlignmentDirectional.centerStart,
-                            child: TextButton(
-                              onPressed: () {
-                                WidgetsBinding.instance.addPostFrameCallback((_) {
-                                  context.goNamed('question_three');
-                                });
-                              },
-                              child: Text(
-                                "•  ${options[index]}",
-                                style: Styles.textstyle16.copyWith(
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          );
-                        },
+                    child: Center(
+                      child: Text(
+                        '${currentSectionIndex + 1}- ${section['title']}',
+                        style: Styles.textstyle18,
                       ),
                     ),
-                  ],
+                  ),
                 ),
+                const Gap(20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  child: Text(
+                    question,
+                    textAlign: TextAlign.center,
+                    style: Styles.textstyle18,
+                  ),
+                ),
+                const Gap(20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.w),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () => setState(() {
+                          selectedAnswer = true;
+                        }),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('نعم', style: Styles.textstyle18),
+                            CheckContainer(isSelected: selectedAnswer == true),
+                          ],
+                        ),
+                      ),
+                      const Gap(10),
+                      GestureDetector(
+                        onTap: () => setState(() {
+                          selectedAnswer = false;
+                        }),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('لا', style: Styles.textstyle18),
+                            CheckContainer(isSelected: selectedAnswer == false),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Positioned(
+            right: 0,
+            bottom: 0,
+            left: 0,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32.w),
+              child: CustomButton(
+                text: 'التالي',
+                borderRadius: BorderRadius.circular(50.r),
+                onPressed: _next,
               ),
             ),
-            const GiraffeImage(
-              flex: 1,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
