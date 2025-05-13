@@ -61,12 +61,13 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                   borderRadius: BorderRadius.circular(50.r),
                   onPressed: () {
                     qsEntity.name = textEditingController.text;
+                    print('${qsEntity.name}');
                             Navigator.push(
                               context,
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) {
-                                  return  AgeView(qsEntity: qsEntity ,);
+                                  return AgeView(qsEntity: qsEntity ,);
                                 },
                                 transitionsBuilder: (context, animation,
                                     secondaryAnimation, child) {

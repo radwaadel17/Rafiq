@@ -21,7 +21,7 @@ class CustomButtonQs extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 32.w),
         child: CustomButton(
           onPressed: onPressed,
-          text: 'التالي',
+          text: txt!,
           borderRadius: BorderRadius.circular(50.r),
         ),
       ),

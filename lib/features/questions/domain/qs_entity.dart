@@ -2,20 +2,21 @@ class QsEntity {
   String? name;
   int? age; 
   String? relation;
-  final bool? qs1;
-  final bool? qs2;
-  final bool? qs3;
-  final bool? qs4;
-  final bool? qs5;
-  final bool? qs6;
-  final bool? qs7;
-  final bool? qs8;
-  final bool? qs9;
-  final bool? qs10;
+   bool? qs1;
+   bool? qs2;
+   bool? qs3;
+   bool? qs4;
+   bool? qs5;
+   bool? qs6;
+   bool? qs7;
+   bool? qs8;
+   bool? qs9;
+   bool? qs10;
   String? gender ;
-  String? residence;
+  String? ethnicity;
   bool? disease;
   bool? haveHisory;
+  String? residence;
 
   QsEntity({
     this.name,
@@ -32,8 +33,9 @@ class QsEntity {
     this.qs9,
     this.qs10,
     this.gender,
-    this.residence,
+    this.ethnicity,
     this.disease,
     this.haveHisory,
+    this.residence,
   });
 }

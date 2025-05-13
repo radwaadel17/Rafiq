@@ -26,7 +26,7 @@ class TextButtonPopUpMenuRelation extends StatelessWidget {
               Text(
 
                 txt!=null ? txt! : 'العلاقة' ,
-                style: Styles.textstyle20.copyWith(color: colorApp),
+                style: Styles.textstyle18.copyWith(color: colorApp),
                  overflow: TextOverflow.ellipsis,
                  maxLines: 1,
               ),

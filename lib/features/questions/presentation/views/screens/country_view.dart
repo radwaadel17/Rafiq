@@ -7,8 +7,8 @@ class CountryView extends StatelessWidget {
   final QsEntity qsEntity ;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-     body: CountryViewBody(),
+    return Scaffold(
+     body: CountryViewBody(qsEntity: qsEntity,),
     );
   }
 }

@@ -13,8 +13,8 @@ import 'package:gap/gap.dart';
 
 // ignore: must_be_immutable
 class QuestionTwoScreen extends StatefulWidget {
-  QuestionTwoScreen( {super.key, required this.qsEntity});
-  QsEntity qsEntity ;
+ const QuestionTwoScreen( {super.key, required this.qsEntity});
+ final QsEntity qsEntity ;
 
   @override
   State<QuestionTwoScreen> createState() => _QuestionTwoScreenState();
@@ -46,6 +46,14 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
         'هل يلعب الطفل بشكل صحيح مع الألعاب الصغيرة (مثل تركيب المكعبات)؟',
         'هل يحضر الطفل أشياء ليظهرها لك (مثل لعبة أو كتاب)؟',
         'هل يحافظ الطفل على التواصل البصري معك لأكثر من ثانية في كل مرة؟'
+      ],
+    },
+     {
+      'title': '📋 معلومات إضافية',
+      'questions': [
+         "هل عانى من الصفراء عند الولادة؟",
+         "هل يوجد تاريخ عائلي مع التوحد؟",
+         "هل تم استخدام التطبيق من قبل ؟",
       ],
     },
   ];
@@ -95,18 +103,18 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
         selectedAnswer = null;
       });
     } else {
-        widget.qsEntity = QsEntity(
-        qs1: allAnswers[0][0],
-        qs2: allAnswers[0][1],
-        qs3: allAnswers[0][2],
-        qs4: allAnswers[1][0],
-        qs5: allAnswers[1][1],
-        qs6: allAnswers[2][0],
-        qs7: allAnswers[2][1],
-        qs8: allAnswers[2][2],
-        qs9: allAnswers[2][3],
-        qs10: allAnswers[2][4],
-      );
+        widget.qsEntity.qs1 = allAnswers[0][0];
+        widget.qsEntity.qs2 = allAnswers[0][1];
+        widget.qsEntity.qs3 = allAnswers[0][2];
+        widget.qsEntity.qs4 = allAnswers[1][0];
+        widget.qsEntity.qs5 = allAnswers[1][1];
+        widget.qsEntity.qs6 = allAnswers[2][0];
+        widget.qsEntity.qs7 = allAnswers[2][1];
+        widget.qsEntity.qs8 = allAnswers[2][2];
+        widget.qsEntity.qs9 = allAnswers[2][3];
+        widget.qsEntity.qs10 = allAnswers[2][4];
+        widget.qsEntity.disease = allAnswers[3][0];
+        widget.qsEntity.haveHisory = allAnswers[3][1];
        Navigator.push(
                   context,
                   PageRouteBuilder(

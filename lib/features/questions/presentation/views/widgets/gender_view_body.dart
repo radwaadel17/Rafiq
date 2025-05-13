@@ -44,10 +44,12 @@ class _GenderViewBodyState extends State<GenderViewBody> {
               children: [
                 const AddtionalInfoContainer(),
                 const Gap(20),
-                Text(
-                  '👶🏻 الجنس',
+                 Text(
+                  ' 👶🏻 اختر الجنس' ,
                   style: Styles.textstyle20,
                 ),
+               const Gap(10),
+                 
                 PopupMenuButton<String>(
                   offset: const Offset(-100, 50),
                   color: Colors.white,
@@ -66,7 +68,7 @@ class _GenderViewBodyState extends State<GenderViewBody> {
         CustomButtonQs(
             txt: 'التالي',
             onPressed: () {
-              widget.qsEntity.relation = txt;
+              widget.qsEntity.gender = txt;
               Navigator.push(
                 context,
                 PageRouteBuilder(

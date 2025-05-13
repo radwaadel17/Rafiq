@@ -1,7 +1,7 @@
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/questions/domain/qs_entity.dart';
-import 'package:app/features/questions/presentation/views/screens/addtional_qs.dart';
+import 'package:app/features/questions/presentation/views/screens/country_view.dart';
 import 'package:app/features/questions/presentation/views/widgets/addtional_info_container.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/custom_button_qs.dart';
@@ -19,60 +19,23 @@ class OriginViewBody extends StatefulWidget {
 }
 
 class _OriginViewBodyState extends State<OriginViewBody> {
-  final List<String> residenceOptions = [
-    'أستراليا',
-    'أفغانستان',
-    'أوروبا',
-    'إيطاليا',
-    'الأردن',
-    'الأرجنتين',
-    'الإمارات العربية المتحدة',
-    'البحرين',
-    'البرازيل',
-    'السويد',
-    'الصين',
-    'العراق',
-    'الكويت',
-    'المكسيك',
-    'المملكة العربية السعودية',
-    'المملكة المتحدة',
-    'النمسا',
-    'اليابان',
-    'باكستان',
-    'بنغلاديش',
-    'بوتان',
-    'تركيا',
-    'جزر الولايات المتحدة النائية',
-    'جزيرة مان',
-    'جورجيا',
-    'روسيا',
-    'رومانيا',
-    'سوريا',
-    'جنوب إفريقيا',
-    'غانا',
-    'قطر',
-    'كندا',
-    'كوريا الجنوبية',
-    'كوستاريكا',
-    'لاتفيا',
-    'لبنان',
-    'ليبيا',
-    'مالطا',
-    'ماليزيا',
-    'مصر',
-    'نيبال',
-    'نيوزيلندا',
-    'هولندا',
-    'الولايات المتحدة',
-    'عمان',
-    'الفلبين'
+  final List<String> ethnicityOptions = [
+   'آسيوي',
+  'أفريقي',
+  'أوروبي',
+  'تركي',
+  'جزر المحيط الهادئ',
+  'جنوب آسيوي',
+  'عربي',
+  'غير معروف',
+  'لاتيني'
   ];
 
-  late List<PopupMenuItem<String>> residenceMenuItems;
+  late List<PopupMenuItem<String>> ethnicityMenuItems;
   @override
   initState() {
     super.initState();
-    residenceMenuItems = residenceOptions
+    ethnicityMenuItems = ethnicityOptions
         .map((String option) => PopupMenuItem<String>(
               value: option,
               child: Text(
@@ -103,14 +66,14 @@ class _OriginViewBodyState extends State<OriginViewBody> {
                   'العرق / الاأصل الجغرافي',
                   style: Styles.textstyle20,
                 ),
-                const Gap(20),
+                const Gap(10),
                 PopupMenuButton<String>(
                     color: Colors.white,
                     onSelected: (value) => setState(() {
                           txt = value;
                           // print('Current selected value: $txt');
                         }),
-                    itemBuilder: (context) => residenceMenuItems,
+                    itemBuilder: (context) => ethnicityMenuItems,
                     offset: const Offset(-100, 50),
                     child: TextButtonPopUpMenuOrigin(txt: txt)),
               ],
@@ -118,12 +81,12 @@ class _OriginViewBodyState extends State<OriginViewBody> {
         CustomButtonQs(
             txt: 'التالي',
             onPressed: () {
-              widget.qsEntity.residence = txt;
+              widget.qsEntity.ethnicity = txt;
               Navigator.push(
                 context,
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) {
-                    return AddtionalQsView(qsEntity: widget.qsEntity);
+                    return CountryView(qsEntity: widget.qsEntity);
                   },
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) {

@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class TextButtonPopUpMenuOrigin extends StatelessWidget {
-  const TextButtonPopUpMenuOrigin({super.key, this.txt, this.ch});
-  final String? txt ; 
-  final bool? ch ;
+class TextButtonPopUpMenuCountry extends StatelessWidget {
+  const TextButtonPopUpMenuCountry({super.key, this.txt, this.ch});
+  final String? txt;
+  final bool? ch;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,15 +24,12 @@ class TextButtonPopUpMenuOrigin extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-
-                txt!=null ? txt! : 'العرق / الأصل الجغرافي' ,
+                txt != null ? txt! : 'اختر بلد الإقامة',
                 style: Styles.textstyle18.copyWith(color: colorApp),
-                 overflow: TextOverflow.ellipsis,
-                 maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
-             
               SvgPicture.asset(Assets.icons.popupmenuIcon),
-             
             ],
           )),
     );
