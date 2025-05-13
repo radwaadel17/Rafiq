@@ -14,6 +14,7 @@ class QsEntity {
   final bool? qs10;
   String? gender ;
   String? residence;
+  bool? disease;
 
   QsEntity({
     this.name,
@@ -31,5 +32,6 @@ class QsEntity {
     this.qs10,
     this.gender,
     this.residence,
+    this.disease,
   });
 }
