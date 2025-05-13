@@ -1,6 +1,7 @@
 class QsEntity {
   String? name;
   int? age; 
+  String? relation;
   final bool? qs1;
   final bool? qs2;
   final bool? qs3;
@@ -15,6 +16,7 @@ class QsEntity {
   QsEntity({
     this.name,
     this.age,
+    this.relation,
     this.qs1,
     this.qs2,
     this.qs3,

@@ -12,7 +12,7 @@ import 'package:gap/gap.dart';
 
 // ignore: must_be_immutable
 class QuestionTwoScreen extends StatefulWidget {
-  QuestionTwoScreen(ageView, {super.key, required this.qsEntity});
+  QuestionTwoScreen( {super.key, required this.qsEntity});
   QsEntity qsEntity ;
 
   @override
@@ -93,8 +93,6 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
         selectedAnswer = null;
       });
     } else {
-       print({'${widget.qsEntity.name}'});
-       print({'${widget.qsEntity.age}'});
         widget.qsEntity = QsEntity(
         qs1: allAnswers[0][0],
         qs2: allAnswers[0][1],
