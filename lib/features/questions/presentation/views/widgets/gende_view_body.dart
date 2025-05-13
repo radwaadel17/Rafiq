@@ -6,7 +6,7 @@ import 'package:app/features/questions/presentation/views/widgets/addtional_info
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/custom_button_qs.dart';
 import 'package:app/features/questions/presentation/views/widgets/giraffe_photo.dart';
-import 'package:app/features/questions/presentation/views/widgets/pop_up_menu_gender.dart';
+import 'package:app/features/questions/presentation/views/widgets/text_button_pop_up_menu_gender.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -48,11 +48,18 @@ class _GenderViewBodyState extends State<GenderViewBody> {
                   '👶🏻 الجنس',
                   style: Styles.textstyle20,
                 ),
-                PopUpMenuGender(
-                  genderMenuItems: genderMenuItems,
+                PopupMenuButton<String>(
+                  offset: const Offset(-100, 50),
+                  color: Colors.white,
+                  itemBuilder: (context) => genderMenuItems,
                   onSelected: (value) {
-                    txt = value;
+                    setState(() {
+                      txt = value;
+                    });
                   },
+                  child: TextButtonPopUpMenuGender(
+                    txt: txt,
+                  ),
                 ),
               ],
             )),
