@@ -15,6 +15,7 @@ class QsEntity {
   String? gender ;
   String? residence;
   bool? disease;
+  bool? haveHisory;
 
   QsEntity({
     this.name,
@@ -33,5 +34,6 @@ class QsEntity {
     this.gender,
     this.residence,
     this.disease,
+    this.haveHisory,
   });
 }

@@ -23,27 +23,36 @@ class _AddtionalQsBodyState extends State<AddtionalQsBody> {
     "هل عانى من الصفراء عند الولادة؟",
     "هل يوجد تاريخ عائلي مع التوحد؟",
   ];
+  List<bool> ans = [];
   int selectIndex = 0;
   bool? selectedAnswer;
-
-  void next(){
-   if(selectIndex < addtionalQs.length - 1){
-    setState(() {
-      selectIndex++;
-      selectedAnswer = null ;
-    });
-   }
-   else {
-    widget.qsEntity.disease = selectedAnswer ;
-
-   }
+  @override
+  void initState() {
+    super.initState();
+    ans = List<bool>.filled(addtionalQs.length, false);
   }
+
+  void next() {
+    if (selectedAnswer != null) {
+      ans[selectIndex] = selectedAnswer!;
+    }
+    if (selectIndex < addtionalQs.length - 1) {
+      setState(() {
+        selectIndex++;
+        selectedAnswer = null;
+      });
+    } else {
+      widget.qsEntity.disease = ans[0];
+      widget.qsEntity.haveHisory = ans[1];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-       const CatPhoto(),
-       const GiraffePhoto(),
+        const CatPhoto(),
+        const GiraffePhoto(),
         Positioned(
           left: 0,
           right: 0,
@@ -67,7 +76,7 @@ class _AddtionalQsBodyState extends State<AddtionalQsBody> {
                   children: [
                     GestureDetector(
                       onTap: () => setState(() {
-                         selectedAnswer = true;
+                        selectedAnswer = true;
                       }),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,10 +105,11 @@ class _AddtionalQsBodyState extends State<AddtionalQsBody> {
             ],
           ),
         ),
-
-        CustomButtonQs(txt: 'التالي', onPressed:(){
-          next();
-        }),
+        CustomButtonQs(
+            txt: 'التالي',
+            onPressed: () {
+              next();
+            }),
       ],
     );
   }
