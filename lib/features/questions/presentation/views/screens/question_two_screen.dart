@@ -3,6 +3,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/presentation/views/screens/gender.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/check_container.dart';
 import 'package:app/features/questions/presentation/views/widgets/giraffe_photo.dart';
@@ -22,7 +23,7 @@ class QuestionTwoScreen extends StatefulWidget {
 class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
   final List<Map<String, dynamic>> sections = [
     {
-      'title': 'التفاعل الاجتماعي واللعب',
+      'title': '👫 التفاعل الاجتماعي واللعب',
       'questions': [
         'هل يبدي الطفل اهتمامًا بالأطفال الآخرين (مثل اللعب معهم أو مشاهدتهم)؟',
         'هل يستمتع الطفل بلعبة الغميضة أو الكشف (مثل إخفاء الوجه والظهور)؟',
@@ -30,14 +31,15 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
       ],
     },
     {
-      'title': 'النشاط البدني',
+      'title': '🤸‍♂️ النشاط الجسدي', 
       'questions': [
         'هل يستمتع الطفل بالتأرجح أو التقافز (مثل على الأرجوحة أو عند حمله)؟',
         'هل يحب الطفل التسلق على الأشياء (مثل السلالم أو الأثاث)؟'
       ],
     },
     {
-      'title': 'التواصل والمشاركة',
+      'title': '🗣️ التواصل والانخراط'
+, 
       'questions': [
         'هل يشير الطفل بإصبع السبابة لطلب شيء (مثل لعبة أو طعام)؟',
         'هل يشير الطفل بإصبع السبابة لإظهار الاهتمام (مثل الإشارة إلى طائر)؟',
@@ -64,7 +66,7 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
 
   void _next() {
     if (selectedAnswer == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
+     /*  ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.red,
           content: Text(
@@ -74,7 +76,7 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
             ),
           ),
         ),
-      );
+      ); */
       return;
     }
 
@@ -105,6 +107,21 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
         qs9: allAnswers[2][3],
         qs10: allAnswers[2][4],
       );
+       Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return GenderView(qsEntity: widget.qsEntity);
+                    },
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      return FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      );
+                    },
+                  ),
+                );
        // Debugging line
     }
   }

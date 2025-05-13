@@ -1,9 +1,9 @@
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
-import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/features/questions/domain/qs_entity.dart';
 import 'package:app/features/questions/presentation/views/screens/question_two_screen.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
+import 'package:app/features/questions/presentation/views/widgets/custom_button_qs.dart';
 import 'package:app/features/questions/presentation/views/widgets/giraffe_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/text_button_pop_up_menu_relation.dart';
 import 'package:flutter/material.dart';
@@ -80,37 +80,29 @@ class _RelationViewBodyState extends State<RelationViewBody> {
                 )
               ],
             )),
-        Positioned(
-          right: 0,
-          bottom: 0,
-          left: 0,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32.w),
-            child: CustomButton(
-              onPressed: () {
-                widget.qsEntity.relation = txt;
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return QuestionTwoScreen(qsEntity: widget.qsEntity);
-                    },
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      return FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      );
-                    },
-                  ),
-                );
-              },
-              text: 'التالي',
-              borderRadius: BorderRadius.circular(50.r),
-            ),
-          ),
+        CustomButtonQs(
+          txt: 'التالي',
+          onPressed: () {
+            widget.qsEntity.relation = txt;
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return QuestionTwoScreen(qsEntity: widget.qsEntity);
+                },
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  );
+                },
+              ),
+            );
+          },
         ),
       ],
     );
   }
 }
+

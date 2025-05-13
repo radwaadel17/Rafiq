@@ -12,6 +12,7 @@ class QsEntity {
   final bool? qs8;
   final bool? qs9;
   final bool? qs10;
+  String? gender ;
 
   QsEntity({
     this.name,
@@ -27,5 +28,6 @@ class QsEntity {
     this.qs8,
     this.qs9,
     this.qs10,
+    this.gender,
   });
 }
