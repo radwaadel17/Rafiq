@@ -2,6 +2,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/questions/domain/qs_entity.dart';
 import 'package:app/features/questions/presentation/views/screens/addtional_qs.dart';
+import 'package:app/features/questions/presentation/views/widgets/addtional_info_container.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/custom_button_qs.dart';
 import 'package:app/features/questions/presentation/views/widgets/giraffe_photo.dart';
@@ -89,12 +90,15 @@ class _OriginViewBodyState extends State<OriginViewBody> {
       children: [
         const CatPhoto(),
         const GiraffePhoto(),
+        
         Positioned(
             left: 0,
             right: 0,
             top: context.screenHeight * 0.33,
             child: Column(
               children: [
+                  const AddtionalInfoContainer(),
+                  const Gap(20),
                 Text(
                   'العرق / الاأصل الجغرافي',
                   style: Styles.textstyle20,

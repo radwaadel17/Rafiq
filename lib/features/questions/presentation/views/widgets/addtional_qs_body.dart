@@ -1,4 +1,6 @@
 import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
+import 'package:app/features/questions/presentation/views/widgets/giraffe_photo.dart';
 import 'package:flutter/material.dart';
 
 class AddtionalQsBody extends StatelessWidget {
@@ -7,7 +9,11 @@ class AddtionalQsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Stack(
-
+       children: [
+        CatPhoto(),
+        GiraffePhoto() ,
+        
+       ],
     );
   }
 }

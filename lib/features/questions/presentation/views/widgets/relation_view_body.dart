@@ -49,6 +49,7 @@ class _RelationViewBodyState extends State<RelationViewBody> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        
         const CatPhoto(),
         const GiraffePhoto(),
         Positioned(
