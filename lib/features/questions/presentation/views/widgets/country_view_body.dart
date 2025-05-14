@@ -1,6 +1,7 @@
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/presentation/views/screens/result_view.dart';
 import 'package:app/features/questions/presentation/views/widgets/addtional_info_container.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/custom_button_qs.dart';
@@ -125,11 +126,11 @@ class _CountryViewBodyState extends State<CountryViewBody> {
           onPressed: () {
              widget.qsEntity.residence = txt;
              
-            /* Navigator.push(
+            Navigator.push(
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) {
-                  return QuestionTwoScreen(qsEntity: widget.qsEntity);
+                  return ResultView();
                 },
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
@@ -139,7 +140,7 @@ class _CountryViewBodyState extends State<CountryViewBody> {
                   );
                 },
               ),
-            ); */
+            ); 
           },
         ),
       ],
