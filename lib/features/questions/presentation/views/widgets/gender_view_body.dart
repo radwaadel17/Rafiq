@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/questions/domain/qs_entity.dart';
@@ -44,12 +45,11 @@ class _GenderViewBodyState extends State<GenderViewBody> {
               children: [
                 const AddtionalInfoContainer(),
                 const Gap(20),
-                 Text(
-                  ' 👶🏻 اختر الجنس' ,
+                Text(
+                  ' 👶🏻 اختر الجنس',
                   style: Styles.textstyle20,
                 ),
-               const Gap(10),
-                 
+                const Gap(10),
                 PopupMenuButton<String>(
                   offset: const Offset(-100, 50),
                   color: Colors.white,
@@ -68,6 +68,22 @@ class _GenderViewBodyState extends State<GenderViewBody> {
         CustomButtonQs(
             txt: 'التالي',
             onPressed: () {
+              if (txt == null) {
+                Flushbar(
+                  backgroundColor: Colors.red,
+                  messageText: Text(
+                    'الرجاء ادخال جنس الطفل قبل الانتقال الى الاسئلة',
+                    style: Styles.textstyle12.copyWith(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  duration: const Duration(seconds: 2),
+                  margin: const EdgeInsets.all(8),
+                  borderRadius: BorderRadius.circular(8),
+                  flushbarPosition: FlushbarPosition.BOTTOM,
+                ).show(context);
+                return;
+                
+              }
               widget.qsEntity.gender = txt;
               Navigator.push(
                 context,

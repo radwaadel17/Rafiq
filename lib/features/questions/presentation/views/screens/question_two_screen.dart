@@ -111,7 +111,7 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen>
         duration: const Duration(seconds: 2),
         margin: const EdgeInsets.all(8),
         borderRadius: BorderRadius.circular(8),
-        flushbarPosition: FlushbarPosition.TOP,
+        flushbarPosition: FlushbarPosition.BOTTOM,
       ).show(context);
       return;
     }

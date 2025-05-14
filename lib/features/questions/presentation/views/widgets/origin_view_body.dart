@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/questions/domain/qs_entity.dart';
@@ -81,6 +82,22 @@ class _OriginViewBodyState extends State<OriginViewBody> {
         CustomButtonQs(
             txt: 'التالي',
             onPressed: () {
+               if (txt == null) {
+                Flushbar(
+                  backgroundColor: Colors.red,
+                  messageText: Text(
+                    'الرجاء ادخال الأصل الجغرافي قبل الانتقال الى الاسئلة',
+                    style: Styles.textstyle12.copyWith(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  duration: const Duration(seconds: 2),
+                  margin: const EdgeInsets.all(8),
+                  borderRadius: BorderRadius.circular(8),
+                  flushbarPosition: FlushbarPosition.BOTTOM,
+                ).show(context);
+                return;
+                
+              }
               widget.qsEntity.ethnicity = txt;
               Navigator.push(
                 context,

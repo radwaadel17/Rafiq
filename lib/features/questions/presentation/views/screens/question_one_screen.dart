@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/app_input.dart';
@@ -45,7 +46,6 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                         controller: textEditingController,
                         onChanged: (data) {},
                         hintText: 'ادخل الأسم هنا',
-                        
                       ),
                     ),
                   ],
@@ -60,24 +60,41 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                   text: 'التالي',
                   borderRadius: BorderRadius.circular(50.r),
                   onPressed: () {
+                    if (textEditingController.text.isEmpty) {
+                      Flushbar(
+                        backgroundColor: Colors.red,
+                        messageText: Text(
+                       "برجاء ادخال الاسم قبل الانتقال الى الاسئلة",
+                          style:
+                              Styles.textstyle12.copyWith(color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                        duration: const Duration(seconds: 2),
+                        margin: const EdgeInsets.all(8),
+                        borderRadius: BorderRadius.circular(8),
+                        flushbarPosition: FlushbarPosition.BOTTOM,
+                      ).show(context);
+                      return;
+                    }
                     qsEntity.name = textEditingController.text;
                     print('${qsEntity.name}');
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) {
-                                  return AgeView(qsEntity: qsEntity ,);
-                                },
-                                transitionsBuilder: (context, animation,
-                                    secondaryAnimation, child) {
-                                  return FadeTransition(
-                                    opacity: animation,
-                                    child: child,
-                                  );
-                                },
-                              ),
-                            );
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) {
+                          return AgeView(
+                            qsEntity: qsEntity,
+                          );
+                        },
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
                   },
                 ),
               ),
