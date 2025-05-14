@@ -13,14 +13,15 @@ import 'package:gap/gap.dart';
 
 // ignore: must_be_immutable
 class QuestionTwoScreen extends StatefulWidget {
- const QuestionTwoScreen( {super.key, required this.qsEntity});
- final QsEntity qsEntity ;
+  const QuestionTwoScreen({super.key, required this.qsEntity});
+  final QsEntity qsEntity;
 
   @override
   State<QuestionTwoScreen> createState() => _QuestionTwoScreenState();
 }
 
-class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
+class _QuestionTwoScreenState extends State<QuestionTwoScreen>
+    with SingleTickerProviderStateMixin {
   final List<Map<String, dynamic>> sections = [
     {
       'title': '👫 التفاعل الاجتماعي واللعب',
@@ -31,15 +32,14 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
       ],
     },
     {
-      'title': '🤸‍♂️ النشاط الجسدي', 
+      'title': '🤸‍♂️ النشاط الجسدي',
       'questions': [
         'هل يستمتع الطفل بالتأرجح أو التقافز (مثل على الأرجوحة أو عند حمله)؟',
         'هل يحب الطفل التسلق على الأشياء (مثل السلالم أو الأثاث)؟'
       ],
     },
     {
-      'title': '🗣️ التواصل والانخراط'
-, 
+      'title': '🗣️ التواصل والانخراط',
       'questions': [
         'هل يشير الطفل بإصبع السبابة لطلب شيء (مثل لعبة أو طعام)؟',
         'هل يشير الطفل بإصبع السبابة لإظهار الاهتمام (مثل الإشارة إلى طائر)؟',
@@ -48,12 +48,12 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
         'هل يحافظ الطفل على التواصل البصري معك لأكثر من ثانية في كل مرة؟'
       ],
     },
-     {
+    {
       'title': '📋 معلومات إضافية',
       'questions': [
-         "هل عانى من الصفراء عند الولادة؟",
-         "هل يوجد تاريخ عائلي مع التوحد؟",
-         "هل تم استخدام التطبيق من قبل ؟",
+        "هل عانى من الصفراء عند الولادة؟",
+        "هل يوجد تاريخ عائلي مع التوحد؟",
+        "هل تم استخدام التطبيق من قبل؟",
       ],
     },
   ];
@@ -62,19 +62,45 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
   int currentQuestionIndex = 0;
   List<List<bool?>> allAnswers = [];
   bool? selectedAnswer;
+  late AnimationController _animationController;
+  late Animation<double> _scaleAnimation;
+  late Animation<double> _shakeAnimation;
 
   @override
   void initState() {
     super.initState();
+    // Initialize answers
     allAnswers = List.generate(
       sections.length,
       (i) => List<bool?>.filled(sections[i]['questions'].length, null),
     );
+
+    // Initialize animation controller
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+    _shakeAnimation = Tween<double>(begin: 0, end: 0.02).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.elasticIn),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void _animateSelection() {
+    _animationController.forward().then((_) => _animationController.reverse());
   }
 
   void _next() {
     if (selectedAnswer == null) {
-     /*  ScaffoldMessenger.of(context).showSnackBar(
+       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.red,
           content: Text(
@@ -84,7 +110,7 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
             ),
           ),
         ),
-      ); */
+      ); 
       return;
     }
 
@@ -103,34 +129,32 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
         selectedAnswer = null;
       });
     } else {
-        widget.qsEntity.qs1 = allAnswers[0][0];
-        widget.qsEntity.qs2 = allAnswers[0][1];
-        widget.qsEntity.qs3 = allAnswers[0][2];
-        widget.qsEntity.qs4 = allAnswers[1][0];
-        widget.qsEntity.qs5 = allAnswers[1][1];
-        widget.qsEntity.qs6 = allAnswers[2][0];
-        widget.qsEntity.qs7 = allAnswers[2][1];
-        widget.qsEntity.qs8 = allAnswers[2][2];
-        widget.qsEntity.qs9 = allAnswers[2][3];
-        widget.qsEntity.qs10 = allAnswers[2][4];
-        widget.qsEntity.disease = allAnswers[3][0];
-        widget.qsEntity.haveHisory = allAnswers[3][1];
-       Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return GenderView(qsEntity: widget.qsEntity);
-                    },
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      return FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      );
-                    },
-                  ),
-                );
-       // Debugging line
+      widget.qsEntity.qs1 = allAnswers[0][0];
+      widget.qsEntity.qs2 = allAnswers[0][1];
+      widget.qsEntity.qs3 = allAnswers[0][2];
+      widget.qsEntity.qs4 = allAnswers[1][0];
+      widget.qsEntity.qs5 = allAnswers[1][1];
+      widget.qsEntity.qs6 = allAnswers[2][0];
+      widget.qsEntity.qs7 = allAnswers[2][1];
+      widget.qsEntity.qs8 = allAnswers[2][2];
+      widget.qsEntity.qs9 = allAnswers[2][3];
+      widget.qsEntity.qs10 = allAnswers[2][4];
+      widget.qsEntity.disease = allAnswers[3][0];
+      widget.qsEntity.haveHisory = allAnswers[3][1];
+      Navigator.push(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return GenderView(qsEntity: widget.qsEntity);
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      );
     }
   }
 
@@ -148,9 +172,10 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
           Positioned(
             right: 0,
             left: 0,
-            top: context.screenHeight * 0.30,
+            top: context.screenHeight * 0.28,
             child: Column(
               children: [
+                // Section title with animation
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child: Container(
@@ -161,55 +186,121 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen> {
                       borderRadius: BorderRadius.circular(50.r),
                     ),
                     child: Center(
-                      child: Text(
-                        '${currentSectionIndex + 1}- ${section['title']}',
-                        style: Styles.textstyle18,
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 300),
+                        transitionBuilder: (Widget child, Animation<double> animation) {
+                          return SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(0, 0.2),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: FadeTransition(opacity: animation, child: child),
+                          );
+                        },
+                        child: Text(
+                          '${currentSectionIndex + 1}- ${section['title']}',
+                          style: Styles.textstyle18,
+                          key: ValueKey<int>(currentSectionIndex),
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const Gap(20),
+                // Question with animation
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
-                  child: Text(
-                    question,
-                    textAlign: TextAlign.center,
-                    style: Styles.textstyle18,
+                  child: AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 300),
+                    transitionBuilder: (Widget child, Animation<double> animation) {
+                      return SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(0, 0.2),
+                          end: Offset.zero,
+                        ).animate(animation),
+                        child: FadeTransition(opacity: animation, child: child),
+                      );
+                    },
+                    child: Text(
+                      question,
+                      textAlign: TextAlign.center,
+                      style: Styles.textstyle18,
+                      key: ValueKey<String>(question),
+                    ),
                   ),
                 ),
                 const Gap(20),
+                // Answer options with animation
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32.w),
                   child: Column(
                     children: [
                       GestureDetector(
-                        onTap: () => setState(() {
-                          selectedAnswer = true;
-                        }),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('نعم', style: Styles.textstyle18),
-                            CheckContainer(isSelected: selectedAnswer == true),
-                          ],
+                        onTap: () {
+                          setState(() {
+                            selectedAnswer = true;
+                          });
+                          _animateSelection();
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          padding: EdgeInsets.all(8.w),
+                          decoration: BoxDecoration(
+                            color: selectedAnswer == true
+                                ? Colors.green.withOpacity(0.2)
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('نعم', style: Styles.textstyle18),
+                              RotationTransition(
+                                turns: _shakeAnimation,
+                                child: ScaleTransition(
+                                  scale: _scaleAnimation,
+                                  child: CheckContainer(isSelected: selectedAnswer == true),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const Gap(10),
                       GestureDetector(
-                        onTap: () => setState(() {
-                          selectedAnswer = false;
-                        }),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('لا', style: Styles.textstyle18),
-                            CheckContainer(isSelected: selectedAnswer == false),
-                          ],
+                        onTap: () {
+                          setState(() {
+                            selectedAnswer = false;
+                          });
+                          _animateSelection();
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          padding: EdgeInsets.all(8.w),
+                          decoration: BoxDecoration(
+                            color: selectedAnswer == false
+                                ? Colors.red.withOpacity(0.2)
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('لا', style: Styles.textstyle18),
+                              RotationTransition(
+                                turns: _shakeAnimation,
+                                child: ScaleTransition(
+                                  scale: _scaleAnimation,
+                                  child: CheckContainer(isSelected: selectedAnswer == false),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
