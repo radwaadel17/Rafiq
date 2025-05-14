@@ -130,7 +130,7 @@ class _CountryViewBodyState extends State<CountryViewBody> {
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) {
-                  return ResultView();
+                  return ResultView(qsEntity: widget.qsEntity,);
                 },
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
