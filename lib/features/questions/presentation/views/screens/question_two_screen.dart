@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
@@ -100,17 +101,18 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen>
 
   void _next() {
     if (selectedAnswer == null) {
-       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: Colors.red,
-          content: Text(
-            'الرجاء اختيار إجابة قبل الانتقال للسؤال التالي',
-            style: Styles.textstyle12.copyWith(
-              color: Colors.white,
-            ),
-          ),
+      Flushbar(
+        backgroundColor: Colors.red,
+        messageText: Text(
+          'الرجاء اختيار إجابة قبل الانتقال للسؤال التالي',
+          style: Styles.textstyle12.copyWith(color: Colors.white),
+          textAlign: TextAlign.center,
         ),
-      ); 
+        duration: const Duration(seconds: 2),
+        margin: const EdgeInsets.all(8),
+        borderRadius: BorderRadius.circular(8),
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
       return;
     }
 
@@ -188,13 +190,15 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen>
                     child: Center(
                       child: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 300),
-                        transitionBuilder: (Widget child, Animation<double> animation) {
+                        transitionBuilder:
+                            (Widget child, Animation<double> animation) {
                           return SlideTransition(
                             position: Tween<Offset>(
                               begin: const Offset(0, 0.2),
                               end: Offset.zero,
                             ).animate(animation),
-                            child: FadeTransition(opacity: animation, child: child),
+                            child: FadeTransition(
+                                opacity: animation, child: child),
                           );
                         },
                         child: Text(
@@ -212,7 +216,8 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen>
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child: AnimatedSwitcher(
                     duration: const Duration(milliseconds: 300),
-                    transitionBuilder: (Widget child, Animation<double> animation) {
+                    transitionBuilder:
+                        (Widget child, Animation<double> animation) {
                       return SlideTransition(
                         position: Tween<Offset>(
                           begin: const Offset(0, 0.2),
@@ -259,7 +264,8 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen>
                                 turns: _shakeAnimation,
                                 child: ScaleTransition(
                                   scale: _scaleAnimation,
-                                  child: CheckContainer(isSelected: selectedAnswer == true),
+                                  child: CheckContainer(
+                                      isSelected: selectedAnswer == true),
                                 ),
                               ),
                             ],
@@ -291,7 +297,8 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen>
                                 turns: _shakeAnimation,
                                 child: ScaleTransition(
                                   scale: _scaleAnimation,
-                                  child: CheckContainer(isSelected: selectedAnswer == false),
+                                  child: CheckContainer(
+                                      isSelected: selectedAnswer == false),
                                 ),
                               ),
                             ],
