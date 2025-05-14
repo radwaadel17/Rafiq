@@ -14,7 +14,7 @@ import 'package:gap/gap.dart';
 
 class CountryViewBody extends StatefulWidget {
   const CountryViewBody({super.key, required this.qsEntity});
-  final QsEntity qsEntity ;
+  final QsEntity qsEntity;
   @override
   State<CountryViewBody> createState() => _CountryViewBodyState();
 }
@@ -89,8 +89,8 @@ class _CountryViewBodyState extends State<CountryViewBody> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-       const CatPhoto(),
-       const GiraffePhoto(),
+        const CatPhoto(),
+        const GiraffePhoto(),
         Positioned(
             left: 0,
             right: 0,
@@ -125,29 +125,30 @@ class _CountryViewBodyState extends State<CountryViewBody> {
         CustomButtonQs(
           txt: 'توقــــع',
           onPressed: () {
-             if (txt == null) {
-                Flushbar(
-                  backgroundColor: Colors.red,
-                  messageText: Text(
-                    'الرجاء اختيار بلد الإقامة قبل توقع النتيجة',
-                    style: Styles.textstyle12.copyWith(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  duration: const Duration(seconds: 2),
-                  margin: const EdgeInsets.all(8),
-                  borderRadius: BorderRadius.circular(8),
-                  flushbarPosition: FlushbarPosition.BOTTOM,
-                ).show(context);
-                return;
-                
-              }
-             widget.qsEntity.residence = txt;
-             
+            if (txt == null) {
+              Flushbar(
+                backgroundColor: Colors.red,
+                messageText: Text(
+                  'الرجاء اختيار بلد الإقامة قبل توقع النتيجة',
+                  style: Styles.textstyle12.copyWith(color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+                duration: const Duration(seconds: 2),
+                margin: const EdgeInsets.all(8),
+                borderRadius: BorderRadius.circular(8),
+                flushbarPosition: FlushbarPosition.BOTTOM,
+              ).show(context);
+              return;
+            }
+            widget.qsEntity.residence = txt;
+
             Navigator.push(
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) {
-                  return ResultView(qsEntity: widget.qsEntity,);
+                  return ResultView(
+                    qsEntity: widget.qsEntity,
+                  );
                 },
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
@@ -157,7 +158,7 @@ class _CountryViewBodyState extends State<CountryViewBody> {
                   );
                 },
               ),
-            ); 
+            );
           },
         ),
       ],
