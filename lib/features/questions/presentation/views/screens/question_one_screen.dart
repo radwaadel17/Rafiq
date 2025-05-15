@@ -83,7 +83,7 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                         return;
                       }
                       qsEntity.name = textEditingController.text;
-                      print('${qsEntity.name}');
+                      //print('${qsEntity.name}');
                       Navigator.push(
                         context,
                         PageRouteBuilder(

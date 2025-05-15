@@ -6,10 +6,11 @@ class CustomButtonQs extends StatelessWidget {
   const CustomButtonQs({
     super.key,
     required this.txt,
-    required this.onPressed,
+    required this.onPressed, this.isLoading,
   });
 
   final String? txt;
+  final bool? isLoading ;
   final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -20,9 +21,11 @@ class CustomButtonQs extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 32.w),
         child: CustomButton(
+          check: isLoading,
           onPressed: onPressed,
           text: txt!,
           borderRadius: BorderRadius.circular(50.r),
+          
         ),
       ),
     );

@@ -6,8 +6,10 @@ import 'package:gap/gap.dart';
 
 class ResultContainer extends StatelessWidget {
   const ResultContainer({
-    super.key,
+    super.key, required this.precentage, required this.prediction,
   });
+  final double precentage;
+  final String prediction;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +26,9 @@ class ResultContainer extends StatelessWidget {
             Gap(20.h),
             Text(" 📊 النتيجـــة", style: Styles.textstyle18),
             Gap(10.h),
-            Text("لا يوجد احتمال واضح للتوحد", style: Styles.textstyle18),
+            Text(prediction, style: Styles.textstyle18),
             Gap(10.h),
-            Text("النسبة 30.76%",
+            Text("${precentage.toStringAsFixed(2)} %", 
                 style: Styles.textstyle18.copyWith(color: greenColor)),
             Gap(20.h),
           ],
