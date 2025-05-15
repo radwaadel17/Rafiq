@@ -31,9 +31,9 @@ class SecondsResultContainer extends StatelessWidget {
               
               Text(txt, style: Styles.textstyle18),
               Gap(10.h),
-              Text("$probality%", style: Styles.textstyle16),
+              Text("${probality.toStringAsFixed(2)}%", style: Styles.textstyle16),
               Gap(10.h),
-              Text("($degree من $totalDegree درجة)", style: Styles.textstyle14.copyWith(color: Colors.black)),
+              Text("(${degree.toStringAsFixed(2)} من $totalDegree درجة)", style: Styles.textstyle14.copyWith(color: Colors.black)),
               
             ],
           ),

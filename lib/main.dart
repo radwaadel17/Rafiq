@@ -1,5 +1,7 @@
 import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/service_locator.dart';
+import 'package:app/features/questions/data/repos/result_repo_imp.dart';
+import 'package:app/features/questions/presentation/manager/result_cubit.dart';
 import 'package:app/features/sign%20in/data/repos/sign_in_repo_imp.dart';
 import 'package:app/features/sign%20in/presentation/manager/sign_in_cubit/sign_in_cubit.dart';
 import 'package:app/features/sign%20up/data/repos/sign_up_repo_imp.dart';
@@ -11,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 void main() {
   setup();
   runApp(
@@ -32,27 +35,31 @@ class RafeekApp extends StatelessWidget {
       splitScreenMode: true,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => SignUpCubit(getIt<SignUpRepoImp>())),
-          BlocProvider(create: (context) => SignInCubit(getIt<SignInRepoImp>())),
+          BlocProvider(
+              create: (context) => SignUpCubit(getIt<SignUpRepoImp>())),
+          BlocProvider(
+              create: (context) => SignInCubit(getIt<SignInRepoImp>())),
+          BlocProvider(
+            create: (context) => ResultCubit(getIt<ResultRepoImp>()),
+          ),
         ],
         child: MaterialApp.router(
-          locale : const Locale('ar'),
-           localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
+          locale: const Locale('ar'),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
           //locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
           routerConfig: Approuter.router,
           debugShowCheckedModeBanner: false,
-          
+
           theme: ThemeData(
             fontFamily: 'Alexandria',
             scaffoldBackgroundColor: Colors.white,
-            
           ),
         ),
       ),

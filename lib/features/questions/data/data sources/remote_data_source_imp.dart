@@ -10,7 +10,7 @@ class RemoteDataSourceImpQs implements RemoteDataSourceQs {
   @override
   Future<ResultEntity> getResult({required QsEntity qsEntity}) async {
     Response response = await apiService.postMethodQs(
-        url: 'http://127.0.0.1:5000/predict',
+        url: 'http://10.0.2.2:5000/predict',
         userData: {
           "inputs": {
             "الاسم": qsEntity.name,
