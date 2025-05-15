@@ -1,4 +1,4 @@
-import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/domain/entity/qs_entity.dart';
 import 'package:app/features/questions/presentation/views/widgets/gender_view_body.dart';
 import 'package:flutter/material.dart';
 

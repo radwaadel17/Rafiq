@@ -4,7 +4,7 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/app_input_num.dart';
 import 'package:app/core/widgets/custom_button.dart';
-import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/domain/entity/qs_entity.dart';
 import 'package:app/features/questions/presentation/views/screens/relation_view.dart';
 import 'package:app/features/questions/presentation/views/widgets/add_minus_container.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';

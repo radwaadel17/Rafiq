@@ -1,7 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
-import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/domain/entity/qs_entity.dart';
 import 'package:app/features/questions/presentation/views/screens/question_two_screen.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/custom_button_qs.dart';

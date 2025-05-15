@@ -3,7 +3,7 @@ import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_button.dart';
-import 'package:app/features/questions/domain/qs_entity.dart';
+import 'package:app/features/questions/domain/entity/qs_entity.dart';
 import 'package:app/features/questions/presentation/views/screens/gender.dart';
 import 'package:app/features/questions/presentation/views/widgets/cat_photo.dart';
 import 'package:app/features/questions/presentation/views/widgets/check_container.dart';
