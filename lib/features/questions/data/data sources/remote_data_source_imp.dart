@@ -4,9 +4,9 @@ import 'package:app/features/questions/domain/entity/qs_entity.dart';
 import 'package:app/features/questions/domain/entity/result_entity.dart';
 import 'package:dio/dio.dart';
 
-class RemoteDataSourceImp implements RemoteDataSourceQs {
+class RemoteDataSourceImpQs implements RemoteDataSourceQs {
   ApiService apiService;
-  RemoteDataSourceImp(this.apiService);
+  RemoteDataSourceImpQs(this.apiService);
   @override
   Future<ResultEntity> getResult({required QsEntity qsEntity}) async {
     Response response = await apiService.postMethodQs(
