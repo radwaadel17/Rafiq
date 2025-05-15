@@ -143,6 +143,7 @@ class _QuestionTwoScreenState extends State<QuestionTwoScreen>
       widget.qsEntity.qs10 = allAnswers[2][4];
       widget.qsEntity.disease = allAnswers[3][0];
       widget.qsEntity.haveHisory = allAnswers[3][1];
+      widget.qsEntity.userApp = allAnswers[3][2];
       Navigator.push(
         context,
         PageRouteBuilder(

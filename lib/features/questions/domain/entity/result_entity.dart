@@ -25,4 +25,20 @@ class ResultEntity {
     required this.socialScore,
     required this.socialTotal,
   });
+  factory ResultEntity.fromJson(json) {
+    return ResultEntity(
+      probability: json['probability']?.toDouble() ?? 0.0,
+      prediction: json['prediction'] ?? '',
+      reportId: json['report_id'] ?? '',
+      commPecentage: json['comm_percentage']?.toDouble() ?? 0.0,
+      commScore: json['comm_score']?.toDouble() ?? 0.0,
+      commTotal: json['comm_total_weight']?.toDouble() ?? 0.0,
+      physicalPecentage: json['physical_percentage']?.toDouble() ?? 0.0,
+      physicalScore: json['physical_score']?.toDouble() ?? 0.0,
+      physicalTotal: json['physical_total_weight']?.toDouble() ?? 0.0,
+      socialPecentage: json['social_percentage']?.toDouble() ?? 0.0,
+      socialScore: json['social_score']?.toDouble() ?? 0.0,
+      socialTotal: json['social_total_weight']?.toDouble() ?? 0.0,
+    );
+  }
 }

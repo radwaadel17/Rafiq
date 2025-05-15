@@ -23,4 +23,18 @@ class ApiService {
     Response response = await dio.patch('$baseUrl$endPoint');
     return response;
   }
+  
+   Future<dynamic> postMethodQs({
+    required String url,
+    required dynamic userData,
+    required bool isFormData,
+  }) async {
+    Response response = await dio.post(
+      url,
+      data: isFormData ? FormData.fromMap(userData) : userData,
+    );
+    return response;
+  }
 }
+
+
