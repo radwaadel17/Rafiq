@@ -11,31 +11,35 @@ class LabelAndTextField extends StatelessWidget {
     this.controller,
     this.onChanged,
     this.onFieldSubmitted,
+    this.suffixIcon,
   });
   final String text;
   final String hintText;
   final TextEditingController? controller;
   final Function(String)? onFieldSubmitted;
   final Function(String)? onChanged;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          TextArabicWithStyle(
-            text: text,
-            textsyle: Styles.textstyle18.copyWith(
-              fontWeight: FontWeight.normal,
+          if (text.isNotEmpty)
+            TextArabicWithStyle(
+              text: text,
+              textsyle: Styles.textstyle18.copyWith(
+                fontWeight: FontWeight.normal,
+              ),
             ),
-          ),
           AppInput(
             onChanged: onChanged,
             controller: controller,
             onFieldSubmitted: onFieldSubmitted,
             hintText: hintText,
+            suffixIcon: suffixIcon,
           )
         ],
       ),

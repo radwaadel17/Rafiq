@@ -43,4 +43,9 @@ class Styles {
     fontWeight: FontWeight.normal,
     color: colorApp,
   );
+  static final textstyle8 = TextStyle(
+    fontSize: 8.sp,
+    fontWeight: FontWeight.normal,
+    color: Colors.black,
+  );
 }

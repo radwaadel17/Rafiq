@@ -33,20 +33,59 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ai_chat.svg
   String get aiChat => 'assets/icons/ai_chat.svg';
 
+  /// File path: assets/icons/appointments.svg
+  String get appointments => 'assets/icons/appointments.svg';
+
+  /// File path: assets/icons/arrow_back.svg
+  String get arrowBack => 'assets/icons/arrow_back.svg';
+
+  /// File path: assets/icons/arrow_down.svg
+  String get arrowDown => 'assets/icons/arrow_down.svg';
+
+  /// File path: assets/icons/attach.svg
+  String get attach => 'assets/icons/attach.svg';
+
   /// File path: assets/icons/calendar.svg
   String get calendar => 'assets/icons/calendar.svg';
 
   /// File path: assets/icons/chat.svg
   String get chat => 'assets/icons/chat.svg';
 
+  /// File path: assets/icons/circular_calendar.svg
+  String get circularCalendar => 'assets/icons/circular_calendar.svg';
+
+  /// File path: assets/icons/close.svg
+  String get close => 'assets/icons/close.svg';
+
   /// File path: assets/icons/doctors.svg
   String get doctors => 'assets/icons/doctors.svg';
+
+  /// File path: assets/icons/done.svg
+  String get done => 'assets/icons/done.svg';
+
+  /// File path: assets/icons/edit.svg
+  String get edit => 'assets/icons/edit.svg';
+
+  /// File path: assets/icons/filter.svg
+  String get filter => 'assets/icons/filter.svg';
+
+  /// File path: assets/icons/forward_arrow.svg
+  String get forwardArrow => 'assets/icons/forward_arrow.svg';
 
   /// File path: assets/icons/home.svg
   String get home => 'assets/icons/home.svg';
 
+  /// File path: assets/icons/logout.svg
+  String get logout => 'assets/icons/logout.svg';
+
   /// File path: assets/icons/menu.svg
   String get menu => 'assets/icons/menu.svg';
+
+  /// File path: assets/icons/mic.svg
+  String get mic => 'assets/icons/mic.svg';
+
+  /// File path: assets/icons/notifications.svg
+  String get notifications => 'assets/icons/notifications.svg';
 
   /// File path: assets/icons/notifications_off.svg
   String get notificationsOff => 'assets/icons/notifications_off.svg';
@@ -57,8 +96,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/outline_star.svg
   String get outlineStar => 'assets/icons/outline_star.svg';
 
+  /// File path: assets/icons/payment_methods.svg
+  String get paymentMethods => 'assets/icons/payment_methods.svg';
+
+  /// File path: assets/icons/phone.svg
+  String get phone => 'assets/icons/phone.svg';
+
   /// File path: assets/icons/popupmenuIcon.svg
   String get popupmenuIcon => 'assets/icons/popupmenuIcon.svg';
+
+  /// File path: assets/icons/profile.svg
+  String get profile => 'assets/icons/profile.svg';
 
   /// File path: assets/icons/profile_icon.svg
   String get profileIcon => 'assets/icons/profile_icon.svg';
@@ -75,6 +123,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/search.svg
   String get search => 'assets/icons/search.svg';
 
+  /// File path: assets/icons/send.svg
+  String get send => 'assets/icons/send.svg';
+
+  /// File path: assets/icons/settings.svg
+  String get settings => 'assets/icons/settings.svg';
+
+  /// File path: assets/icons/video.svg
+  String get video => 'assets/icons/video.svg';
+
   /// List of all assets
   List<String> get values => [
         group,
@@ -84,20 +141,39 @@ class $AssetsIconsGen {
         vector4,
         vector,
         aiChat,
+        appointments,
+        arrowBack,
+        arrowDown,
+        attach,
         calendar,
         chat,
+        circularCalendar,
+        close,
         doctors,
+        done,
+        edit,
+        filter,
+        forwardArrow,
         home,
+        logout,
         menu,
+        mic,
+        notifications,
         notificationsOff,
         notificationsOn,
         outlineStar,
+        paymentMethods,
+        phone,
         popupmenuIcon,
+        profile,
         profileIcon,
         questions,
         readSign,
         roundedStar,
-        search
+        search,
+        send,
+        settings,
+        video
       ];
 }
 

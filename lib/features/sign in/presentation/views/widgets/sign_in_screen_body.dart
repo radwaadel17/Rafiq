@@ -70,14 +70,18 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                         ),
                         SizedBox(
                             height: context.screenHeight * 0.21,
-                            child: const Image(image: AssetImage(AppImages.signInPhoto))),
+                            child: const Image(
+                                image: AssetImage(AppImages.signInPhoto))),
                         SizedBox(
                           height: context.screenHeight * 0.015,
                         ),
-                        TextArabicWithStyle(text: 'لديك حساب بالفعل', textsyle: Styles.textstyle18),
+                        TextArabicWithStyle(
+                            text: 'لديك حساب بالفعل',
+                            textsyle: Styles.textstyle18),
                         TextArabicWithStyle(
                             text: 'ادخل جميع بيناتك حتي تتمكن من تسجيل الدخول',
-                            textsyle: Styles.textstyle12.copyWith(color: Colors.black.withOpacity(0.66))),
+                            textsyle: Styles.textstyle12.copyWith(
+                                color: Colors.black.withOpacity(0.66))),
                         SizedBox(
                           height: context.screenHeight * 0.035,
                         ),
@@ -108,13 +112,15 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  GoRouter.of(context).push(Approuter.forgetPassword);
+                                  GoRouter.of(context)
+                                      .push(Approuter.forgetPassword);
                                 },
                                 child: TextArabicWithStyle(
                                     textAlign: TextAlign.left,
                                     text: 'هل نسيت كلمة السر؟ ',
                                     textsyle: Styles.textstyle12.copyWith(
-                                        color: const Color(0xff575757), decoration: TextDecoration.underline)),
+                                        color: const Color(0xff575757),
+                                        decoration: TextDecoration.underline)),
                               ),
                             ],
                           ),
@@ -125,7 +131,9 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                         SizedBox(
                             width: context.screenWidth * 0.9,
                             child: CustomButton(
-                              check: state is SignInCubitLoadingState ? true : false,
+                              check: state is SignInCubitLoadingState
+                                  ? true
+                                  : false,
                               text: 'تسجيل الدخول',
                               onPressed: () {
                                 // if (globalKey.currentState!.validate()) {
@@ -136,7 +144,8 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                                 //   autovalidateMode = AutovalidateMode.always;
                                 //   setState(() {});
                                 // }
-                                GoRouter.of(context).go('/home');
+                                // GoRouter.of(context).go('/home');
+                                GoRouter.of(context).go('/doctorHome');
                               },
                             )),
                         SizedBox(
@@ -150,10 +159,14 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                                   GoRouter.of(context).push(Approuter.youAre);
                                 },
                                 child: TextArabicWithStyle(
-                                    text: 'انشاء حساب ', textsyle: Styles.textstyle18.copyWith(fontSize: 14.sp))),
+                                    text: 'انشاء حساب ',
+                                    textsyle: Styles.textstyle18
+                                        .copyWith(fontSize: 14.sp))),
                             TextArabicWithStyle(
                                 text: 'ليس لديك حساب؟ ',
-                                textsyle: Styles.textstyle18.copyWith(fontSize: 14.sp, color: const Color(0xff575757))),
+                                textsyle: Styles.textstyle18.copyWith(
+                                    fontSize: 14.sp,
+                                    color: const Color(0xff575757))),
                           ],
                         ),
                         SizedBox(
