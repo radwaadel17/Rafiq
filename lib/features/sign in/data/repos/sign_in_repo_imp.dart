@@ -9,7 +9,7 @@ class SignInRepoImp implements SignInRepo {
   RemoteDataSourceImpIn remoteDataSourceImp;
   SignInRepoImp(this.remoteDataSourceImp);
   @override
-  Future<Either<Faluire, Map<String, dynamic>>> logIn(
+  Future<Either<Faluire, String>> logIn(
       UserSigninEntity user) async {
     try {
       var result = await remoteDataSourceImp.logIn(user);

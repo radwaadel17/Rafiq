@@ -12,7 +12,7 @@ class SignInCubit extends Cubit<SignInCubitState>{
      result.fold((faluire){
       emit(SignInCubitFaluireState(faluire.errorMessage));
      }, (confirm){
-      emit(SignInCubitSucsessState(accsesToken: confirm['accessToken'], refreshToken: confirm['refreshToken']));
+      emit(SignInCubitSucsessState(accsesToken: confirm));
      });
    }
    

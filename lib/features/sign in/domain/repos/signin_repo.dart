@@ -3,5 +3,5 @@ import 'package:app/features/sign%20in/domain/entity/user_signin_entity.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class SignInRepo {
-Future<Either<Faluire , Map<String , dynamic>>> logIn(UserSigninEntity user);
+Future<Either<Faluire , String>> logIn(UserSigninEntity user);
 }

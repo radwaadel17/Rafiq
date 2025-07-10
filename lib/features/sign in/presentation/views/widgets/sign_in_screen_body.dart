@@ -1,6 +1,5 @@
 import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/app_router.dart';
-import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_password.dart';
@@ -15,6 +14,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+
+
 
 class SignInScreenBody extends StatefulWidget {
   const SignInScreenBody({super.key});
@@ -46,16 +48,15 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
             ),
           );
         } else if (state is SignInCubitSucsessState) {
-          GoRouter.of(context).go('/home');
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor: greenColor,
-              content: Align(
-                alignment: Alignment.centerLeft,
-                child: Text('تم تسجيل الدخول بنجاح', textAlign: TextAlign.left, textDirection: TextDirection.rtl, style: Styles.textstyle12.copyWith(color: Colors.white),
-              ),
-            ),
-          ));         
+            Map<String, dynamic> decodedToken = JwtDecoder.decode(state.accsesToken);
+            String role = decodedToken['role'];
+            debugPrint('Decoded role: $role');
+            if(role == 'parent'){
+              GoRouter.of(context).go('/home');
+              
+            }
+            else {
+            }   
         }
       },
       builder: (context, state) {
@@ -141,7 +142,6 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                                   autovalidateMode = AutovalidateMode.always;
                                   setState(() {});
                                 }
-                                GoRouter.of(context).go('/home');
                               },
                             )),
                         SizedBox(
@@ -152,7 +152,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                           children: [
                             GestureDetector(
                                 onTap: () {
-                                  GoRouter.of(context).push(Approuter.youAre);
+              
                                 },
                                 child: TextArabicWithStyle(
                                     text: 'انشاء حساب ', textsyle: Styles.textstyle18.copyWith(fontSize: 14.sp))),

@@ -11,7 +11,6 @@ class SignInCubitFaluireState extends SignInCubitState {
 
 class SignInCubitSucsessState extends SignInCubitState {
   final String accsesToken;
-  final String refreshToken;
   SignInCubitSucsessState(
-      {required this.accsesToken, required this.refreshToken});
+      {required this.accsesToken});
 }
