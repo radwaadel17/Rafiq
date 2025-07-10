@@ -1,5 +1,6 @@
 import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/app_router.dart';
+import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_password.dart';
@@ -46,18 +47,24 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.red,
-              content: Text(state.errorMsg),
+              content: Align(
+                alignment: Alignment.centerLeft,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(state.errorMsg))),
             ),
           );
         } else if (state is SignupSuccesesState) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor:const Color(0xff4456A5),
-              content: Text(state.message['message']),
+           const SnackBar(
+
+              backgroundColor:greenColor,
+              content: Align(
+                 alignment: Alignment.centerLeft,
+                child: Text('User successfully created')),
             ),
-           
           );
-          
+          debugPrint(state.message);
           Navigator.push(
             context,
             PageRouteBuilder(

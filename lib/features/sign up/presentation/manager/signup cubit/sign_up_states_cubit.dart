@@ -7,7 +7,7 @@ class SignUpintial extends SignUpState {}
 class SignUpLoadingStatesCubit extends SignUpState {}
 
 class SignupSuccesesState extends SignUpState {
-  final Map<String , dynamic> message;
+  final String message;
   final  UserSignupEntity user; 
   SignupSuccesesState(this.message , this.user);
 }

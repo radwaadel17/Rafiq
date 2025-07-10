@@ -42,7 +42,9 @@ class _OtpVerficationBodyState extends State<OtpVerficationBody> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: const Color(0xff4456A5),
-              content: Text(state.msg),
+              content: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(state.msg)),
             ),
           );
           GoRouter.of(context).push(Approuter.signIn);
@@ -134,13 +136,15 @@ class _OtpVerficationBodyState extends State<OtpVerficationBody> {
                               state is VerfiyEmailLoadingStates ? true : false,
                           text: 'تم',
                           onPressed: () {
-                            String code = textEditingControllerOne.text +
-                                textEditingControllerTwo.text +
+                            String code = textEditingControllerFour.text +
                                 textEditingControllerThree.text +
-                                textEditingControllerFour.text;
-                            BlocProvider.of<VerfiyEmailCubit>(context)
+                                textEditingControllerTwo.text +
+                                textEditingControllerOne.text;
+                                debugPrint(code);
+                                debugPrint(widget.user.email);
+                             BlocProvider.of<VerfiyEmailCubit>(context)
                                 .verfiyEmail(
-                                    email: widget.user.email!, code: code);
+                                    email: widget.user.email!, code: code); 
                           },
                         )),
                     const Spacer(
