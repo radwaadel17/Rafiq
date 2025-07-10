@@ -12,6 +12,7 @@ import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_
 import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_states_cubit.dart';
 import 'package:app/features/sign%20up/presentation/views/otp_verfication.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
+import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,9 +52,10 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.red,
-              content: Text(state.message),
+              content: Text(state.message['message']),
             ),
           );
+          debugPrint(state.message['Preview URL']);
           Navigator.push(
             context,
             PageRouteBuilder(
@@ -74,14 +76,23 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
       builder: (context, state) {
         return Scaffold(
           body: CustomScrollView(
+            
             slivers: [
-              SliverToBoxAdapter(
+               SliverToBoxAdapter(
                   child: SizedBox(
                 height: context.screenHeight * 0.010,
+              )),
+              const SliverToBoxAdapter(
+                child: CustomAppbarSignIn(),
+              ), 
+              SliverToBoxAdapter(
+                  child: SizedBox(
+                height: context.screenHeight * 0.030,
               )),
               /* const SliverToBoxAdapter(
                 child: SignUpCustomAppBar(),
               ), */
+
               const SliverToBoxAdapter(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -238,5 +249,36 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
         );
       },
     );
+  }
+  
+}
+class CustomAppbarSignIn extends StatelessWidget {
+  const CustomAppbarSignIn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 16.w),
+        child: Row(
+          children: [
+            SizedBox(
+              height: 12.h,
+              child: Image.asset(Assets.images.arrowBackBlue.path)),
+        
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('إنشاء حساب جديد' , textAlign: TextAlign.right, style: Styles.textstyle18,),
+                  Text('  ادخل جميع بيناتك حتي تتمكن من إنشاء حساب' , textAlign: TextAlign.right, style: Styles.textstyle12.copyWith(color: const Color(0xff575757)) ,)
+                      
+                ],
+              ),
+            )
+          ],
+        ),
+      ));
   }
 }

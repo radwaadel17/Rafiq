@@ -45,12 +45,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
             ),
           );
         } else if (state is SignInCubitSucsessState) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              backgroundColor: Colors.red,
-              content: Text('valid user'),
-            ),
-          );
+          GoRouter.of(context).go('/home');
         }
       },
       builder: (context, state) {

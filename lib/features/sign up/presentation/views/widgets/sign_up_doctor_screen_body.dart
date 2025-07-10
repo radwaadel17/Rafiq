@@ -53,9 +53,11 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor:const Color(0xff4456A5),
-              content: Text(state.message),
+              content: Text(state.message['message']),
             ),
+           
           );
+          
           Navigator.push(
             context,
             PageRouteBuilder(
@@ -186,9 +188,9 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child: CustomButton(
-                   // check: state is SignUpLoadingStatesCubit ? true : false,
+                    check: state is SignUpLoadingStatesCubit ? true : false,
                     onPressed: () {
-                      /* if (globalKey.currentState!.validate()) {
+                       if (globalKey.currentState!.validate()) {
                         globalKey.currentState!.save();
                         if (checkBox == false) {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -201,15 +203,15 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                             ),
                           );
                           return;
-                        } */
-                        GoRouter.of(context).push(Approuter.doctorIdentity);
-                        /* BlocProvider.of<SignUpCubit>(context)
-                            .signUp(widget.user); */
-                      /* } else {
+                        } 
+                        
+                        BlocProvider.of<SignUpCubit>(context)
+                            .signUp(widget.user); 
+                       } else {
                         autovalidateMode = AutovalidateMode.always;
 
                         setState(() {});
-                      } */
+                      } 
                     },
                     text: 'انشاء حساب',
                   ),

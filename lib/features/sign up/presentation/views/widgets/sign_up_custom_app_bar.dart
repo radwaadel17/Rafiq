@@ -33,18 +33,3 @@ class SignUpCustomAppBar extends StatelessWidget {
 }
 
 
-/*
-
-
-Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                TextArabicWithStyle(
-                    text: 'إنشاء حساب جديد', textsyle: Styles.textstyle18),
-                TextArabicWithStyle(
-                    text: 'ادخل جميع بيناتك حتي تتمكن من إنشاء حساب',
-                    textsyle: Styles.textstyle12),
-              ],
-            ),
-
-*/

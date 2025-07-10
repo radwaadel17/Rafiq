@@ -7,7 +7,7 @@ class RemoteDataSourceImp implements RemoteDataSource {
   ApiService apiService;
   RemoteDataSourceImp(this.apiService);
   @override
-  Future<String> signUp(UserSignupEntity user) async {
+  Future<Map<String , dynamic>> signUp(UserSignupEntity user) async {
     Response responseString = await apiService.postMethod(
         endPoint: '/api/users/register',
         userData: {
@@ -25,7 +25,7 @@ class RemoteDataSourceImp implements RemoteDataSource {
     print("Password Confirmation: ${user.passwordConfirmation}");
     print("Phone Number: ${user.phoneNumber}");
     print("Role: ${user.role}"); */
-    return responseString.data;
+    return responseString.data['Preview URL'];
   }
 
   @override

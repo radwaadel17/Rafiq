@@ -9,9 +9,9 @@ class SignUpRepoImp implements SignUpRepo {
   RemoteDataSource remoteDataSource;
   SignUpRepoImp(this.remoteDataSource);
   @override
-  Future<Either<Faluire, String>> signUp(UserSignupEntity user) async {
+  Future<Either<Faluire, Map<String , dynamic>>> signUp(UserSignupEntity user) async {
     try {
-      String response = await remoteDataSource.signUp(user);
+      Map<String , dynamic> response = await remoteDataSource.signUp(user);
       return right(response);
     } catch (e) {
       if (e is DioException) {
