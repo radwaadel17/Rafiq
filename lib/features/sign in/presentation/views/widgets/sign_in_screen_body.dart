@@ -1,5 +1,6 @@
 import 'package:app/core/utlis/app_images.dart';
 import 'package:app/core/utlis/app_router.dart';
+import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_password.dart';
@@ -46,6 +47,15 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
           );
         } else if (state is SignInCubitSucsessState) {
           GoRouter.of(context).go('/home');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: greenColor,
+              content: Align(
+                alignment: Alignment.centerLeft,
+                child: Text('تم تسجيل الدخول بنجاح', textAlign: TextAlign.left, textDirection: TextDirection.rtl, style: Styles.textstyle12.copyWith(color: Colors.white),
+              ),
+            ),
+          ));         
         }
       },
       builder: (context, state) {
@@ -123,14 +133,14 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                               check: state is SignInCubitLoadingState ? true : false,
                               text: 'تسجيل الدخول',
                               onPressed: () {
-                                // if (globalKey.currentState!.validate()) {
-                                //   globalKey.currentState!.save();
-                                //   BlocProvider.of<SignInCubit>(context)
-                                //       .logIn(user);
-                                // } else {
-                                //   autovalidateMode = AutovalidateMode.always;
-                                //   setState(() {});
-                                // }
+                                if (globalKey.currentState!.validate()) {
+                                  globalKey.currentState!.save();
+                                  BlocProvider.of<SignInCubit>(context)
+                                      .logIn(user);
+                                } else {
+                                  autovalidateMode = AutovalidateMode.always;
+                                  setState(() {});
+                                }
                                 GoRouter.of(context).go('/home');
                               },
                             )),

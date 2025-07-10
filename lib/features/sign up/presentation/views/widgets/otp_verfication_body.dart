@@ -44,7 +44,8 @@ class _OtpVerficationBodyState extends State<OtpVerficationBody> {
               backgroundColor: const Color(0xff4456A5),
               content: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(state.msg)),
+                child: Text(state.msg , textAlign: TextAlign.left,)),
+                
             ),
           );
           GoRouter.of(context).push(Approuter.signIn);
