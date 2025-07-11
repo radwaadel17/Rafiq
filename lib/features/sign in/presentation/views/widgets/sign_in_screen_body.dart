@@ -56,6 +56,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
               
             }
             else {
+              GoRouter.of(context).go('/doctorHome');
             }   
         }
       },
