@@ -145,7 +145,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                                 //   setState(() {});
                                 // }
                                 // GoRouter.of(context).go('/home');
-                                GoRouter.of(context).go('/doctorHome');
+                                GoRouter.of(context).go('/home');
                               },
                             )),
                         SizedBox(
