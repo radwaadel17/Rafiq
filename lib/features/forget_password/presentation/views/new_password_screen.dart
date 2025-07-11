@@ -2,10 +2,11 @@ import 'package:app/features/forget_password/presentation/views/widgets/new_pass
 import 'package:flutter/material.dart';
 
 class NewPasswordScreen extends StatelessWidget {
-  const NewPasswordScreen({super.key});
+  const NewPasswordScreen({super.key, required this.email});
+  final String email ;
 
   @override
   Widget build(BuildContext context) {
-    return const NewPasswordBody();
+    return NewPasswordBody(email: email,);
   }
 }

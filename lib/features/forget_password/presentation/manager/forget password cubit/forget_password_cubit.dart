@@ -3,9 +3,10 @@ import 'package:app/features/forget_password/presentation/manager/forget%20passw
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
+  ForgetPasswordRepo forgetPasswordRepo;
   ForgetPasswordCubit(this.forgetPasswordRepo)
       : super(ForgetPasswordStateinit());
-  ForgetPasswordRepo forgetPasswordRepo;
+
 
   Future<void> forgetPassword({required String email}) async {
     emit(ForgetPasswordLoadingState());

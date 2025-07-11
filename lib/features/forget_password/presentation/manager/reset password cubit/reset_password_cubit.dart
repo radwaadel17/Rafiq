@@ -7,9 +7,9 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
       : super(ResetPasswordStateinit());
   ForgetPasswordRepo forgetPasswordRepo;
 
-  Future<void> resetPassword({required String email , required String resetCode}) async {
+  Future<void> resetPassword({required String email , required String pass1 , required String pass2}) async {
     emit(ResetPasswordLoadingState());
-    var result = await forgetPasswordRepo.resetPassword(email: email , resetCode: resetCode);
+    var result = await forgetPasswordRepo.resetPassord(email: email, password1: pass1, password2: pass2);
     result.fold((faluire) {
       emit(ResetPasswordFaluireState(faluire.errorMessage));
     }, (reset) {

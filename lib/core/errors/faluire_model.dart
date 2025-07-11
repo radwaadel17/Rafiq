@@ -9,7 +9,7 @@ class ServerFailure extends Faluire {
   // ignore: non_constant_identifier_names
   factory ServerFailure.FromBadResponse(int? statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(errorMessage: response.data);
+      return ServerFailure(errorMessage: response.toString());
     } else if (statusCode == 404) {
       return ServerFailure(
           errorMessage: 'Invalid email or password');

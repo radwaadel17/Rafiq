@@ -1,12 +1,17 @@
 import 'package:app/features/Doctor%20Book/presentation/views/book_view.dart';
+import 'package:app/features/appointments/presentation/views/appointments_screen.dart';
+import 'package:app/features/conversations/presentation/views/conversations_screen.dart';
+import 'package:app/features/doctor_home/presentation/views/doctor_home_screen.dart';
+import 'package:app/features/doctor_profile/presentation/views/doctor_profile_screen.dart';
 import 'package:app/features/doctors/presentation/views/doctors_screen.dart';
 import 'package:app/features/forget_password/presentation/views/forget_password_screen.dart';
-import 'package:app/features/forget_password/presentation/views/new_password_screen.dart';
-import 'package:app/features/forget_password/presentation/views/otp_screen.dart';
 import 'package:app/features/home/presentation/views/doctor_details.dart';
 import 'package:app/features/home/presentation/views/home_screen.dart';
+import 'package:app/features/main_bottom_navigation/doctor_bottom_navigation.dart';
 import 'package:app/features/main_bottom_navigation/main_bottom_navigation.dart';
+import 'package:app/features/messages/presentation/views/messages_screen.dart';
 import 'package:app/features/messages/presentation/views/messages_view.dart';
+import 'package:app/features/notifications/presentation/views/notifications_screen.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_screen.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_three.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_two.dart';
@@ -88,32 +93,8 @@ abstract class Approuter {
           },
         ),
       ),
-      GoRoute(
-        path: otp,
-        pageBuilder: (context, state) => CustomTransitionPage(
-          key: state.pageKey,
-          child: const OtpScreen(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      ),
-      GoRoute(
-        path: newPassword,
-        pageBuilder: (context, state) => CustomTransitionPage(
-          key: state.pageKey,
-          child: const NewPasswordScreen(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      ),
+      
+      
       GoRoute(
         path: onBoardingTwo,
         pageBuilder: (context, state) => CustomTransitionPage(
@@ -282,7 +263,45 @@ abstract class Approuter {
           },
         ),
       ),
-      
+      ShellRoute(
+        builder: (context, state, child) {
+          return DoctorBottomNavigation(child: child);
+        },
+        routes: [
+          GoRoute(
+            path: '/doctorHome',
+            name: 'doctorHome',
+            builder: (context, state) => const DoctorHomeScreen(),
+          ),
+          GoRoute(
+            path: '/appointments',
+            name: 'appointments',
+            builder: (context, state) => const AppointmentsScreen(),
+          ),
+          GoRoute(
+            path: '/doctorProfile',
+            name: 'doctorProfile',
+            builder: (context, state) => const DoctorProfileScreen(),
+            routes: [
+              GoRoute(
+                path: 'notifications',
+                name: 'notifications',
+                builder: (context, state) => const NotificationsScreen(),
+              ),
+            ],
+          ),
+          GoRoute(
+            path: '/conversations',
+            name: 'conversations',
+            builder: (context, state) => const ConversationsScreen(),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/messages',
+        name: 'messages',
+        builder: (context, state) => const MessagesScreen(),
+      ),
     ],
   );
   

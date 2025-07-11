@@ -129,9 +129,21 @@ class $AssetsImagesGen {
   /// File path: assets/images/alarm.png
   AssetGenImage get alarm => const AssetGenImage('assets/images/alarm.png');
 
+  /// File path: assets/images/appointments.svg
+  String get appointments => 'assets/images/appointments.svg';
+
+  /// File path: assets/images/arrow_back.svg
+  String get arrowBack => 'assets/images/arrow_back.svg';
+
   /// File path: assets/images/arrow_back_blue.png
   AssetGenImage get arrowBackBlue =>
       const AssetGenImage('assets/images/arrow_back_blue.png');
+
+  /// File path: assets/images/arrow_down.svg
+  String get arrowDown => 'assets/images/arrow_down.svg';
+
+  /// File path: assets/images/attach.svg
+  String get attach => 'assets/images/attach.svg';
 
   /// File path: assets/images/cat.png
   AssetGenImage get cat => const AssetGenImage('assets/images/cat.png');
@@ -140,9 +152,21 @@ class $AssetsImagesGen {
   AssetGenImage get chatAiLogo =>
       const AssetGenImage('assets/images/chat_ai_logo.png');
 
+  /// File path: assets/images/circular_calendar.svg
+  String get circularCalendar => 'assets/images/circular_calendar.svg';
+
+  /// File path: assets/images/close.svg
+  String get close => 'assets/images/close.svg';
+
   /// File path: assets/images/doctor_image.png
   AssetGenImage get doctorImage =>
       const AssetGenImage('assets/images/doctor_image.png');
+
+  /// File path: assets/images/done.svg
+  String get done => 'assets/images/done.svg';
+
+  /// File path: assets/images/edit.svg
+  String get edit => 'assets/images/edit.svg';
 
   /// File path: assets/images/edit_icon.png
   AssetGenImage get editIcon =>
@@ -152,9 +176,15 @@ class $AssetsImagesGen {
   AssetGenImage get facebookLogo =>
       const AssetGenImage('assets/images/facebook_logo.png');
 
+  /// File path: assets/images/filter.svg
+  String get filter => 'assets/images/filter.svg';
+
   /// File path: assets/images/forget password.png
   AssetGenImage get forgetPassword =>
       const AssetGenImage('assets/images/forget password.png');
+
+  /// File path: assets/images/forward_arrow.svg
+  String get forwardArrow => 'assets/images/forward_arrow.svg';
 
   /// File path: assets/images/giraffe.png
   AssetGenImage get giraffe => const AssetGenImage('assets/images/giraffe.png');
@@ -175,8 +205,17 @@ class $AssetsImagesGen {
   /// File path: assets/images/log_out.png
   AssetGenImage get logOut => const AssetGenImage('assets/images/log_out.png');
 
+  /// File path: assets/images/logout.svg
+  String get logout => 'assets/images/logout.svg';
+
+  /// File path: assets/images/mic.svg
+  String get mic => 'assets/images/mic.svg';
+
   /// File path: assets/images/note.png
   AssetGenImage get note => const AssetGenImage('assets/images/note.png');
+
+  /// File path: assets/images/notifications.svg
+  String get notifications => 'assets/images/notifications.svg';
 
   /// File path: assets/images/onboarding vector2.png
   AssetGenImage get onboardingVector2 =>
@@ -193,9 +232,24 @@ class $AssetsImagesGen {
   /// File path: assets/images/otp.png
   AssetGenImage get otp => const AssetGenImage('assets/images/otp.png');
 
+  /// File path: assets/images/payment_methods.svg
+  String get paymentMethods => 'assets/images/payment_methods.svg';
+
+  /// File path: assets/images/phone.svg
+  String get phone => 'assets/images/phone.svg';
+
+  /// File path: assets/images/profile.svg
+  String get profile => 'assets/images/profile.svg';
+
+  /// File path: assets/images/send.svg
+  String get send => 'assets/images/send.svg';
+
   /// File path: assets/images/send_icon.png
   AssetGenImage get sendIcon =>
       const AssetGenImage('assets/images/send_icon.png');
+
+  /// File path: assets/images/settings.svg
+  String get settings => 'assets/images/settings.svg';
 
   /// File path: assets/images/sign_in_photo.png
   AssetGenImage get signInPhoto =>
@@ -241,7 +295,7 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/you are doctor.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
         a1,
         a2,
         a3,
@@ -250,25 +304,43 @@ class $AssetsImagesGen {
         vector2,
         vector,
         alarm,
+        appointments,
+        arrowBack,
         arrowBackBlue,
+        arrowDown,
+        attach,
         cat,
         chatAiLogo,
+        circularCalendar,
+        close,
         doctorImage,
+        done,
+        edit,
         editIcon,
         facebookLogo,
+        filter,
         forgetPassword,
+        forwardArrow,
         giraffe,
         googleLogo,
         load1,
         load2,
         load3,
         logOut,
+        logout,
+        mic,
         note,
+        notifications,
         onboardingVector2,
         onboardingVector3,
         onboardingBackground1,
         otp,
+        paymentMethods,
+        phone,
+        profile,
+        send,
         sendIcon,
+        settings,
         signInPhoto,
         slider1,
         slider2,

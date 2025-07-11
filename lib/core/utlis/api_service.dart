@@ -16,13 +16,16 @@ class ApiService {
     return response;
   }
 
-  Future<dynamic> patch(
-      {required String endPoint,
-     
- }) async {
-    Response response = await dio.patch('$baseUrl$endPoint');
-    return response;
-  }
+ Future<dynamic> patch({
+  required String endPoint,
+  Map<String, dynamic>? data,
+}) async {
+  final response = await dio.patch(
+    '$baseUrl$endPoint',
+    data: data, // لو null مفيش مشكلة
+  );
+  return response;
+}
   
    Future<dynamic> postMethodQs({
     required String url,
