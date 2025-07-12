@@ -215,8 +215,8 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                         boxMail.put('EmailName', widget.user.email);
                         String check = boxMail.get('EmailName');
                         print('${widget.user.email} , $check');
-                        /* BlocProvider.of<SignUpCubit>(context)
-                            .signUp(widget.user); */
+                         BlocProvider.of<SignUpCubit>(context)
+                            .signUp(widget.user); 
                           GoRouter.of(context).go('/home');
                       } else {
                         autovalidateMode = AutovalidateMode.always;

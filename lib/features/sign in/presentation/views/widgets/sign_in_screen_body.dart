@@ -55,7 +55,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
               GoRouter.of(context).go('/home');  
             }
             else if (role == 'doctor') {
-              GoRouter.of(context).push(Approuter.doctorManageAppointment);
+              GoRouter.of(context).push(Approuter.doctorIdentity);
             }   
         }
       },

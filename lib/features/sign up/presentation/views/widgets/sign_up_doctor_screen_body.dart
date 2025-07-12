@@ -218,8 +218,8 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                          
                         box.put('Name', widget.user.name);
                         boxMail.put('Email', widget.user.email);
-                        /* BlocProvider.of<SignUpCubit>(context)
-                            .signUp(widget.user);  */
+                         BlocProvider.of<SignUpCubit>(context)
+                            .signUp(widget.user);  
                           GoRouter.of(context).push(Approuter.doctorManageAppointment);
                        } else {
                         autovalidateMode = AutovalidateMode.always;
