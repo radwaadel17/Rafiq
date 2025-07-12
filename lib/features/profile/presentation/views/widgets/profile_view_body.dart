@@ -7,10 +7,31 @@ import 'package:app/features/profile/presentation/views/widgets/text_and_icon.da
 import 'package:app/features/profile/presentation/views/widgets/title_text.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class ProfileViewBody extends StatelessWidget {
+class ProfileViewBody extends StatefulWidget {
   const ProfileViewBody({super.key});
 
+  @override
+  State<ProfileViewBody> createState() => _ProfileViewBodyState();
+}
+
+class _ProfileViewBodyState extends State<ProfileViewBody> {
+  String? savedName;
+  String? email;
+  void getNameAndMail(){
+    final Box box = Hive.box('UserName');
+    final Box boxmail = Hive.box('userEmail');
+    savedName = box.get('AccName');
+    email = boxmail.get('EmailName');
+  print("Retrieved Name: $savedName");
+  print("Retrieved Email: $email");
+  }
+  @override
+  void initState() {
+    super.initState();
+    getNameAndMail();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -21,13 +42,13 @@ class ProfileViewBody extends StatelessWidget {
       ),
       Center(
         child: Text(
-          'أنس أحمد',
+          savedName == null ? 'person123' : savedName!,
           style: Styles.textstyle18,
         ),
       ),
       Center(
         child: Text(
-          'Anas_Ahmed@gmail.com',
+          email == null ? 'person123@gmail.com' : email! ,
           style: Styles.textstyle16.copyWith(color: greyColor),
         ),
       ),

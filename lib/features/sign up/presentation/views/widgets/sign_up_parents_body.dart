@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive/hive.dart';
 
 class SignUpParentsBody extends StatefulWidget {
   const SignUpParentsBody({super.key, required this.user});
@@ -37,6 +38,9 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
       obscureText = !obscureText;
     });
   }
+  final Box box = Hive.box('userName');
+  final Box boxMail = Hive.box('userEmail');
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +136,7 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                     LabelAndTextField(
                         onChanged: (data) {
                           widget.user.name = data;
+                          
                         },
                         text: 'الأسم بالكامل',
                         hintText: 'ادخل اسمك بالكامل'),
@@ -206,8 +211,13 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                           );
                           return;
                         }
-                        BlocProvider.of<SignUpCubit>(context)
-                            .signUp(widget.user);
+                        box.put('AccName', widget.user.name);
+                        boxMail.put('EmailName', widget.user.email);
+                        String check = boxMail.get('EmailName');
+                        print('${widget.user.email} , $check');
+                        /* BlocProvider.of<SignUpCubit>(context)
+                            .signUp(widget.user); */
+                          GoRouter.of(context).go('/home');
                       } else {
                         autovalidateMode = AutovalidateMode.always;
 

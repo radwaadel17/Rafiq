@@ -5,11 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive/hive.dart';
 
-class HomeHeader extends StatelessWidget {
+class HomeHeader extends StatefulWidget {
   const HomeHeader({
     super.key,
   });
+
+  @override
+  State<HomeHeader> createState() => _HomeHeaderState();
+}
+
+class _HomeHeaderState extends State<HomeHeader> {
+  String? savedName;
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+    final Box box = Hive.box('userName');
+    savedName = box.get('AccName');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +37,7 @@ class HomeHeader extends StatelessWidget {
           Row(
             children: [
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   GoRouter.of(context).push(Approuter.profile);
                 },
                 child: Image.asset(
@@ -34,7 +50,9 @@ class HomeHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "أهلاً، أنا\nرَفيقك يا أنس",
+                    savedName == null || savedName!.isEmpty
+                        ? 'أهلاً، أنا\nرَفيقك يا person 123'
+                        : 'أهلاً، أنا\nرَفيقك يا $savedName',
                     style: Styles.textstyle14,
                   ),
                 ],
@@ -46,10 +64,10 @@ class HomeHeader extends StatelessWidget {
               SvgPicture.asset(Assets.icons.notificationsOn),
               const Gap(18),
               GestureDetector(
-                onTap: (){
-                  GoRouter.of(context).push(Approuter.messages);
-                },
-                child: SvgPicture.asset(Assets.icons.chat)),
+                  onTap: () {
+                    GoRouter.of(context).push(Approuter.messages);
+                  },
+                  child: SvgPicture.asset(Assets.icons.chat)),
               const Gap(18),
               SvgPicture.asset(Assets.icons.menu),
             ],

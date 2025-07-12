@@ -19,6 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive/hive.dart';
 
 class SignUpDoctorBody extends StatefulWidget {
   const SignUpDoctorBody({super.key, required this.user});
@@ -38,6 +39,8 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
       obscureText = !obscureText;
     });
   }
+  final Box box = Hive.box('doctorName');
+  final Box boxMail = Hive.box('doctorEmail');
 
   @override
   Widget build(BuildContext context) {
@@ -212,8 +215,12 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                           return;
                         } 
                         
-                        BlocProvider.of<SignUpCubit>(context)
-                            .signUp(widget.user); 
+                         
+                        box.put('Name', widget.user.name);
+                        boxMail.put('Email', widget.user.email);
+                        /* BlocProvider.of<SignUpCubit>(context)
+                            .signUp(widget.user);  */
+                          GoRouter.of(context).push(Approuter.doctorManageAppointment);
                        } else {
                         autovalidateMode = AutovalidateMode.always;
 

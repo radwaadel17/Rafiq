@@ -76,18 +76,7 @@ class OnBoardingTwo extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                      height: 12.h,
-                      child: Transform(
-                          alignment: Alignment.center,
-                          transform: Matrix4.identity()..scale(-1.0, 1.0),
-                          child: GestureDetector(
-                              onTap: () {
-                                GoRouter.of(context)
-                                    .pushReplacement(Approuter.onBoardingOne);
-                              },
-                              child: Image.asset(AppImages.blueArrowBack)))),
-                  GestureDetector(
+                   GestureDetector(
                     onTap: () {
                       GoRouter.of(context).push(Approuter.onBoardingThree);
                     },
@@ -106,6 +95,17 @@ class OnBoardingTwo extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                      height: 12.h,
+                      child: Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.identity()..scale(-1.0, 1.0),
+                          child: GestureDetector(
+                              onTap: () {
+                                GoRouter.of(context).pop();
+                              },
+                              child: Image.asset(AppImages.blueArrowBack)))),
+                 
                 ],
               )),
         ],

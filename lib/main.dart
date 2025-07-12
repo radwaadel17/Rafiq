@@ -20,9 +20,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async{
   setup();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox('userName');
+  await Hive.openBox('userEmail');
+  await Hive.openBox('doctorName');
+  await Hive.openBox('doctorEmail');
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,

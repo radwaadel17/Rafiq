@@ -52,11 +52,10 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
             String role = decodedToken['role'];
             debugPrint('Decoded role: $role');
             if(role == 'parent'){
-              GoRouter.of(context).go('/home');
-              
+              GoRouter.of(context).go('/home');  
             }
-            else {
-              GoRouter.of(context).go('/doctorHome');
+            else if (role == 'doctor') {
+              GoRouter.of(context).push(Approuter.doctorManageAppointment);
             }   
         }
       },
@@ -151,15 +150,16 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                                onTap: () {
-              
-                                },
-                                child: TextArabicWithStyle(
-                                    text: 'انشاء حساب ', textsyle: Styles.textstyle18.copyWith(fontSize: 14.sp))),
+                            
                             TextArabicWithStyle(
                                 text: 'ليس لديك حساب؟ ',
                                 textsyle: Styles.textstyle18.copyWith(fontSize: 14.sp, color: const Color(0xff575757))),
+                                GestureDetector(
+                                onTap: () {
+                                    GoRouter.of(context).push(Approuter.youAre);
+                                },
+                                child: TextArabicWithStyle(
+                                    text: 'انشاء حساب ', textsyle: Styles.textstyle18.copyWith(fontSize: 14.sp))),
                           ],
                         ),
                         SizedBox(

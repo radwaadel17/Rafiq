@@ -6,9 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatBotBubble extends StatelessWidget {
   const ChatBotBubble({
-    super.key, required this.msg,
+    super.key,
+    this.msg,
+    this.msgWidget,
   });
-  final String msg ;
+
+  final String? msg;
+  final Widget? msgWidget;
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -19,29 +24,31 @@ class ChatBotBubble extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-                height: context.screenHeight * 0.05.h,
-                child: Image.asset(Assets.images.chatAiLogo.path)),
+              height: context.screenHeight * 0.05.h,
+              child: Image.asset(Assets.images.chatAiLogo.path),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Flexible(
                 flex: 1,
                 child: Container(
-                   constraints: BoxConstraints(
-                    maxWidth: context.screenWidth * 0.7, // أقصى عرض للـ Container
+                  constraints: BoxConstraints(
+                    maxWidth: context.screenWidth * 0.7,
                   ),
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8.r),
                   ),
-                  child: Text(
-                    textAlign: TextAlign.right,
-                     msg ,
-                    style: Styles.textstyle14,
-                  ),
+                  child: msgWidget ??
+                      Text(
+                        msg ?? '',
+                        textAlign: TextAlign.right,
+                        style: Styles.textstyle14,
+                      ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
