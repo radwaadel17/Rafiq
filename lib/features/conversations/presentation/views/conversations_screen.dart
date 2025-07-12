@@ -1,3 +1,4 @@
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/features/conversations/presentation/views/widgets/conversation_header.dart';
 import 'package:app/features/conversations/presentation/views/widgets/conversation_item.dart';
@@ -41,7 +42,7 @@ class _ConversationsScreenState extends State<ConversationsScreen> {
                         itemBuilder: (_, int index) {
                           return InkWell(
                             onTap: () {
-                              context.pushNamed("messages");
+                              GoRouter.of(context).push(Approuter.chatMessage);
                             },
                             child: const ConversationItem(),
                           );

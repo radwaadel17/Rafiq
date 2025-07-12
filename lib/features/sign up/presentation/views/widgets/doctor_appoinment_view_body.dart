@@ -10,6 +10,7 @@ import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class DoctorAppointmentViewBody extends StatelessWidget {
   const DoctorAppointmentViewBody({super.key});
@@ -61,7 +62,11 @@ class DoctorAppointmentViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
-            child: const CustomButton(text: 'تأكيد'),
+            child: CustomButton(text: 'تأكيد'  ,
+            onPressed: (){
+             GoRouter.of(context).go('/doctorHome');
+            },
+            ),
           ),
         ),
         SliverToBoxAdapter(

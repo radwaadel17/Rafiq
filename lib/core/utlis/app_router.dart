@@ -46,6 +46,7 @@ abstract class Approuter {
   static const messages = '/messages';
   static const doctorIdentity = '/docIdentity';
   static const doctorManageAppointment = '/docAppointments';
+  static const chatMessage = '/chatMessage';
 
 
   static final router = GoRouter(
@@ -72,6 +73,19 @@ abstract class Approuter {
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const OnBoardingScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      ),
+      GoRoute(
+        path: chatMessage,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const MessagesScreen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,
@@ -295,13 +309,10 @@ abstract class Approuter {
             name: 'conversations',
             builder: (context, state) => const ConversationsScreen(),
           ),
+       
         ],
       ),
-      GoRoute(
-        path: '/messages',
-        name: 'messages',
-        builder: (context, state) => const MessagesScreen(),
-      ),
+     
       
     ],
     

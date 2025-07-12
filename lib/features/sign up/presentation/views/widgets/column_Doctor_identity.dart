@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-
 class ColumnDoctorIdentity extends StatefulWidget {
   const ColumnDoctorIdentity({
     super.key,
@@ -30,7 +29,10 @@ class _ColumnDoctorIdentityState extends State<ColumnDoctorIdentity> {
       hasScrollBody: false,
       child: Column(
         children: [
-          const TextColumn(txt: 'التحقق من الهوية', txt2: 'ستتم مشاركة معلوماتك مع فريق الخبراء الطبيين لدينا للتحقق من هويتك ك طبيب'),
+          const TextColumn(
+              txt: 'التحقق من الهوية',
+              txt2:
+                  'ستتم مشاركة معلوماتك مع فريق الخبراء الطبيين لدينا للتحقق من هويتك ك طبيب'),
           SizedBox(
             height: 60.h,
           ),
@@ -44,20 +46,34 @@ class _ColumnDoctorIdentityState extends State<ColumnDoctorIdentity> {
             height: 30.h,
           ),
           ContainerDoctorIdentity(
-              imgPath: Assets.images.takeSelfi.path,
-              txt1: 'صورة سيلفي',
-              txt2: 'مطلوب من قبل نظامنا للتحقق من الهوية',
-              useCamera: true,
-              onFilePicked: (file) => selfieImage = file,
-              ),
+            imgPath: Assets.images.takeSelfi.path,
+            txt1: 'صورة سيلفي',
+            txt2: 'مطلوب من قبل نظامنا للتحقق من الهوية',
+            useCamera: true,
+            onFilePicked: (file) => selfieImage = file,
+          ),
           const Spacer(flex: 1),
           SizedBox(
               width: context.screenWidth * 0.95,
               child: CustomButton(
-                onPressed: (){
-                GoRouter.of(context).push(Approuter.doctorManageAppointment);
-                },
-                text: 'تأكيد')),
+                  onPressed: () {
+                    if (certificateImage != null && selfieImage != null) {
+                      // ✅ لو الصورتين مرفوعين نروح للصفحة التالية
+                      GoRouter.of(context)
+                          .push(Approuter.doctorManageAppointment);
+                    } else {
+                      // ❌ لو في صورة ناقصة، نظهر تنبيه
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content:
+                              Text('من فضلك ارفع صورة الشهادة وصورة السيلفي'),
+                          duration: Duration(seconds: 2),
+                          backgroundColor: Colors.redAccent,
+                        ),
+                      );
+                    }
+                  },
+                  text: 'تأكيد')),
           const Spacer(
             flex: 2,
           ),
