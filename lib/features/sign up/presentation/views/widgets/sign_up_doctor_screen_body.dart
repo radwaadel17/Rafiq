@@ -7,8 +7,9 @@ import 'package:app/core/widgets/Label_and_text_field_password.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
 import 'package:app/core/widgets/Label_and_text_field_widget.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
-import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_cubit.dart';
-import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_states_cubit.dart';
+import 'package:app/features/sign%20up/presentation/manager/signup%20cubit_doctor/sign_up_cubit.dart';
+import 'package:app/features/sign%20up/presentation/manager/signup%20cubit_doctor/sign_up_states_cubit.dart';
+import 'package:app/features/sign%20up/presentation/views/doctor_identity.dart';
 import 'package:app/features/sign%20up/presentation/views/otp_verfication.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
 import 'package:app/core/widgets/custom_button.dart';
@@ -23,7 +24,7 @@ import 'package:hive/hive.dart';
 
 class SignUpDoctorBody extends StatefulWidget {
   const SignUpDoctorBody({super.key, required this.user});
-  final UserSignupEntity user;
+  final UserSignupDoctorEntity user;
 
   @override
   State<SignUpDoctorBody> createState() => _SignUpDoctorBodyState();
@@ -39,6 +40,7 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
       obscureText = !obscureText;
     });
   }
+
   final Box box = Hive.box('doctorName');
   final Box boxMail = Hive.box('doctorEmail');
 
@@ -51,20 +53,19 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
             SnackBar(
               backgroundColor: Colors.red,
               content: Align(
-                alignment: Alignment.centerLeft,
-                child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(state.errorMsg))),
+                  child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(state.errorMsg))),
             ),
           );
         } else if (state is SignupSuccesesState) {
           ScaffoldMessenger.of(context).showSnackBar(
-           const SnackBar(
-
-              backgroundColor:greenColor,
+            const SnackBar(
+              backgroundColor: greenColor,
               content: Align(
-                 alignment: Alignment.centerLeft,
-                child: Text('User successfully created')),
+                  alignment: Alignment.centerLeft,
+                  child: Text('User successfully created')),
             ),
           );
           debugPrint(state.message);
@@ -94,11 +95,22 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                 height: context.screenHeight * 0.010,
               )),
               SliverToBoxAdapter(
-                child: SignUpCustomAppBar(imgPath: Assets.images.load3.path,),
+                child: SignUpCustomAppBar(
+                  imgPath: Assets.images.load3.path,
+                ),
               ),
-              SliverToBoxAdapter(child: Center(child: Text("إنشاء حساب جديد" , style: Styles.textstyle18,))) ,
-              
-              SliverToBoxAdapter(child: Center(child: Text("ادخل جميع بيناتك حتي تتمكن من إنشاء حساب" , style: Styles.textstyle12,))) ,
+              SliverToBoxAdapter(
+                  child: Center(
+                      child: Text(
+                "إنشاء حساب جديد",
+                style: Styles.textstyle18,
+              ))),
+              SliverToBoxAdapter(
+                  child: Center(
+                      child: Text(
+                "ادخل جميع بيناتك حتي تتمكن من إنشاء حساب",
+                style: Styles.textstyle12,
+              ))),
               SliverToBoxAdapter(
                   child: SizedBox(
                 height: context.screenHeight * 0.010,
@@ -143,8 +155,12 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
-                    const LabelAndTextField(
-                        text: 'التخصص', hintText: 'ادخل تخصصك'),
+                    LabelAndTextField(
+                        onChanged: (data) {
+                          widget.user.specialization = data;
+                        },
+                        text: 'التخصص',
+                        hintText: 'ادخل تخصصك'),
                     SizedBox(
                       height: context.screenHeight * 0.010,
                     ),
@@ -200,7 +216,7 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                   child: CustomButton(
                     check: state is SignUpLoadingStatesCubit ? true : false,
                     onPressed: () {
-                       if (globalKey.currentState!.validate()) {
+                      if (globalKey.currentState!.validate()) {
                         globalKey.currentState!.save();
                         if (checkBox == false) {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -213,21 +229,35 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                             ),
                           );
                           return;
-                        } 
-                        
-                         
+                        }
+
                         box.put('Name', widget.user.name);
                         boxMail.put('Email', widget.user.email);
-                         /* BlocProvider.of<SignUpCubit>(context)
-                            .signUp(widget.user);   */
-                         // GoRouter.of(context).push(Approuter.doctorManageAppointment);
-                       } else {
+                     
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) {
+                              return DoctorIdentity(user: widget.user);
+                            },
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                        // GoRouter.of(context).push(Approuter.doctorManageAppointment);
+                      } else {
                         autovalidateMode = AutovalidateMode.always;
 
                         setState(() {});
-                      } 
+                      }
                     },
-                    text: 'انشاء حساب',
+                    text: 'التالي',
                   ),
                 ),
               ),
@@ -241,13 +271,12 @@ class _SignUpDoctorBodyState extends State<SignUpDoctorBody> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                      
                         TextArabicWithStyle(
                             text: 'لديك حساب بالفعل ؟',
                             textsyle: Styles.textstyle18.copyWith(
                                 fontSize: 14.sp,
                                 color: const Color(0xff575757))),
-                                GestureDetector(
+                        GestureDetector(
                             onTap: () {
                               GoRouter.of(context).push(Approuter.signIn);
                             },

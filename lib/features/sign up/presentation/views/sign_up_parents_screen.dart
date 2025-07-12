@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class SignUpParentsScreen extends StatelessWidget {
   const SignUpParentsScreen({super.key, required this.user});
-  final UserSignupEntity user;
+  final UserSignupDoctorEntity user;
   @override
   Widget build(BuildContext context) {
     return SignUpParentsBody(

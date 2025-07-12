@@ -9,6 +9,7 @@ class ServerFailure extends Faluire {
   // ignore: non_constant_identifier_names
   factory ServerFailure.FromBadResponse(int? statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+
       return ServerFailure(errorMessage: response.toString());
     } else if (statusCode == 404) {
       return ServerFailure(
@@ -44,7 +45,7 @@ class ServerFailure extends Faluire {
         return ServerFailure(
             errorMessage: 'Connection erorr , please try again!');
       case DioExceptionType.unknown:
-        if (dioException.message!.contains('SocketException')) {
+        if (dioException.message?.contains('SocketException') ?? false) {
           return ServerFailure(errorMessage: 'No Internet Connection');
         }
         return ServerFailure(

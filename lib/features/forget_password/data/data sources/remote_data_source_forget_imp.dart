@@ -5,18 +5,26 @@ import 'package:dio/dio.dart';
 class RemoteDataSourceForgetImp implements RemoteDataSourceForget {
   ApiService apiService ;
   RemoteDataSourceForgetImp(this.apiService);
+   @override
+  Future<String> verfiyPasswordResetCode({required String email, required String resetCode}) async{
+    Response response = await apiService.postMethod(endPoint: '/api/users/verifyResetCode', userData: {
+      'email' : email ,
+      "passwordResetCode" : resetCode,
+    }, isFormData: false);
+    return response.data['message'];
+  }
   
   @override
   Future<void> forgetPassword({required String email}) async {
     Response response = await apiService.postMethod(endPoint: '/api/users/forgetpassword', userData: {
       'email' : email ,
     }, isFormData: false);
-
+    print('${response.data['PreviewURL']}');
   }
   
   @override
   Future<String> resetPassord({required String email, required String password1, required String password2}) async {
-    Response response = await apiService.patch(endPoint: '}/api/users/resetpassword', data: {
+    Response response = await apiService.patch(endPoint: '/api/users/resetpassword' , data: {
       'email' : email ,
       "password" : password1 , 
       "passwordConfirmation" : password2,
@@ -24,12 +32,4 @@ class RemoteDataSourceForgetImp implements RemoteDataSourceForget {
     return response.data;
   }
   
-  @override
-  Future<String> verfiyPasswordResetCode({required String email, required String resetCode}) async{
-    Response response = await apiService.postMethod(endPoint: '/api/users/verifyResetCode', userData: {
-      'email' : email ,
-      "passwordResetCode" : resetCode,
-    }, isFormData: false);
-    return response.data;
-  }
 }

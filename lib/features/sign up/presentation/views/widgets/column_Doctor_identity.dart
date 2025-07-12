@@ -1,20 +1,17 @@
 import 'dart:io';
-
-import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/widgets/custom_button.dart';
+import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
+import 'package:app/features/sign%20up/presentation/views/doctor_manage_appoinment.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/conatiner_doctor_identity.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/text_column.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class ColumnDoctorIdentity extends StatefulWidget {
-  const ColumnDoctorIdentity({
-    super.key,
-  });
-
+  const ColumnDoctorIdentity({super.key, required this.user});
+  final UserSignupDoctorEntity user;
   @override
   State<ColumnDoctorIdentity> createState() => _ColumnDoctorIdentityState();
 }
@@ -40,7 +37,12 @@ class _ColumnDoctorIdentityState extends State<ColumnDoctorIdentity> {
             imgPath: Assets.images.upload.path,
             txt1: 'التحقق من الهوية',
             txt2: 'شهادة او وثيقة تثبت مزاولتك للمهنة',
-            onFilePicked: (file) => certificateImage = file,
+            onFilePicked: (file) {
+              setState(() {
+                certificateImage = file;
+                widget.user.identityVerification =file.path;
+              });
+            }
           ),
           SizedBox(
             height: 30.h,
@@ -50,19 +52,39 @@ class _ColumnDoctorIdentityState extends State<ColumnDoctorIdentity> {
             txt1: 'صورة سيلفي',
             txt2: 'مطلوب من قبل نظامنا للتحقق من الهوية',
             useCamera: true,
-            onFilePicked: (file) => selfieImage = file,
+            onFilePicked: (file) {
+              setState(() {
+                selfieImage = file;
+                widget.user.selfiePhoto =file.path;
+              });
+            },
           ),
           const Spacer(flex: 1),
           SizedBox(
               width: context.screenWidth * 0.95,
               child: CustomButton(
+                
                   onPressed: () {
                     if (certificateImage != null && selfieImage != null) {
-                      // ✅ لو الصورتين مرفوعين نروح للصفحة التالية
-                      GoRouter.of(context)
-                          .push(Approuter.doctorManageAppointment);
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) {
+                              return DoctorAppointmentsView(user: widget.user,);
+                            },
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      print(widget.user.identityVerification);
+                      print(widget.user.selfiePhoto);
                     } else {
-                      // ❌ لو في صورة ناقصة، نظهر تنبيه
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content:

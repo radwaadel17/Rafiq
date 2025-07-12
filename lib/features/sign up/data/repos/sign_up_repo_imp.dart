@@ -9,7 +9,7 @@ class SignUpRepoImp implements SignUpRepo {
   RemoteDataSource remoteDataSource;
   SignUpRepoImp(this.remoteDataSource);
   @override
-  Future<Either<Faluire, String>> signUp(UserSignupEntity user) async {
+  Future<Either<Faluire, String>> signUp(UserSignupDoctorEntity user) async {
     try {
       String response = await remoteDataSource.signUp(user);
       return right(response);

@@ -6,9 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RowSwitcherAndContainer extends StatefulWidget {
-  const RowSwitcherAndContainer({super.key, required this.day});
+  const RowSwitcherAndContainer({
+    super.key,
+    required this.day,
+    required this.onChanged,
+  });
 
   final String day;
+  final void Function(Map<String, dynamic>) onChanged;
 
   @override
   State<RowSwitcherAndContainer> createState() =>
@@ -17,6 +22,9 @@ class RowSwitcherAndContainer extends StatefulWidget {
 
 class _RowSwitcherAndContainerState extends State<RowSwitcherAndContainer> {
   bool isSelected = false;
+  String? selectedMorningTime;
+  String? selectedEveningTime;
+
   List<PopupMenuItem<String>> itemsMorning = [];
   List<PopupMenuItem<String>> itemsEvening = [];
 
@@ -27,9 +35,7 @@ class _RowSwitcherAndContainerState extends State<RowSwitcherAndContainer> {
         value: '$i:00 صباحاً',
         child: Text(
           '$i:00 صباحاً',
-          style: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.blue), // بديل لـ Styles.textstyle12
+          style: TextStyle(fontSize: 12.sp, color: Colors.blue),
         ),
       ));
     }
@@ -42,12 +48,19 @@ class _RowSwitcherAndContainerState extends State<RowSwitcherAndContainer> {
         value: '$i:00 مساءً',
         child: Text(
           '$i:00 مساءً',
-          style: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.blue), // بديل لـ Styles.textstyle12
+          style: TextStyle(fontSize: 12.sp, color: Colors.blue),
         ),
       ));
     }
+  }
+
+  void sendData() {
+    widget.onChanged({
+      "day": widget.day,
+      "available": isSelected,
+      "morning": selectedMorningTime,
+      "evening": selectedEveningTime,
+    });
   }
 
   @override
@@ -74,6 +87,7 @@ class _RowSwitcherAndContainerState extends State<RowSwitcherAndContainer> {
                   setState(() {
                     isSelected = value;
                   });
+                  sendData();
                 },
               ),
             ),
@@ -82,10 +96,7 @@ class _RowSwitcherAndContainerState extends State<RowSwitcherAndContainer> {
             flex: 1,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Text(
-                widget.day,
-                style: Styles.textstyle18, // بديل لـ Styles.textstyle18
-              ),
+              child: Text(widget.day, style: Styles.textstyle18),
             ),
           ),
           Expanded(
@@ -94,20 +105,37 @@ class _RowSwitcherAndContainerState extends State<RowSwitcherAndContainer> {
                 ? SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SizedBox(
                           width: 150.w,
-                          child: PopUpmenu(ch: true, items: itemsMorning),
+                          child: PopUpmenu(
+                            ch: true,
+                            items: itemsMorning,
+                            onSelected: (value) {
+                              setState(() {
+                                selectedMorningTime = value;
+                              });
+                              sendData();
+                            },
+                          ),
                         ),
                         SizedBox(
                           width: 150.w,
-                          child: PopUpmenu(ch: false, items: itemsEvening),
+                          child: PopUpmenu(
+                            ch: false,
+                            items: itemsEvening,
+                            onSelected: (value) {
+                              setState(() {
+                                selectedEveningTime = value;
+                              });
+                              sendData();
+                            },
+                          ),
                         ),
                       ],
                     ),
                   )
-                : const UnavalibaleContainer()
+                : const UnavalibaleContainer(),
           ),
         ],
       ),

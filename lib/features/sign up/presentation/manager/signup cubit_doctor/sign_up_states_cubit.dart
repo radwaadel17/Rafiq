@@ -8,7 +8,7 @@ class SignUpLoadingStatesCubit extends SignUpState {}
 
 class SignupSuccesesState extends SignUpState {
   final String message;
-  final  UserSignupEntity user; 
+  final  UserSignupDoctorEntity user; 
   SignupSuccesesState(this.message , this.user);
 }
 

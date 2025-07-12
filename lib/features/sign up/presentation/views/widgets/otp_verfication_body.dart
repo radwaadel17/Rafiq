@@ -15,7 +15,7 @@ import 'package:go_router/go_router.dart';
 
 class OtpVerficationBody extends StatefulWidget {
   const OtpVerficationBody({super.key, required this.user});
-  final UserSignupEntity user;
+  final UserSignupDoctorEntity user;
 
   @override
   State<OtpVerficationBody> createState() => _OtpVerficationBodyState();

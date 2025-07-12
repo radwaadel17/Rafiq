@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OtpVarfication extends StatelessWidget {
   const OtpVarfication({super.key, required this.user});
-  final UserSignupEntity user;
+  final UserSignupDoctorEntity user;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

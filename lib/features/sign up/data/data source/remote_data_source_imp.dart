@@ -7,8 +7,10 @@ class RemoteDataSourceImp implements RemoteDataSource {
   ApiService apiService;
   RemoteDataSourceImp(this.apiService);
   @override
-  Future<String> signUp(UserSignupEntity user) async {
-    Response responseString = await apiService.postMethod(
+  Future<String> signUp(UserSignupDoctorEntity user) async {
+    Response responseString ;
+    if(user.role == 'doctor'){
+        responseString = await apiService.postMethod(
         endPoint: '/api/users/register',
         userData: {
           "name": user.name,
@@ -16,16 +18,41 @@ class RemoteDataSourceImp implements RemoteDataSource {
           "password": user.passowrd,
           "passwordConfirmation": user.passwordConfirmation,
           "phoneNumber": user.phoneNumber,
-          "role": user.role
+          "role": user.role,
+          "identityVerification": user.identityVerification,
+          "selfiePhoto": user.selfiePhoto,
+          "specialization": user.specialization,
+          "description": user.description,
+          "clinicLocation": user.clinicLocation,  
+          "appointments": user.appointments,  
+          "rating": user.rating,
+          "children": user.children,
         },
         isFormData: false);
-  /*   print("Name: ${user.name}");
-    print("Email: ${user.email}");
-    print("Password: ${user.passowrd}");
-    print("Password Confirmation: ${user.passwordConfirmation}");
-    print("Phone Number: ${user.phoneNumber}");
-    print("Role: ${user.role}"); */
-    return responseString.data['Preview URL'];
+    }
+    else{
+      responseString = await apiService.postMethod(
+        endPoint: '/api/users/register',
+        userData: {
+          "name": user.name,
+          "email": user.email,
+          "password": user.passowrd,
+          "passwordConfirmation": user.passwordConfirmation,
+          "phoneNumber": user.phoneNumber,
+          "role": user.role,
+          "children": user.children,
+        },
+        isFormData: false);
+        print(user.children);
+        print(user.name);
+        print(user.phoneNumber);
+        print(user.email);
+        print(user.passowrd);
+        print(user.passwordConfirmation);
+        print(user.role); 
+    }
+ 
+    return responseString.data['PreviewURL'];
   }
 
   @override

@@ -23,14 +23,17 @@ class YouAreBody extends StatefulWidget {
 }
 
 class _YouAreBodyState extends State<YouAreBody> {
-  UserSignupEntity user = UserSignupEntity(
+  UserSignupDoctorEntity user = UserSignupDoctorEntity(
       name: '',
       email: '',
       passowrd: '',
       passwordConfirmation: '',
       phoneNumber: 0,
-      role: '');
-
+      role: '',
+      specialization: '',
+      children: [],
+      );
+    
   @override
   Widget build(BuildContext context) {
     return Scaffold(

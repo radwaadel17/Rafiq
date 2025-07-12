@@ -4,11 +4,11 @@ import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/text_arabic_with_style.dart';
+import 'package:app/features/forget_password/presentation/manager/forget%20password%20cubit/forget_password_cubit.dart';
 import 'package:app/features/forget_password/presentation/manager/verfiyPasswordResetCode/verfyCubit.dart';
 import 'package:app/features/forget_password/presentation/manager/verfiyPasswordResetCode/verfyPasswordStates.dart';
 import 'package:app/features/forget_password/presentation/views/new_password_screen.dart';
 import 'package:app/features/forget_password/presentation/views/widgets/otp_box_container.dart';
-import 'package:app/features/sign%20up/presentation/manager/verfiy%20email%20cubit/verfiy_email_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,7 +24,7 @@ class OtpScreenBody extends StatefulWidget {
 
 class _OtpScreenBodyState extends State<OtpScreenBody> {
  TextEditingController textEditingControllerOne = TextEditingController();
-  TextEditingController textEditingControllerTwo = TextEditingController();
+ TextEditingController textEditingControllerTwo = TextEditingController();
   TextEditingController textEditingControllerThree = TextEditingController();
   TextEditingController textEditingControllerFour = TextEditingController();
   @override
@@ -35,7 +35,7 @@ class _OtpScreenBodyState extends State<OtpScreenBody> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.red,
-              content: Text(state.errorMessage),
+              content: Text(state.errorMessage , textAlign: TextAlign.left,),
             ),
           );
         } else if (state is VSucssesStateinit) {
@@ -44,7 +44,7 @@ class _OtpScreenBodyState extends State<OtpScreenBody> {
               backgroundColor: greenColor,
               content: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(state.msg)),
+                  child: Text(state.msg , textAlign: TextAlign.left,)),
             ),
           );
           Navigator.push(
@@ -135,18 +135,24 @@ class _OtpScreenBodyState extends State<OtpScreenBody> {
                     const Spacer(
                       flex: 2,
                     ),
-                    TextArabicWithStyle(
-                        text: 'أعد الارسال ',
-                        textsyle: Styles.textstyle18.copyWith(
-                            fontWeight: FontWeight.normal,
-                            decoration: TextDecoration.underline)),
+                    GestureDetector(
+                      onTap: (){
+                        BlocProvider.of<ForgetPasswordCubit>(context).forgetPassword(email: widget.email);
+                      },
+                      child: TextArabicWithStyle(
+                          text: 'أعد الارسال ',
+                          textsyle: Styles.textstyle18.copyWith(
+                              fontWeight: FontWeight.normal,
+                              decoration: TextDecoration.underline)),
+                    ),
                     const Spacer(
                       flex: 2,
                     ),
                     SizedBox(
                         width: context.screenWidth * 0.9,
                         child: CustomButton(
-                          check: state is VerfiyEmailLoadingStates ? true : false,
+
+                          check: state is VPasswordLoadingState ? true : false,
                           text: 'تم',
                           onPressed: () {
                             String code = textEditingControllerFour.text +

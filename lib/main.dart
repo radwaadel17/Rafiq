@@ -11,7 +11,7 @@ import 'package:app/features/questions/presentation/manager/result_cubit.dart';
 import 'package:app/features/sign%20in/data/repos/sign_in_repo_imp.dart';
 import 'package:app/features/sign%20in/presentation/manager/sign_in_cubit/sign_in_cubit.dart';
 import 'package:app/features/sign%20up/data/repos/sign_up_repo_imp.dart';
-import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_cubit.dart';
+import 'package:app/features/sign%20up/presentation/manager/signup%20cubit_doctor/sign_up_cubit.dart';
 import 'package:app/generated/l10n.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:dio/dio.dart';

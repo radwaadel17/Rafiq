@@ -9,8 +9,8 @@ import 'package:app/core/widgets/Label_and_text_field_widget.dart';
 import 'package:app/features/sign%20up/domain/entity/user_signup_entity.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/core/widgets/container_box.dart';
-import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_cubit.dart';
-import 'package:app/features/sign%20up/presentation/manager/signup%20cubit/sign_up_states_cubit.dart';
+import 'package:app/features/sign%20up/presentation/manager/signup%20cubit_doctor/sign_up_cubit.dart';
+import 'package:app/features/sign%20up/presentation/manager/signup%20cubit_doctor/sign_up_states_cubit.dart';
 import 'package:app/features/sign%20up/presentation/views/otp_verfication.dart';
 import 'package:app/features/sign%20up/presentation/views/widgets/check_box_widget.dart';
 import 'package:app/gen/assets.gen.dart';
@@ -22,7 +22,7 @@ import 'package:hive/hive.dart';
 
 class SignUpParentsBody extends StatefulWidget {
   const SignUpParentsBody({super.key, required this.user});
-  final UserSignupEntity user;
+  final UserSignupDoctorEntity user;
 
   @override
   State<SignUpParentsBody> createState() => _SignUpParentsBodyState();
