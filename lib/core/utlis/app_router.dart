@@ -16,6 +16,7 @@ import 'package:app/features/on_boarding_screen/presentation/views/on_boarding_s
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_three.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/on_boarding_two.dart';
 import 'package:app/features/on_boarding_screen/presentation/views/widgets/you_are_body.dart';
+import 'package:app/features/payment_details/presentation/views/payment_details_view.dart';
 import 'package:app/features/profile/presentation/views/profile_view.dart';
 import 'package:app/features/questions/presentation/views/screens/lets_start_screen.dart';
 import 'package:app/features/questions/presentation/views/screens/question_one_screen.dart';
@@ -45,6 +46,7 @@ abstract class Approuter {
   static const doctorIdentity = '/docIdentity';
   static const doctorManageAppointment = '/docAppointments';
   static const chatMessage = '/chatMessage';
+  static const paymentPage = '/PaymentDetailsBody';
 
 
   static final router = GoRouter(
@@ -52,6 +54,19 @@ abstract class Approuter {
       GoRoute(
         path: "/",
         builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path:paymentPage,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const PaymentDetailsView(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
       ),
       GoRoute(
         path: signIn,

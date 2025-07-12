@@ -1,13 +1,13 @@
+import 'package:app/core/utlis/app_router.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/custom_app_bar.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_book_date_containers.dart';
 import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_buttons.dart';
-import 'package:app/features/paymob_manager/paymob_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
 
 class BookViewBody extends StatefulWidget {
   const BookViewBody({super.key});
@@ -18,15 +18,7 @@ class BookViewBody extends StatefulWidget {
 
 class _BookViewBodyState extends State<BookViewBody> {
 
-void pay() async {
-  final url = Uri.parse("https://google.com");
 
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url, mode: LaunchMode.externalApplication);
-  } else {
-    print("❌ Can't launch URL");
-  }
-}
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -69,7 +61,7 @@ void pay() async {
               width: context.screenWidth * 0.90,
               child: CustomButton(
                   onPressed: () {
-                   pay();
+                 GoRouter.of(context).push(Approuter.paymentPage);
                   },
                   text: 'اكمال الدفع')),
         )
