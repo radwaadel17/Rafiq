@@ -102,7 +102,7 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
                             context: context,
                             barrierDismissible: false,
                             builder: (context) {
-                              return Center(
+                              return const Center(
                                 child: AnimatedScale(
                                   scale: 1,
                                   duration: const Duration(milliseconds: 400),

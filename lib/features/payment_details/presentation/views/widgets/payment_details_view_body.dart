@@ -1,5 +1,4 @@
 import 'package:app/core/widgets/custom_app_bar.dart';
-import 'package:app/features/payment_details/presentation/views/widgets/container_payment_list_view.dart';
 import 'package:app/features/payment_details/presentation/views/widgets/custom_credit_cart.dart';
 import 'package:flutter/material.dart';
 
