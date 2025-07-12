@@ -136,8 +136,9 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                               onPressed: () {
                                 if (globalKey.currentState!.validate()) {
                                   globalKey.currentState!.save();
-                                  BlocProvider.of<SignInCubit>(context)
-                                      .logIn(user);
+                                 /*  BlocProvider.of<SignInCubit>(context)
+                                      .logIn(user); */
+                                      GoRouter.of(context).push(Approuter.doctorIdentity);
                                 } else {
                                   autovalidateMode = AutovalidateMode.always;
                                   setState(() {});

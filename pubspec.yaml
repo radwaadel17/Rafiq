@@ -52,6 +52,10 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   path_provider: ^2.1.1
+  file_picker: ^6.1.1
+  image_picker: ^1.1.2
+
+
 
 dev_dependencies:
   flutter_lints: ^4.0.0

@@ -217,7 +217,7 @@ class _SignUpParentsBodyState extends State<SignUpParentsBody> {
                         print('${widget.user.email} , $check');
                          BlocProvider.of<SignUpCubit>(context)
                             .signUp(widget.user); 
-                          GoRouter.of(context).go('/home');
+                          //GoRouter.of(context).go('/home');
                       } else {
                         autovalidateMode = AutovalidateMode.always;
 
