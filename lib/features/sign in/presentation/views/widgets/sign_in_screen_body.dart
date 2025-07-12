@@ -44,7 +44,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.red,
-              content: Text(state.errorMessage),
+              content: Text(state.errorMessage , textAlign: TextAlign.left,),
             ),
           );
         } else if (state is SignInCubitSucsessState) {
@@ -136,9 +136,8 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                               onPressed: () {
                                 if (globalKey.currentState!.validate()) {
                                   globalKey.currentState!.save();
-                                 /*  BlocProvider.of<SignInCubit>(context)
-                                      .logIn(user); */
-                                      GoRouter.of(context).push(Approuter.doctorIdentity);
+                                   BlocProvider.of<SignInCubit>(context)
+                                      .logIn(user); 
                                 } else {
                                   autovalidateMode = AutovalidateMode.always;
                                   setState(() {});
