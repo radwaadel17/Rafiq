@@ -2,6 +2,7 @@ import 'package:app/features/home/presentation/views/widgets/contact_icon.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class RowOfContactIcons extends StatelessWidget {
   const RowOfContactIcons({
@@ -13,10 +14,13 @@ class RowOfContactIcons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ContactDocContainer(pathPhoto: Assets.images.vector2.path, width:14.18.w, height: 17.32.h,),
+        GestureDetector(
+          onTap: (){
+            GoRouter.of(context).go('/messages');
+          },
+          child: ContactDocContainer(pathPhoto: Assets.images.vector2.path, width:14.18.w, height: 17.32.h,)),
         ContactDocContainer(pathPhoto: Assets.images.group.path , width: 14.5.w , height: 9.41,),
         ContactDocContainer(pathPhoto: Assets.images.vector.path , width: 14.w, height: 13.h,),
-    
       ],
     );
   }
