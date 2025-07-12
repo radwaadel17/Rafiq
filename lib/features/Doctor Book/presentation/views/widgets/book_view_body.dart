@@ -4,12 +4,29 @@ import 'package:app/core/widgets/custom_app_bar.dart';
 import 'package:app/core/widgets/custom_button.dart';
 import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_book_date_containers.dart';
 import 'package:app/features/Doctor%20Book/presentation/views/widgets/row_of_buttons.dart';
+import 'package:app/features/paymob_manager/paymob_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class BookViewBody extends StatelessWidget {
+class BookViewBody extends StatefulWidget {
   const BookViewBody({super.key});
 
+  @override
+  State<BookViewBody> createState() => _BookViewBodyState();
+}
+
+class _BookViewBodyState extends State<BookViewBody> {
+
+void pay() async {
+  final url = Uri.parse("https://google.com");
+
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url, mode: LaunchMode.externalApplication);
+  } else {
+    print("❌ Can't launch URL");
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,9 +67,14 @@ class BookViewBody extends StatelessWidget {
         Center(
           child: SizedBox(
               width: context.screenWidth * 0.90,
-              child: const CustomButton(text: 'اكمال الدفع')),
+              child: CustomButton(
+                  onPressed: () {
+                   pay();
+                  },
+                  text: 'اكمال الدفع')),
         )
       ],
     );
   }
 }
+//
