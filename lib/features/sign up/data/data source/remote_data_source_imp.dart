@@ -10,6 +10,20 @@ class RemoteDataSourceImp implements RemoteDataSource {
   Future<String> signUp(UserSignupDoctorEntity user) async {
     Response responseString ;
     if(user.role == 'doctor'){
+        print(user.name);
+        print(user.email);
+        print(user.passowrd);
+        print(user.passwordConfirmation);
+        print(user.phoneNumber);
+        print(user.role);
+        print(user.identityVerification);
+        print(user.selfiePhoto);
+        print(user.specialization);
+        print(user.description);
+        print(user.clinicLocation);
+        print(user.appointments);
+        print(user.rating);
+        
         responseString = await apiService.postMethod(
         endPoint: '/api/users/register',
         userData: {
@@ -26,7 +40,7 @@ class RemoteDataSourceImp implements RemoteDataSource {
           "clinicLocation": user.clinicLocation,  
           "appointments": user.appointments,  
           "rating": user.rating,
-          "children": user.children,
+          
         },
         isFormData: false);
     }
