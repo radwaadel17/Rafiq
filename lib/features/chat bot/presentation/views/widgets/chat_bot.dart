@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:app/core/utlis/constants.dart';
 import 'package:app/core/utlis/device_size.dart';
 import 'package:app/features/chat%20bot/domain/entity/message_entity.dart';
@@ -6,7 +7,7 @@ import 'package:app/features/chat%20bot/presentation/views/widgets/chat_bot_bubb
 import 'package:app/features/chat%20bot/presentation/views/widgets/user_chat_bot_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:http/http.dart' as http;
 
 class ChatBot extends StatefulWidget {
   const ChatBot({super.key});
@@ -18,9 +19,6 @@ class ChatBot extends StatefulWidget {
 class _ChatBotState extends State<ChatBot> {
   final TextEditingController textEditingController = TextEditingController();
   final ScrollController scrollController = ScrollController();
-
-  static const apiKey = 'AIzaSyDaWW_iDG5sujG3qxs_6uf-B3ZkdcDWeYU';
-  final model = GenerativeModel(model: 'gemini-2.5-flash', apiKey: apiKey);
 
   final List<MessageEntity> messages = [];
   bool isTyping = false;
@@ -38,15 +36,38 @@ class _ChatBotState extends State<ChatBot> {
 
     scrollToBottom();
 
-    final content = [Content.text(msg)];
-    final response = await model.generateContent(content);
+    try {
+      final response = await http.post(
+        Uri.parse('http://10.0.2.2:8000/chat'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'message': msg}),
+      );
 
-    setState(() {
-      messages.add(MessageEntity(isUser: false, message: response.text ?? ""));
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final botResponse = data['response'] ?? "❗ لم يتم الرد من الخادم.";
+        setState(() {
+          messages.add(MessageEntity(isUser: false, message: botResponse));
+        });
+      } else {
+        setState(() {
+          messages.add(MessageEntity(
+            isUser: false,
+            message: "❗ خطأ أثناء الاتصال بالسيرفر (${response.statusCode})",
+          ));
+        });
+      }
+    } catch (e) {
+      setState(() {
+        messages.add(MessageEntity(
+          isUser: false,
+          message: "❗ فشل الاتصال بالسيرفر:\n$e",
+        ));
+      });
+    } finally {
       isTyping = false;
-    });
-
-    scrollToBottom();
+      scrollToBottom();
+    }
   }
 
   void scrollToBottom() {
