@@ -16,18 +16,18 @@ class ApiService {
     return response;
   }
 
- Future<dynamic> patch({
-  required String endPoint,
-  Map<String, dynamic>? data,
-}) async {
-  final response = await dio.patch(
-    '$baseUrl$endPoint',
-    data: data, // لو null مفيش مشكلة
-  );
-  return response;
-}
-  
-   Future<dynamic> postMethodQs({
+  Future<dynamic> patch({
+    required String endPoint,
+    Map<String, dynamic>? data,
+  }) async {
+    final response = await dio.patch(
+      '$baseUrl$endPoint',
+      data: data, // لو null مفيش مشكلة
+    );
+    return response;
+  }
+
+  Future<dynamic> postMethodQs({
     required String url,
     required dynamic userData,
     required bool isFormData,
@@ -38,6 +38,15 @@ class ApiService {
     );
     return response;
   }
+
+  Future<dynamic> getMethod({
+    required String endPoint,
+    Map<String, dynamic>? queryParams,
+  }) async {
+    final response = await dio.get(
+      '$baseUrl$endPoint',
+      queryParameters: queryParams,
+    );
+    return response;
+  }
 }
-
-

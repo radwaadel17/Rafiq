@@ -7,13 +7,18 @@ class DoctorPhotoContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
+    return SizedBox(
       height: context.screenHeight * 0.32,
-      child:  ClipRRect(
-         borderRadius:const BorderRadius.only(
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(140),
-         ),
-         child: Image(image: AssetImage(Assets.images.doctorImage.path ,) , fit: BoxFit.cover,),
+        ),
+        child: Image(
+          image: AssetImage(
+            Assets.images.doctorAvatar.path,
+          ),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

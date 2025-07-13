@@ -15,12 +15,24 @@ class RowOfContactIcons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
-          onTap: (){
-            GoRouter.of(context).go('/messages');
-          },
-          child: ContactDocContainer(pathPhoto: Assets.images.vector2.path, width:14.18.w, height: 17.32.h,)),
-        ContactDocContainer(pathPhoto: Assets.images.group.path , width: 14.5.w , height: 9.41,),
-        ContactDocContainer(pathPhoto: Assets.images.vector.path , width: 14.w, height: 13.h,),
+            onTap: () {
+              GoRouter.of(context).go('/messages');
+            },
+            child: ContactDocContainer(
+              pathPhoto: Assets.images.vector2.path,
+              width: 14.18.w,
+              height: 17.32.h,
+            )),
+        ContactDocContainer(
+          pathPhoto: Assets.images.group.path,
+          width: 14.5.w,
+          height: 9.41,
+        ),
+        ContactDocContainer(
+          pathPhoto: Assets.images.vector.path,
+          width: 14.w,
+          height: 13.h,
+        ),
       ],
     );
   }

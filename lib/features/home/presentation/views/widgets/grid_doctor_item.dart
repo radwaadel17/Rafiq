@@ -1,12 +1,15 @@
 import 'package:app/core/utlis/text_style.dart';
+import 'package:app/features/doctors/domain/entity/doctor_entity.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class GridDoctorItem extends StatelessWidget {
+  final DoctorModel doctor;
+
   const GridDoctorItem({
     super.key,
+    required this.doctor,
   });
 
   @override
@@ -18,7 +21,7 @@ class GridDoctorItem extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             image: DecorationImage(
-              image: AssetImage(Assets.images.doctorImage.path),
+              image: AssetImage(Assets.images.doctorAvatar.path),
               fit: BoxFit.cover,
             ),
           ),
@@ -31,29 +34,16 @@ class GridDoctorItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "د.محمد إياد",
+                  doctor.name,
                   style: Styles.textstyle14,
                 ),
                 const Gap(8),
                 Text(
-                  "أخصائي تخاطب",
+                  doctor.specialization,
                   style: Styles.textstyle14,
                 ),
               ],
             ),
-            Row(
-              children: [
-                Text(
-                  "4.9",
-                  style: Styles.textstyle14,
-                ),
-                const Gap(5),
-                SvgPicture.asset(
-                  Assets.icons.roundedStar,
-                  height: 16,
-                ),
-              ],
-            )
           ],
         ),
       ],

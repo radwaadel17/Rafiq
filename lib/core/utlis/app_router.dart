@@ -3,6 +3,7 @@ import 'package:app/features/appointments/presentation/views/appointments_screen
 import 'package:app/features/conversations/presentation/views/conversations_screen.dart';
 import 'package:app/features/doctor_home/presentation/views/doctor_home_screen.dart';
 import 'package:app/features/doctor_profile/presentation/views/doctor_profile_screen.dart';
+import 'package:app/features/doctors/domain/entity/doctor_entity.dart';
 import 'package:app/features/doctors/presentation/views/doctors_screen.dart';
 import 'package:app/features/forget_password/presentation/views/forget_password_screen.dart';
 import 'package:app/features/home/presentation/views/doctor_details.dart';
@@ -48,7 +49,6 @@ abstract class Approuter {
   static const chatMessage = '/chatMessage';
   static const paymentPage = '/PaymentDetailsBody';
 
-
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -56,7 +56,7 @@ abstract class Approuter {
         builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
-        path:paymentPage,
+        path: paymentPage,
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const PaymentDetailsView(),
@@ -120,8 +120,6 @@ abstract class Approuter {
           },
         ),
       ),
-      
-      
       GoRoute(
         path: onBoardingTwo,
         pageBuilder: (context, state) => CustomTransitionPage(
@@ -193,7 +191,6 @@ abstract class Approuter {
                 name: 'question_one',
                 builder: (context, state) => const QuestionOneScreen(),
               ),
-              
               GoRoute(
                 path: 'question_three',
                 name: 'question_three',
@@ -202,42 +199,43 @@ abstract class Approuter {
             ],
           ),
           GoRoute(
-        path: doctorDetails,
-        pageBuilder: (context, state) => CustomTransitionPage(
-          key: state.pageKey,
-          child: const DoctorDeatailsView(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      ),
-      GoRoute(
-        path: doctorBook,
-        pageBuilder: (context, state) => CustomTransitionPage(
-          key: state.pageKey,
-          child: const BookView(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      ),
-      
+            path: doctorDetails,
+            name: 'doctorDetails',
+            pageBuilder: (context, state) {
+              final doctor = state.extra as DoctorModel; // ✅ get passed doctor
+              return CustomTransitionPage(
+                key: state.pageKey,
+                child: DoctorDeatailsView(doctor: doctor), // ✅ pass it to the screen
+                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  );
+                },
+              );
+            },
+          ),
+          GoRoute(
+            path: doctorBook,
+            pageBuilder: (context, state) => CustomTransitionPage(
+              key: state.pageKey,
+              child: const BookView(),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                return FadeTransition(
+                  opacity: animation,
+                  child: child,
+                );
+              },
+            ),
+          ),
+
           // GoRoute(
           //   path: '/calendar',
           //   name: 'calendar',
           //   builder: (context, state) => const CalendarScreen(),
           // ),
-
-
         ],
       ),
-      
       GoRoute(
         path: profile,
         pageBuilder: (context, state) => CustomTransitionPage(
@@ -264,9 +262,6 @@ abstract class Approuter {
           },
         ),
       ),
-      
-  
-     
       ShellRoute(
         builder: (context, state, child) {
           return DoctorBottomNavigation(child: child);
@@ -299,14 +294,9 @@ abstract class Approuter {
             name: 'conversations',
             builder: (context, state) => const ConversationsScreen(),
           ),
-       
         ],
       ),
-     
-      
     ],
-    
   );
-  
 }
 //GoRouter.of(context).push(Approuter.KSearchView);

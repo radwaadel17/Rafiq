@@ -1,12 +1,17 @@
 import 'package:app/core/utlis/text_style.dart';
 import 'package:app/core/widgets/app_button.dart';
+import 'package:app/features/doctors/domain/entity/doctor_entity.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class DoctorItem extends StatelessWidget {
+  final DoctorModel doctor;
+
   const DoctorItem({
     super.key,
+    required this.doctor,
   });
 
   @override
@@ -27,7 +32,7 @@ class DoctorItem extends StatelessWidget {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(Assets.images.doctorImage.path),
+                        image: AssetImage(Assets.images.doctorAvatar.path),
                       ),
                     ),
                   ),
@@ -36,13 +41,18 @@ class DoctorItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "د.علي إبراهيم",
+                        doctor.name,
                         style: Styles.textstyle14,
                       ),
                       const Gap(4),
-                      Text(
-                        "طبيب أطفال",
-                        style: Styles.textstyle14,
+                      SizedBox(
+                        width: 200,
+                        child: Text(
+                          doctor.specialization,
+                          style: Styles.textstyle14,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ],
                   )
@@ -54,7 +64,12 @@ class DoctorItem extends StatelessWidget {
         Expanded(
           child: AppButton(
             height: 38,
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).pushNamed(
+                'doctorDetails',
+                extra: doctor,
+              );
+            },
             text: "تفاصيل",
           ),
         )

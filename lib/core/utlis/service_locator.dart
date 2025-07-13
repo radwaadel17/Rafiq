@@ -1,4 +1,6 @@
 import 'package:app/core/utlis/api_service.dart';
+import 'package:app/features/doctors/data/data%20source/remote_data_source_imp.dart';
+import 'package:app/features/doctors/data/repos/doctors_repo_imp.dart';
 import 'package:app/features/questions/data/data%20sources/remote_data_source_imp.dart';
 import 'package:app/features/questions/data/repos/result_repo_imp.dart';
 import 'package:app/features/sign%20in/data/data%20sources/remote_data_source.dart';
@@ -13,4 +15,5 @@ void setup() {
   getIt.registerSingleton<SignUpRepoImp>(SignUpRepoImp(RemoteDataSourceImp(ApiService(Dio()))));
   getIt.registerSingleton<SignInRepoImp>(SignInRepoImp(RemoteDataSourceImpIn(ApiService(Dio()))));
   getIt.registerSingleton<ResultRepoImp>(ResultRepoImp(RemoteDataSourceImpQs(ApiService(Dio()))));
+  getIt.registerSingleton<DoctorsRepoImp>(DoctorsRepoImp(RemoteDataSourceImpDoctors(ApiService(Dio()))));
 }

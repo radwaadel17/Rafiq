@@ -116,6 +116,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/4.png
   AssetGenImage get a4 => const AssetGenImage('assets/images/4.png');
 
+  /// File path: assets/images/Frame 273.png
+  AssetGenImage get frame273 =>
+      const AssetGenImage('assets/images/Frame 273.png');
+
+  /// File path: assets/images/Frame 274.png
+  AssetGenImage get frame274 =>
+      const AssetGenImage('assets/images/Frame 274.png');
+
   /// File path: assets/images/Group.png
   AssetGenImage get group => const AssetGenImage('assets/images/Group.png');
 
@@ -157,6 +165,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/close.svg
   String get close => 'assets/images/close.svg';
+
+  /// File path: assets/images/doctor_avatar.png
+  AssetGenImage get doctorAvatar =>
+      const AssetGenImage('assets/images/doctor_avatar.png');
 
   /// File path: assets/images/doctor_image.png
   AssetGenImage get doctorImage =>
@@ -232,6 +244,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/otp.png
   AssetGenImage get otp => const AssetGenImage('assets/images/otp.png');
 
+  /// File path: assets/images/payment.png
+  AssetGenImage get payment => const AssetGenImage('assets/images/payment.png');
+
   /// File path: assets/images/payment_methods.svg
   String get paymentMethods => 'assets/images/payment_methods.svg';
 
@@ -300,6 +315,8 @@ class $AssetsImagesGen {
         a2,
         a3,
         a4,
+        frame273,
+        frame274,
         group,
         vector2,
         vector,
@@ -313,6 +330,7 @@ class $AssetsImagesGen {
         chatAiLogo,
         circularCalendar,
         close,
+        doctorAvatar,
         doctorImage,
         done,
         edit,
@@ -335,6 +353,7 @@ class $AssetsImagesGen {
         onboardingVector3,
         onboardingBackground1,
         otp,
+        payment,
         paymentMethods,
         phone,
         profile,
