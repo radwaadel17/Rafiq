@@ -49,5 +49,5 @@ The application provides **screening tools, guidance, and chatbot support**, all
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/rafiq-app.git
+   git clone https://github.com/radwaadel17e/Rafiq.git
    cd rafiq-app
